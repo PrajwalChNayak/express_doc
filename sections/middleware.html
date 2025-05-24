@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Middleware | Express.js Documentation</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header will be inserted here by JavaScript -->
+  <div id="header"></div>
+  
+  <main class="container mx-auto px-4 py-8 flex-grow">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <h1 class="text-3xl font-bold mb-6 text-gray-800 border-b pb-4">Express.js Middleware</h1>
+      
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">What is Middleware?</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application's request-response cycle. The next middleware function is commonly denoted by a variable named <code class="bg-gray-200 px-1 py-0.5 rounded">next</code>.
+        </p>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Middleware functions can perform the following tasks:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+          <li>Execute any code</li>
+          <li>Make changes to the request and the response objects</li>
+          <li>End the request-response cycle</li>
+          <li>Call the next middleware in the stack</li>
+        </ul>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          If the current middleware function does not end the request-response cycle, it must call <code class="bg-gray-200 px-1 py-0.5 rounded">next()</code> to pass control to the next middleware function. Otherwise, the request will be left hanging.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Middleware Syntax</h2>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            function middleware(req, res, next) {<br>
+            &nbsp;&nbsp;// Do something with req and res<br>
+            &nbsp;&nbsp;next(); // Call next to continue to the next middleware<br>
+            }
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Application-level Middleware</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Application-level middleware is bound to an instance of the Express <code class="bg-gray-200 px-1 py-0.5 rounded">app</code> object using <code class="bg-gray-200 px-1 py-0.5 rounded">app.use()</code> and <code class="bg-gray-200 px-1 py-0.5 rounded">app.METHOD()</code> functions.
+        </p>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const express = require('express');<br>
+            const app = express();<br>
+            <br>
+            // Middleware function with no mount path. This will be executed for every request.<br>
+            app.use((req, res, next) => {<br>
+            &nbsp;&nbsp;console.log('Time:', Date.now());<br>
+            &nbsp;&nbsp;next();<br>
+            });<br>
+            <br>
+            // Middleware mounted on the /user/:id path<br>
+            app.use('/user/:id', (req, res, next) => {<br>
+            &nbsp;&nbsp;console.log('Request Type:', req.method);<br>
+            &nbsp;&nbsp;next();<br>
+            });<br>
+            <br>
+            // Route handler for GET requests to /user/:id<br>
+            app.get('/user/:id', (req, res, next) => {<br>
+            &nbsp;&nbsp;res.send('USER');<br>
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Router-level Middleware</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Router-level middleware works in the same way as application-level middleware, except it is bound to an instance of <code class="bg-gray-200 px-1 py-0.5 rounded">express.Router()</code>.
+        </p>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const express = require('express');<br>
+            const router = express.Router();<br>
+            <br>
+            // Middleware that is specific to this router<br>
+            router.use((req, res, next) => {<br>
+            &nbsp;&nbsp;console.log('Time:', Date.now());<br>
+            &nbsp;&nbsp;next();<br>
+            });<br>
+            <br>
+            // Define routes<br>
+            router.get('/users', (req, res) => {<br>
+            &nbsp;&nbsp;// ...<br>
+            });<br>
+            <br>
+            // Mount the router on the app<br>
+            app.use('/', router);
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Error-handling Middleware</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Error-handling middleware takes four arguments instead of three (err, req, res, next). This type of middleware is used to handle errors that occur in synchronous or asynchronous code.
+        </p>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            app.use((err, req, res, next) => {<br>
+            &nbsp;&nbsp;console.error(err.stack);<br>
+            &nbsp;&nbsp;res.status(500).send('Something broke!');<br>
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Built-in Middleware</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Express has a few built-in middleware functions:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">express.static</code> - serves static files such as images, CSS files, and JavaScript files</li>
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">express.json</code> - parses incoming requests with JSON payloads</li>
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">express.urlencoded</code> - parses incoming requests with URL-encoded payloads</li>
+        </ul>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            // Serve static files from the 'public' directory<br>
+            app.use(express.static('public'));<br>
+            <br>
+            // Parse JSON bodies<br>
+            app.use(express.json());<br>
+            <br>
+            // Parse URL-encoded bodies<br>
+            app.use(express.urlencoded({ extended: true }));
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Third-party Middleware</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          There are many third-party middleware functions available for use in Express applications. Some popular examples include:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">morgan</code> - HTTP request logger middleware</li>
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">cors</code> - Middleware for enabling CORS (Cross-Origin Resource Sharing)</li>
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">helmet</code> - Helps secure Express apps with various HTTP headers</li>
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">compression</code> - Compresses response bodies</li>
+          <li><code class="bg-gray-200 px-1 py-0.5 rounded">cookie-parser</code> - Parses cookie header and populates req.cookies</li>
+        </ul>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const express = require('express');<br>
+            const morgan = require('morgan');<br>
+            const cors = require('cors');<br>
+            const helmet = require('helmet');<br>
+            const app = express();<br>
+            <br>
+            // Use third-party middleware<br>
+            app.use(morgan('combined')); // Logging<br>
+            app.use(cors()); // Enable CORS<br>
+            app.use(helmet()); // Security headers
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Custom Middleware Example</h2>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            // Custom authentication middleware<br>
+            function authenticate(req, res, next) {<br>
+            &nbsp;&nbsp;const authHeader = req.headers.authorization;<br>
+            <br>
+            &nbsp;&nbsp;if (!authHeader || !authHeader.startsWith('Bearer ')) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return res.status(401).json({ message: 'Authentication required' });<br>
+            &nbsp;&nbsp;}<br>
+            <br>
+            &nbsp;&nbsp;const token = authHeader.split(' ')[1];<br>
+            <br>
+            &nbsp;&nbsp;// Verify the token (simplified example)<br>
+            &nbsp;&nbsp;if (token === 'valid-token') {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;req.user = { id: 1, username: 'example' };<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;next();<br>
+            &nbsp;&nbsp;} else {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(401).json({ message: 'Invalid token' });<br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+            <br>
+            // Use the custom middleware for specific routes<br>
+            app.get('/profile', authenticate, (req, res) => {<br>
+            &nbsp;&nbsp;res.json({ user: req.user });<br>
+            });
+          </code>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Footer will be inserted here by JavaScript -->
+  <div id="footer"></div>
+  
+  <!-- Common JavaScript for header and footer -->
+  <script src="../js/common.js"></script>
+</body>
+</html>

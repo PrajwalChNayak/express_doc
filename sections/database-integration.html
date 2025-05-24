@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Integration | Express.js Documentation</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header will be inserted here by JavaScript -->
+  <div id="header"></div>
+  
+  <main class="container mx-auto px-4 py-8 flex-grow">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <h1 class="text-3xl font-bold mb-6 text-gray-800 border-b pb-4">Database Integration with Express.js</h1>
+      
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Introduction to Database Integration</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Express.js does not come with a built-in database integration solution. Instead, it allows you to use any Node.js database driver or ORM (Object-Relational Mapping) library of your choice. This flexibility enables you to select the database and tools that best fit your project's requirements.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Popular Database Options</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg border shadow-sm p-5">
+            <h3 class="font-semibold text-lg mb-2">MongoDB</h3>
+            <p class="text-gray-600 mb-2">A popular NoSQL database that stores data in JSON-like documents.</p>
+            <p class="text-xs text-gray-500 mb-2">Popular packages: mongoose, mongodb</p>
+          </div>
+          <div class="bg-white rounded-lg border shadow-sm p-5">
+            <h3 class="font-semibold text-lg mb-2">MySQL</h3>
+            <p class="text-gray-600 mb-2">A widely-used open-source relational database management system.</p>
+            <p class="text-xs text-gray-500 mb-2">Popular packages: mysql2, sequelize</p>
+          </div>
+          <div class="bg-white rounded-lg border shadow-sm p-5">
+            <h3 class="font-semibold text-lg mb-2">PostgreSQL</h3>
+            <p class="text-gray-600 mb-2">A powerful, open-source object-relational database system.</p>
+            <p class="text-xs text-gray-500 mb-2">Popular packages: pg, sequelize, prisma</p>
+          </div>
+          <div class="bg-white rounded-lg border shadow-sm p-5">
+            <h3 class="font-semibold text-lg mb-2">SQLite</h3>
+            <p class="text-gray-600 mb-2">A self-contained, serverless, zero-configuration SQL database engine.</p>
+            <p class="text-xs text-gray-500 mb-2">Popular packages: sqlite3, sequelize</p>
+          </div>
+          <div class="bg-white rounded-lg border shadow-sm p-5">
+            <h3 class="font-semibold text-lg mb-2">Redis</h3>
+            <p class="text-gray-600 mb-2">An in-memory data structure store, used as a database, cache, and message broker.</p>
+            <p class="text-xs text-gray-500 mb-2">Popular packages: redis, ioredis</p>
+          </div>
+          <div class="bg-white rounded-lg border shadow-sm p-5">
+            <h3 class="font-semibold text-lg mb-2">Firebase</h3>
+            <p class="text-gray-600 mb-2">A platform developed by Google for creating mobile and web applications.</p>
+            <p class="text-xs text-gray-500 mb-2">Popular packages: firebase-admin</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">MongoDB with Mongoose</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. It provides schema validation, query building, business logic hooks, and more.
+        </p>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">Installation</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            $ npm install mongoose
+          </code>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">Connecting to MongoDB</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const mongoose = require('mongoose');<br>
+            <br>
+            // Connection URI<br>
+            const mongoURI = 'mongodb://localhost:27017/myapp';<br>
+            <br>
+            // Connect to MongoDB<br>
+            mongoose.connect(mongoURI, {<br>
+            &nbsp;&nbsp;useNewUrlParser: true,<br>
+            &nbsp;&nbsp;useUnifiedTopology: true<br>
+            })<br>
+            &nbsp;&nbsp;.then(() => console.log('MongoDB connected'))<br>
+            &nbsp;&nbsp;.catch(err => console.log('MongoDB connection error:', err));
+          </code>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">Defining a Schema and Model</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const mongoose = require('mongoose');<br>
+            <br>
+            // Define a schema<br>
+            const userSchema = new mongoose.Schema({<br>
+            &nbsp;&nbsp;name: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: String,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;required: true,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;trim: true<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;email: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: String,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;required: true,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;unique: true,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;trim: true,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;lowercase: true<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;age: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: Number,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;min: 18,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;max: 120<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;createdAt: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: Date,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;default: Date.now<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Create a model from the schema<br>
+            const User = mongoose.model('User', userSchema);
+          </code>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">CRUD Operations</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            // Create - Save a new user<br>
+            app.post('/users', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = new User(req.body);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;await user.save();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(201).send(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(400).send(error);<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Read - Get all users<br>
+            app.get('/users', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const users = await User.find({});<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.send(users);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).send(error);<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Read - Get a specific user<br>
+            app.get('/users/:id', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.findById(req.params.id);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (!user) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res.status(404).send();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.send(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).send(error);<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Update - Update a user<br>
+            app.patch('/users/:id', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (!user) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res.status(404).send();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.send(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(400).send(error);<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Delete - Delete a user<br>
+            app.delete('/users/:id', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.findByIdAndDelete(req.params.id);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (!user) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res.status(404).send();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.send(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).send(error);<br>
+            &nbsp;&nbsp;}<br>
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">SQL Databases with Sequelize</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Sequelize is a promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite, and Microsoft SQL Server. It features solid transaction support, relations, eager and lazy loading, read replication, and more.
+        </p>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">Installation</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            $ npm install sequelize<br>
+            $ npm install pg pg-hstore # For PostgreSQL<br>
+            # OR<br>
+            $ npm install mysql2 # For MySQL
+          </code>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">Connecting to a Database</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const { Sequelize } = require('sequelize');<br>
+            <br>
+            // Option 1: Passing connection parameters separately<br>
+            const sequelize = new Sequelize('database', 'username', 'password', {<br>
+            &nbsp;&nbsp;host: 'localhost',<br>
+            &nbsp;&nbsp;dialect: 'mysql' // or 'postgres', 'sqlite', 'mssql', etc.<br>
+            });<br>
+            <br>
+            // Option 2: Using a connection URI<br>
+            // const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');<br>
+            <br>
+            // Test the connection<br>
+            async function testConnection() {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;await sequelize.authenticate();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Connection has been established successfully.');<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.error('Unable to connect to the database:', error);<br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+            <br>
+            testConnection();
+          </code>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">Defining Models</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const { Sequelize, DataTypes } = require('sequelize');<br>
+            <br>
+            // Define the User model<br>
+            const User = sequelize.define('User', {<br>
+            &nbsp;&nbsp;// Model attributes<br>
+            &nbsp;&nbsp;firstName: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: DataTypes.STRING,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;allowNull: false<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;lastName: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: DataTypes.STRING<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;email: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: DataTypes.STRING,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;allowNull: false,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;unique: true,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;validate: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isEmail: true<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;}<br>
+            }, {<br>
+            &nbsp;&nbsp;// Other model options<br>
+            &nbsp;&nbsp;timestamps: true<br>
+            });<br>
+            <br>
+            // Define the Task model<br>
+            const Task = sequelize.define('Task', {<br>
+            &nbsp;&nbsp;title: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: DataTypes.STRING,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;allowNull: false<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;completed: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: DataTypes.BOOLEAN,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;defaultValue: false<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Define a relationship<br>
+            User.hasMany(Task);<br>
+            Task.belongsTo(User);<br>
+            <br>
+            // Sync models with the database<br>
+            // sequelize.sync() - Normal sync<br>
+            // sequelize.sync({ force: true }) - Drop tables and recreate<br>
+            // sequelize.sync({ alter: true }) - Alter tables to match models<br>
+            <br>
+            (async () => {<br>
+            &nbsp;&nbsp;await sequelize.sync({ alter: true });<br>
+            &nbsp;&nbsp;console.log('All models were synchronized successfully.');<br>
+            })();
+          </code>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 text-gray-700">CRUD Operations</h3>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            // Create - Create a new user<br>
+            app.post('/users', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.create(req.body);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(201).json(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(400).json({ error: error.message });<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Read - Get all users<br>
+            app.get('/users', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const users = await User.findAll();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.json(users);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).json({ error: error.message });<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Read - Get a specific user<br>
+            app.get('/users/:id', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.findByPk(req.params.id, {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include: Task // Include associated tasks<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (!user) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res.status(404).json({ message: 'User not found' });<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.json(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).json({ error: error.message });<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Update - Update a user<br>
+            app.put('/users/:id', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.findByPk(req.params.id);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (!user) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res.status(404).json({ message: 'User not found' });<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;await user.update(req.body);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.json(user);<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(400).json({ error: error.message });<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            <br>
+            // Delete - Delete a user<br>
+            app.delete('/users/:id', async (req, res) => {<br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const user = await User.findByPk(req.params.id);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (!user) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res.status(404).json({ message: 'User not found' });<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;await user.destroy();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.json({ message: 'User deleted' });<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).json({ error: error.message });<br>
+            &nbsp;&nbsp;}<br>
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Best Practices</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-600">
+          <li>Use environment variables to store database connection details</li>
+          <li>Implement database connection pooling for better performance</li>
+          <li>Use transactions when performing multiple related database operations</li>
+          <li>Organize your database code into models and repositories</li>
+          <li>Implement proper error handling for database operations</li>
+          <li>Use migrations for database schema changes</li>
+          <li>Validate input data before sending it to the database</li>
+          <li>Use prepared statements or ORMs to prevent SQL injection attacks</li>
+          <li>Implement proper indexing for frequently queried fields</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Connection Management</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          When working with databases in Express applications, it's important to manage connections properly:
+        </p>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            // db.js - Database connection module<br>
+            const mongoose = require('mongoose');<br>
+            <br>
+            let connection = null;<br>
+            <br>
+            async function connectDB() {<br>
+            &nbsp;&nbsp;if (connection) return connection;<br>
+            <br>
+            &nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const conn = await mongoose.connect(process.env.MONGO_URI, {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;useNewUrlParser: true,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;useUnifiedTopology: true<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;connection = conn;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(`MongoDB connected: ${conn.connection.host}`);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return conn;<br>
+            &nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.error(`Error: ${error.message}`);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;process.exit(1);<br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+            <br>
+            function getConnection() {<br>
+            &nbsp;&nbsp;return connection;<br>
+            }<br>
+            <br>
+            module.exports = { connectDB, getConnection };<br>
+            <br>
+            // app.js<br>
+            const express = require('express');<br>
+            const { connectDB } = require('./db');<br>
+            const app = express();<br>
+            <br>
+            // Connect to database before starting server<br>
+            connectDB()<br>
+            &nbsp;&nbsp;.then(() => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;app.listen(3000, () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Server running on port 3000');<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            &nbsp;&nbsp;});
+          </code>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Footer will be inserted here by JavaScript -->
+  <div id="footer"></div>
+  
+  <!-- Common JavaScript for header and footer -->
+  <script src="../js/common.js"></script>
+</body>
+</html>

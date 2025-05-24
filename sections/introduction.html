@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction | Express.js Documentation</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header will be inserted here by JavaScript -->
+  <div id="header"></div>
+  
+  <main class="container mx-auto px-4 py-8 flex-grow">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <h1 class="text-3xl font-bold mb-6 text-gray-800 border-b pb-4">Introduction to Express.js</h1>
+      
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">What is Express.js?</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It's designed for building web applications and APIs quickly and easily. Express.js makes it easier to organize your application's functionality with middleware and routing.
+        </p>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Express.js has been called the de facto standard server framework for Node.js. It's designed to be simple, unopinionated, and flexible, allowing developers to structure their applications however they see fit.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Installation</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          To install Express.js, you need Node.js installed on your system. Once you have Node.js, you can create a new project and install Express using npm:
+        </p>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            $ mkdir myapp<br>
+            $ cd myapp<br>
+            $ npm init -y<br>
+            $ npm install express
+          </code>
+        </div>
+      </section>
+      
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Hello World Example</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Here's a simple "Hello World" example to get started with Express.js:
+        </p>
+        <div class="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+          <code>
+            const express = require('express');<br>
+            const app = express();<br>
+            const port = 3000;<br>
+            <br>
+            app.get('/', (req, res) => {<br>
+            &nbsp;&nbsp;res.send('Hello World!');<br>
+            });<br>
+            <br>
+            app.listen(port, () => {<br>
+            &nbsp;&nbsp;console.log(`Example app listening at http://localhost:${port}`);<br>
+            });
+          </code>
+        </div>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          Save this code in a file named <code class="bg-gray-200 px-1 py-0.5 rounded">app.js</code> in your project directory. Then run it with <code class="bg-gray-200 px-1 py-0.5 rounded">node app.js</code>. Open your browser and navigate to <code class="bg-gray-200 px-1 py-0.5 rounded">http://localhost:3000</code> to see "Hello World!" displayed.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Key Features</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-600">
+          <li>Robust routing system for handling HTTP requests</li>
+          <li>Middleware support for processing requests</li>
+          <li>Template engine integration for generating HTML</li>
+          <li>Error handling capabilities</li>
+          <li>Static file serving</li>
+          <li>HTTP utility methods for building responses</li>
+          <li>Content negotiation</li>
+          <li>Performance optimizations</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Express vs. Node.js HTTP Module</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+          While Node.js provides the built-in <code class="bg-gray-200 px-1 py-0.5 rounded">http</code> module for handling HTTP requests and responses, Express.js builds on top of it to provide a more intuitive interface, middleware capabilities, and a routing system, making web application development much easier.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white border rounded-lg p-4 shadow-sm">
+            <h3 class="font-semibold mb-2">Node.js HTTP Module</h3>
+            <div class="bg-gray-800 text-white p-3 rounded-md overflow-x-auto text-sm">
+              <code>
+                const http = require('http');<br>
+                <br>
+                const server = http.createServer((req, res) => {<br>
+                &nbsp;&nbsp;if (req.url === '/' && req.method === 'GET') {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/plain' });<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;res.end('Hello World!');<br>
+                &nbsp;&nbsp;}<br>
+                });<br>
+                <br>
+                server.listen(3000);
+              </code>
+            </div>
+          </div>
+          <div class="bg-white border rounded-lg p-4 shadow-sm">
+            <h3 class="font-semibold mb-2">Express.js</h3>
+            <div class="bg-gray-800 text-white p-3 rounded-md overflow-x-auto text-sm">
+              <code>
+                const express = require('express');<br>
+                const app = express();<br>
+                <br>
+                app.get('/', (req, res) => {<br>
+                &nbsp;&nbsp;res.send('Hello World!');<br>
+                });<br>
+                <br>
+                app.listen(3000);
+              </code>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Footer will be inserted here by JavaScript -->
+  <div id="footer"></div>
+  
+  <!-- Common JavaScript for header and footer -->
+  <script src="../js/common.js"></script>
+</body>
+</html>
