@@ -1,0 +1,1009 @@
+<div class="max-w-7xl mx-auto p-6">
+  <!-- Header Section -->
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      Express.js Middleware
+    </h1>
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">
+      Understanding middleware functions and their execution order in Express.js
+      applications.
+    </p>
+
+    <!-- Quick Navigation -->
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
+        In This Section
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+        <a
+          href="#what-is-middleware"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >What is Middleware?</a
+        >
+        <a
+          href="#middleware-types"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Middleware Types</a
+        >
+        <a
+          href="#execution-order"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Execution Order</a
+        >
+        <a
+          href="#custom-middleware"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Custom Middleware</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- What is Middleware Section -->
+  <section id="what-is-middleware" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      What is Middleware?
+    </h2>
+
+    <div class="prose prose-lg dark:prose-invert max-w-none mb-6">
+      <p>
+        Middleware functions are functions that have access to the request
+        object (req), the response object (res), and the next middleware
+        function in the application's request-response cycle.
+      </p>
+    </div>
+
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-6">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+        Middleware Function Structure
+      </h3>
+      <div class="bg-gray-900 rounded-lg overflow-hidden">
+        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+          <span class="text-gray-300 text-sm">middleware-structure.js</span>
+          <button
+            class="copy-btn text-gray-400 hover:text-white"
+            data-copy="middleware-structure"
+          >
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+        <pre
+          class="p-4 text-gray-300 overflow-x-auto"
+        ><code id="middleware-structure">function middleware(req, res, next) {
+  // Middleware logic here
+  console.log('Time:', Date.now());
+  
+  // Call next() to pass control to the next middleware
+  next();
+}</code></pre>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div
+        class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+      >
+        <h4
+          class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2"
+        >
+          req (Request)
+        </h4>
+        <p class="text-green-700 dark:text-green-300 text-sm">
+          Contains information about the HTTP request (headers, parameters,
+          body, etc.)
+        </p>
+      </div>
+      <div
+        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+      >
+        <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
+          res (Response)
+        </h4>
+        <p class="text-blue-700 dark:text-blue-300 text-sm">
+          Used to send the HTTP response back to the client
+        </p>
+      </div>
+      <div
+        class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6"
+      >
+        <h4
+          class="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-2"
+        >
+          next (Next)
+        </h4>
+        <p class="text-purple-700 dark:text-purple-300 text-sm">
+          Function to pass control to the next middleware in the stack
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Middleware Types Section -->
+  <section id="middleware-types" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Types of Middleware
+    </h2>
+
+    <div class="space-y-8">
+      <!-- Application-level Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="app-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Application-level Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Middleware bound to the app object using app.use() and app.METHOD()
+          </p>
+        </button>
+        <div id="app-middleware" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">app-middleware.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="app-middleware-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="app-middleware-code">const express = require('express');
+const app = express();
+
+// Application-level middleware with no mount path
+// Executes for every request
+app.use((req, res, next) => {
+  console.log('Time:', Date.now());
+  next();
+});
+
+// Application-level middleware with mount path
+app.use('/user/:id', (req, res, next) => {
+  console.log('Request Type:', req.method);
+  next();
+});
+
+// Multiple middleware functions
+app.get('/user/:id', 
+  (req, res, next) => {
+    console.log('ID:', req.params.id);
+    next();
+  },
+  (req, res, next) => {
+    res.send('User Info');
+  }
+);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Router-level Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="router-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Router-level Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Middleware bound to an Express Router instance
+          </p>
+        </button>
+        <div id="router-middleware" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">router-middleware.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="router-middleware-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="router-middleware-code">const express = require('express');
+const router = express.Router();
+
+// Router-level middleware
+router.use((req, res, next) => {
+  console.log('Router middleware executed');
+  next();
+});
+
+// Router-level middleware for specific path
+router.use('/users', (req, res, next) => {
+  console.log('Users route accessed');
+  next();
+});
+
+router.get('/users/:id', (req, res) => {
+  res.json({ id: req.params.id });
+});
+
+// Mount the router
+app.use('/api', router);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Built-in Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="builtin-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Built-in Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Middleware functions built into Express.js
+          </p>
+        </button>
+        <div id="builtin-middleware" class="expandable-content hidden p-6">
+          <div class="space-y-4">
+            <div class="bg-gray-900 rounded-lg overflow-hidden">
+              <div
+                class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+              >
+                <span class="text-gray-300 text-sm"
+                  >built-in-middleware.js</span
+                >
+                <button
+                  class="copy-btn text-gray-400 hover:text-white"
+                  data-copy="builtin-middleware-code"
+                >
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+              <pre
+                class="p-4 text-gray-300 overflow-x-auto"
+              ><code id="builtin-middleware-code">const express = require('express');
+const app = express();
+
+// Serve static files
+app.use(express.static('public'));
+
+// Parse JSON bodies
+app.use(express.json());
+
+// Parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
+// Parse raw bodies
+app.use(express.raw());
+
+// Parse text bodies
+app.use(express.text());</code></pre>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4"
+              >
+                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                  express.static()
+                </h4>
+                <p class="text-blue-700 dark:text-blue-300 text-sm">
+                  Serves static files like images, CSS, JavaScript
+                </p>
+              </div>
+              <div
+                class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-green-900 dark:text-green-100 mb-2"
+                >
+                  express.json()
+                </h4>
+                <p class="text-green-700 dark:text-green-300 text-sm">
+                  Parses incoming JSON payloads
+                </p>
+              </div>
+              <div
+                class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-purple-900 dark:text-purple-100 mb-2"
+                >
+                  express.urlencoded()
+                </h4>
+                <p class="text-purple-700 dark:text-purple-300 text-sm">
+                  Parses URL-encoded form data
+                </p>
+              </div>
+              <div
+                class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-orange-900 dark:text-orange-100 mb-2"
+                >
+                  express.raw()
+                </h4>
+                <p class="text-orange-700 dark:text-orange-300 text-sm">
+                  Parses raw body content as Buffer
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third-party Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="third-party-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Third-party Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Popular community-developed middleware packages
+          </p>
+        </button>
+        <div id="third-party-middleware" class="expandable-content hidden p-6">
+          <div class="space-y-6">
+            <div class="bg-gray-900 rounded-lg overflow-hidden">
+              <div
+                class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+              >
+                <span class="text-gray-300 text-sm"
+                  >third-party-middleware.js</span
+                >
+                <button
+                  class="copy-btn text-gray-400 hover:text-white"
+                  data-copy="third-party-code"
+                >
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+              <pre
+                class="p-4 text-gray-300 overflow-x-auto"
+              ><code id="third-party-code">const express = require('express');
+const morgan = require('morgan');
+const helmet = require('helmet');
+const cors = require('cors');
+const compression = require('compression');
+
+const app = express();
+
+// Security middleware
+app.use(helmet());
+
+// CORS middleware
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
+// Compression middleware
+app.use(compression());
+
+// Logging middleware
+app.use(morgan('combined'));
+
+// Body parsing middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));</code></pre>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div
+                class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4"
+              >
+                <h4 class="font-semibold text-red-900 dark:text-red-100 mb-2">
+                  helmet
+                </h4>
+                <p class="text-red-700 dark:text-red-300 text-sm mb-2">
+                  Secures Express apps by setting HTTP headers
+                </p>
+                <code
+                  class="text-xs bg-red-100 dark:bg-red-800 px-2 py-1 rounded"
+                  >npm install helmet</code
+                >
+              </div>
+              <div
+                class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4"
+              >
+                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                  cors
+                </h4>
+                <p class="text-blue-700 dark:text-blue-300 text-sm mb-2">
+                  Enables Cross-Origin Resource Sharing
+                </p>
+                <code
+                  class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                  >npm install cors</code
+                >
+              </div>
+              <div
+                class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-green-900 dark:text-green-100 mb-2"
+                >
+                  morgan
+                </h4>
+                <p class="text-green-700 dark:text-green-300 text-sm mb-2">
+                  HTTP request logger middleware
+                </p>
+                <code
+                  class="text-xs bg-green-100 dark:bg-green-800 px-2 py-1 rounded"
+                  >npm install morgan</code
+                >
+              </div>
+              <div
+                class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-purple-900 dark:text-purple-100 mb-2"
+                >
+                  compression
+                </h4>
+                <p class="text-purple-700 dark:text-purple-300 text-sm mb-2">
+                  Compresses response bodies
+                </p>
+                <code
+                  class="text-xs bg-purple-100 dark:bg-purple-800 px-2 py-1 rounded"
+                  >npm install compression</code
+                >
+              </div>
+              <div
+                class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2"
+                >
+                  cookie-parser
+                </h4>
+                <p class="text-yellow-700 dark:text-yellow-300 text-sm mb-2">
+                  Parses cookie headers
+                </p>
+                <code
+                  class="text-xs bg-yellow-100 dark:bg-yellow-800 px-2 py-1 rounded"
+                  >npm install cookie-parser</code
+                >
+              </div>
+              <div
+                class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-4"
+              >
+                <h4
+                  class="font-semibold text-indigo-900 dark:text-indigo-100 mb-2"
+                >
+                  multer
+                </h4>
+                <p class="text-indigo-700 dark:text-indigo-300 text-sm mb-2">
+                  Handles multipart/form-data (file uploads)
+                </p>
+                <code
+                  class="text-xs bg-indigo-100 dark:bg-indigo-800 px-2 py-1 rounded"
+                  >npm install multer</code
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Execution Order Section -->
+  <section id="execution-order" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Middleware Execution Order
+    </h2>
+
+    <div
+      class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-6 mb-6"
+    >
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-lg font-medium text-yellow-800 dark:text-yellow-200">
+            Important!
+          </h3>
+          <p class="text-yellow-700 dark:text-yellow-300 mt-2">
+            Middleware execution order matters! Middleware is executed in the
+            order it's defined.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-900 rounded-lg overflow-hidden mb-6">
+      <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+        <span class="text-gray-300 text-sm">execution-order.js</span>
+        <button
+          class="copy-btn text-gray-400 hover:text-white"
+          data-copy="execution-order-code"
+        >
+          <i class="fas fa-copy"></i>
+        </button>
+      </div>
+      <pre
+        class="p-4 text-gray-300 overflow-x-auto"
+      ><code id="execution-order-code">const express = require('express');
+const app = express();
+
+// 1. First middleware
+app.use((req, res, next) => {
+  console.log('Middleware 1');
+  next();
+});
+
+// 2. Second middleware
+app.use((req, res, next) => {
+  console.log('Middleware 2');
+  next();
+});
+
+// 3. Route handler
+app.get('/', (req, res) => {
+  console.log('Route handler');
+  res.send('Hello World!');
+});
+
+// 4. This won't execute for GET / requests
+app.use((req, res, next) => {
+  console.log('Middleware 3 - After route');
+  next();
+});
+
+// Output for GET /:
+// Middleware 1
+// Middleware 2
+// Route handler</code></pre>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div
+        class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+      >
+        <h3
+          class="text-lg font-semibold text-green-900 dark:text-green-100 mb-4"
+        >
+          ✅ Best Practices
+        </h3>
+        <ul class="space-y-2 text-green-700 dark:text-green-300 text-sm">
+          <li>• Security middleware first (helmet, cors)</li>
+          <li>• Logging middleware early</li>
+          <li>• Body parsing before routes</li>
+          <li>• Authentication middleware before protected routes</li>
+          <li>• Error handling middleware last</li>
+        </ul>
+      </div>
+      <div
+        class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6"
+      >
+        <h3 class="text-lg font-semibold text-red-900 dark:text-red-100 mb-4">
+          ❌ Common Mistakes
+        </h3>
+        <ul class="space-y-2 text-red-700 dark:text-red-300 text-sm">
+          <li>• Forgetting to call next()</li>
+          <li>• Wrong middleware order</li>
+          <li>• Sending response without ending</li>
+          <li>• Multiple response calls</li>
+          <li>• Not handling errors properly</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Middleware Section -->
+  <section id="custom-middleware" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Creating Custom Middleware
+    </h2>
+
+    <div class="space-y-8">
+      <!-- Basic Custom Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="basic-custom"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Basic Custom Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+        </button>
+        <div id="basic-custom" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">basic-middleware.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="basic-custom-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="basic-custom-code">// Simple logging middleware
+const loggerMiddleware = (req, res, next) => {
+  const timestamp = new Date().toISOString();
+  const method = req.method;
+  const url = req.url;
+  
+  console.log(`[${timestamp}] ${method} ${url}`);
+  next();
+};
+
+// Request time middleware
+const requestTime = (req, res, next) => {
+  req.requestTime = Date.now();
+  next();
+};
+
+// Response time middleware
+const responseTime = (req, res, next) => {
+  const start = Date.now();
+  
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    console.log(`Request took ${duration}ms`);
+  });
+  
+  next();
+};
+
+// Use the middleware
+app.use(loggerMiddleware);
+app.use(requestTime);
+app.use(responseTime);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Authentication Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="auth-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Authentication Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+        </button>
+        <div id="auth-middleware" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">auth-middleware.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="auth-middleware-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="auth-middleware-code">const jwt = require('jsonwebtoken');
+
+// JWT Authentication middleware
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ 
+      error: 'Access token required' 
+    });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).json({ 
+        error: 'Invalid or expired token' 
+      });
+    }
+    
+    req.user = user;
+    next();
+  });
+};
+
+// Role-based authorization middleware
+const requireRole = (role) => {
+  return (req, res, next) => {
+    if (!req.user || req.user.role !== role) {
+      return res.status(403).json({ 
+        error: 'Insufficient permissions' 
+      });
+    }
+    next();
+  };
+};
+
+// Usage
+app.get('/protected', authenticateToken, (req, res) => {
+  res.json({ message: 'Protected route accessed', user: req.user });
+});
+
+app.get('/admin', authenticateToken, requireRole('admin'), (req, res) => {
+  res.json({ message: 'Admin only route' });
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Validation Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="validation-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Validation Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+        </button>
+        <div id="validation-middleware" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm"
+                >validation-middleware.js</span
+              >
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="validation-middleware-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="validation-middleware-code">const Joi = require('joi');
+
+// Generic validation middleware
+const validate = (schema, property = 'body') => {
+  return (req, res, next) => {
+    const { error } = schema.validate(req[property]);
+    
+    if (error) {
+      const errorMessage = error.details
+        .map(detail => detail.message)
+        .join(', ');
+        
+      return res.status(400).json({
+        error: 'Validation failed',
+        details: errorMessage
+      });
+    }
+    
+    next();
+  };
+};
+
+// User validation schema
+const userSchema = Joi.object({
+  name: Joi.string().min(2).max(50).required(),
+  email: Joi.string().email().required(),
+  age: Joi.number().integer().min(18).max(120),
+  password: Joi.string().min(8).pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
+});
+
+// Query parameter validation
+const paginationSchema = Joi.object({
+  page: Joi.number().integer().min(1).default(1),
+  limit: Joi.number().integer().min(1).max(100).default(10)
+});
+
+// Usage
+app.post('/users', validate(userSchema), (req, res) => {
+  // Create user logic
+  res.json({ message: 'User created successfully' });
+});
+
+app.get('/users', validate(paginationSchema, 'query'), (req, res) => {
+  // Get users with pagination
+  res.json({ users: [], pagination: req.query });
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rate Limiting Middleware -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="rate-limit-middleware"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Rate Limiting Middleware
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+        </button>
+        <div id="rate-limit-middleware" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm"
+                >rate-limit-middleware.js</span
+              >
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="rate-limit-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="rate-limit-code">// Simple rate limiting middleware
+const rateLimiter = (windowMs = 15 * 60 * 1000, maxRequests = 100) => {
+  const requests = new Map();
+  
+  return (req, res, next) => {
+    const clientId = req.ip;
+    const now = Date.now();
+    const windowStart = now - windowMs;
+    
+    // Get existing requests for this client
+    const clientRequests = requests.get(clientId) || [];
+    
+    // Filter out old requests
+    const recentRequests = clientRequests.filter(time => time > windowStart);
+    
+    if (recentRequests.length >= maxRequests) {
+      return res.status(429).json({
+        error: 'Too many requests',
+        message: `Rate limit exceeded. Try again later.`,
+        retryAfter: Math.ceil(windowMs / 1000)
+      });
+    }
+    
+    // Add current request
+    recentRequests.push(now);
+    requests.set(clientId, recentRequests);
+    
+    next();
+  };
+};
+
+// Advanced rate limiting with express-rate-limit
+const rateLimit = require('express-rate-limit');
+
+const createRateLimit = (windowMs, max, message) => {
+  return rateLimit({
+    windowMs,
+    max,
+    message: {
+      error: 'Rate limit exceeded',
+      message
+    },
+    standardHeaders: true,
+    legacyHeaders: false
+  });
+};
+
+// Different limits for different endpoints
+const generalLimit = createRateLimit(
+  15 * 60 * 1000, // 15 minutes
+  100, // 100 requests per window
+  'Too many requests from this IP'
+);
+
+const authLimit = createRateLimit(
+  15 * 60 * 1000, // 15 minutes
+  5, // 5 login attempts per window
+  'Too many login attempts'
+);
+
+// Usage
+app.use('/api/', generalLimit);
+app.use('/auth/login', authLimit);</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Middleware Best Practices
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="space-y-4">
+        <div
+          class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+        >
+          <h3
+            class="text-lg font-semibold text-green-900 dark:text-green-100 mb-4"
+          >
+            ✅ Do's
+          </h3>
+          <ul class="space-y-2 text-green-700 dark:text-green-300 text-sm">
+            <li>• Always call next() unless ending the request</li>
+            <li>• Handle errors properly</li>
+            <li>• Keep middleware functions focused and small</li>
+            <li>• Use async/await for asynchronous operations</li>
+            <li>• Order middleware logically</li>
+            <li>• Document your custom middleware</li>
+            <li>• Test middleware in isolation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div
+          class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6"
+        >
+          <h3 class="text-lg font-semibold text-red-900 dark:text-red-100 mb-4">
+            ❌ Don'ts
+          </h3>
+          <ul class="space-y-2 text-red-700 dark:text-red-300 text-sm">
+            <li>• Don't forget to call next()</li>
+            <li>• Don't call next() multiple times</li>
+            <li>• Don't send multiple responses</li>
+            <li>• Don't ignore error handling</li>
+            <li>• Don't make middleware too complex</li>
+            <li>• Don't hardcode values, use configuration</li>
+            <li>• Don't block the event loop</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mt-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">
+        🎯 Key Takeaways
+      </h3>
+      <ul
+        class="grid grid-cols-1 md:grid-cols-2 gap-2 text-blue-700 dark:text-blue-300 text-sm"
+      >
+        <li>• Middleware executes in order of definition</li>
+        <li>• Each middleware can modify req and res objects</li>
+        <li>• Call next() to continue to the next middleware</li>
+        <li>• Use middleware for cross-cutting concerns</li>
+        <li>• Error-handling middleware has 4 parameters</li>
+        <li>• Built-in middleware covers common needs</li>
+      </ul>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,463 @@
+<div class="content-section">
+  <div class="flex items-center space-x-3 mb-6">
+    <span class="text-4xl">🔄</span>
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+      HTTP Protocol
+    </h1>
+  </div>
+
+  <div class="prose prose-gray dark:prose-invert max-w-none">
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+      The HyperText Transfer Protocol (HTTP) is the foundation of data
+      communication on the World Wide Web. Understanding HTTP is crucial for
+      backend development.
+    </p>
+
+    <h2>What is HTTP?</h2>
+    <p>
+      HTTP is a stateless, application-layer protocol that defines how messages
+      are formatted and transmitted between web browsers (clients) and web
+      servers. It follows a request-response model.
+    </p>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-6"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">
+        HTTP Request-Response Cycle
+      </h3>
+      <div class="space-y-4">
+        <div class="flex items-center space-x-4">
+          <div
+            class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+          >
+            1
+          </div>
+          <div>
+            <p class="font-medium text-blue-900 dark:text-blue-100">
+              Client sends HTTP request
+            </p>
+            <p class="text-sm text-blue-700 dark:text-blue-300">
+              Browser initiates request to server
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div
+            class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+          >
+            2
+          </div>
+          <div>
+            <p class="font-medium text-blue-900 dark:text-blue-100">
+              Server processes request
+            </p>
+            <p class="text-sm text-blue-700 dark:text-blue-300">
+              Server parses request and executes logic
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div
+            class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+          >
+            3
+          </div>
+          <div>
+            <p class="font-medium text-blue-900 dark:text-blue-100">
+              Server sends HTTP response
+            </p>
+            <p class="text-sm text-blue-700 dark:text-blue-300">
+              Server returns data or error to client
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div
+            class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+          >
+            4
+          </div>
+          <div>
+            <p class="font-medium text-blue-900 dark:text-blue-100">
+              Connection closed
+            </p>
+            <p class="text-sm text-blue-700 dark:text-blue-300">
+              HTTP is stateless - connection ends
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>HTTP Request Structure</h2>
+    <p>An HTTP request consists of four main parts:</p>
+
+    <div
+      class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4"
+    >
+      <pre
+        class="text-sm text-gray-800 dark:text-gray-200"
+      ><code>POST /api/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+Authorization: Bearer token123
+Content-Length: 45
+
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}</code></pre>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 my-6">
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          1. Request Line
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+          Contains the HTTP method, URL path, and HTTP version.
+        </p>
+        <code class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+          >POST /api/users HTTP/1.1</code
+        >
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          2. Headers
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+          Key-value pairs providing metadata about the request.
+        </p>
+        <code class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+          >Content-Type: application/json</code
+        >
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          3. Empty Line
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Separates headers from the body.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          4. Body (Optional)
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Contains data sent to the server (for POST, PUT, PATCH).
+        </p>
+      </div>
+    </div>
+
+    <h2>HTTP Methods</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <thead class="bg-gray-50 dark:bg-gray-800">
+          <tr>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+            >
+              Method
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+            >
+              Purpose
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+            >
+              Safe
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+            >
+              Idempotent
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700"
+        >
+          <tr>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+            >
+              GET
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
+            >
+              Retrieve data
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+              Yes
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+              Yes
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+            >
+              POST
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
+            >
+              Create new resource
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
+          </tr>
+          <tr>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+            >
+              PUT
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
+            >
+              Update/replace resource
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+              Yes
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+            >
+              PATCH
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
+            >
+              Partial update
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-yellow-600">
+              No*
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+            >
+              DELETE
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
+            >
+              Remove resource
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+              Yes
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>HTTP Response Structure</h2>
+    <p>An HTTP response has a similar structure to requests:</p>
+
+    <div
+      class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4"
+    >
+      <pre
+        class="text-sm text-gray-800 dark:text-gray-200"
+      ><code>HTTP/1.1 201 Created
+Content-Type: application/json
+Location: /api/users/123
+Content-Length: 78
+
+{
+  "id": 123,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "createdAt": "2024-01-15T10:30:00Z"
+}</code></pre>
+    </div>
+
+    <h2>Status Codes</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
+      <div
+        class="border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 rounded-lg p-4"
+      >
+        <h3 class="font-semibold text-green-900 dark:text-green-100 mb-2">
+          2xx Success
+        </h3>
+        <ul class="text-sm text-green-800 dark:text-green-200 space-y-1">
+          <li>200 - OK</li>
+          <li>201 - Created</li>
+          <li>204 - No Content</li>
+        </ul>
+      </div>
+
+      <div
+        class="border border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4"
+      >
+        <h3 class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">
+          3xx Redirection
+        </h3>
+        <ul class="text-sm text-yellow-800 dark:text-yellow-200 space-y-1">
+          <li>301 - Moved Permanently</li>
+          <li>302 - Found</li>
+          <li>304 - Not Modified</li>
+        </ul>
+      </div>
+
+      <div
+        class="border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg p-4"
+      >
+        <h3 class="font-semibold text-red-900 dark:text-red-100 mb-2">
+          4xx Client Error
+        </h3>
+        <ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
+          <li>400 - Bad Request</li>
+          <li>401 - Unauthorized</li>
+          <li>404 - Not Found</li>
+        </ul>
+      </div>
+
+      <div
+        class="border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4"
+      >
+        <h3 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">
+          5xx Server Error
+        </h3>
+        <ul class="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+          <li>500 - Internal Server Error</li>
+          <li>502 - Bad Gateway</li>
+          <li>503 - Service Unavailable</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Common Headers</h2>
+    <div class="space-y-4">
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-medium text-gray-900 dark:text-white mb-2">
+          Request Headers
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Accept</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Content types client accepts</span
+            >
+          </div>
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Authorization</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Authentication credentials</span
+            >
+          </div>
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >User-Agent</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Client application info</span
+            >
+          </div>
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Cookie</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Session cookies</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-medium text-gray-900 dark:text-white mb-2">
+          Response Headers
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Content-Type</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Response data format</span
+            >
+          </div>
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Set-Cookie</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Set cookies on client</span
+            >
+          </div>
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Cache-Control</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Caching directives</span
+            >
+          </div>
+          <div>
+            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+              >Location</code
+            >
+            <span class="text-gray-600 dark:text-gray-400 ml-2"
+              >Redirect URL</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>HTTP/2 and HTTP/3</h2>
+    <div
+      class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-4 my-6"
+    >
+      <h3 class="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">
+        Modern HTTP Versions
+      </h3>
+      <ul class="text-indigo-800 dark:text-indigo-200 space-y-2">
+        <li>
+          <strong>HTTP/2:</strong> Multiplexing, server push, header compression
+        </li>
+        <li>
+          <strong>HTTP/3:</strong> Built on QUIC, reduced latency, better mobile
+          performance
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between mt-8">
+      <a
+        href="#server-fundamentals/what-is-server"
+        class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
+      >
+        ← What is a Server
+      </a>
+      <a
+        href="#server-fundamentals/server-architecture"
+        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+      >
+        Server Architecture →
+      </a>
+    </div>
+  </div>
+</div>

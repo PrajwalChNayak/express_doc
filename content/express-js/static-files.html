@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Files - Express.js Documentation</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+      media="(prefers-color-scheme: dark)"
+    />
+  </head>
+  <body>
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 mb-8">
+        <h1
+          class="text-3xl font-bold text-purple-900 dark:text-purple-100 mb-4"
+        >
+          Static Files in Express.js
+        </h1>
+        <p class="text-purple-800 dark:text-purple-200 text-lg">
+          Learn how to serve static files like CSS, JavaScript, images, and
+          other assets efficiently in Express.js applications with proper
+          configuration and optimization techniques.
+        </p>
+      </div>
+
+      <!-- Introduction to Static Files -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          What are Static Files?
+        </h2>
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 mb-6"
+        >
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Static files are assets that don't change based on user requests -
+            CSS stylesheets, JavaScript files, images, fonts, documents, and
+            other media files that are served directly to the browser without
+            server-side processing.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div
+              class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4"
+            >
+              <h4 class="font-semibold text-blue-800 dark:text-blue-200 mb-2">
+                Common Static Files:
+              </h4>
+              <ul class="text-blue-700 dark:text-blue-300 space-y-1">
+                <li>• <strong>CSS:</strong> Stylesheets (.css, .scss)</li>
+                <li>
+                  • <strong>JavaScript:</strong> Client-side scripts (.js)
+                </li>
+                <li>
+                  • <strong>Images:</strong> Photos, icons (.jpg, .png, .svg,
+                  .gif)
+                </li>
+                <li>
+                  • <strong>Fonts:</strong> Web fonts (.woff, .woff2, .ttf)
+                </li>
+                <li>• <strong>Documents:</strong> PDFs, text files</li>
+                <li>• <strong>Media:</strong> Audio, video files</li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4"
+            >
+              <h4 class="font-semibold text-green-800 dark:text-green-200 mb-2">
+                Benefits of Proper Static File Serving:
+              </h4>
+              <ul class="text-green-700 dark:text-green-300 space-y-1">
+                <li>
+                  • <strong>Performance:</strong> Fast delivery with caching
+                </li>
+                <li>
+                  • <strong>CDN Ready:</strong> Easy integration with CDNs
+                </li>
+                <li>• <strong>Browser Caching:</strong> Reduces server load</li>
+                <li>• <strong>Compression:</strong> Gzip/Brotli support</li>
+                <li>• <strong>Security:</strong> Controlled access patterns</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Basic Static File Serving -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Basic Static File Serving
+        </h2>
+
+        <div class="space-y-6">
+          <!-- express.static() Middleware -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              Using express.static() Middleware
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Basic Setup
+                </h4>
+                <div
+                  class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 relative"
+                >
+                  <button
+                    class="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600 copy-btn"
+                    onclick="copyCode(this)"
+                  >
+                    Copy
+                  </button>
+                  <pre><code class="language-javascript">const express = require('express');
+const path = require('path');
+const app = express();
+
+// Serve static files from 'public' directory
+app.use(express.static('public'));
+
+// Alternative: using absolute path
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Your public directory structure:
+// public/
+//   ├── css/
+//   │   └── style.css
+//   ├── js/
+//   │   └── app.js
+//   ├── images/
+//   │   └── logo.png
+//   └── favicon.ico
+
+app.listen(3000);</code></pre>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Accessing Static Files
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-html">&lt;!-- In your HTML templates --&gt;
+&lt;!-- Files are accessible from root path --&gt;
+&lt;link rel="stylesheet" href="/css/style.css"&gt;
+&lt;script src="/js/app.js"&gt;&lt;/script&gt;
+&lt;img src="/images/logo.png" alt="Logo"&gt;
+
+&lt;!-- Direct browser access --&gt;
+&lt;!-- http://localhost:3000/css/style.css --&gt;
+&lt;!-- http://localhost:3000/js/app.js --&gt;
+&lt;!-- http://localhost:3000/images/logo.png --&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multiple Static Directories -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              Multiple Static Directories
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Multiple Directories
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">// Serve from multiple directories
+app.use(express.static('public'));
+app.use(express.static('assets'));
+app.use(express.static('uploads'));
+
+// Express will look for files in order:
+// 1. public/
+// 2. assets/
+// 3. uploads/
+
+// If 'style.css' exists in both 'public' and 'assets',
+// the one in 'public' will be served (first match wins)</code></pre>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Virtual Path Prefix
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">// Mount static files with virtual path prefix
+app.use('/static', express.static('public'));
+app.use('/assets', express.static('assets'));
+app.use('/uploads', express.static('uploads'));
+
+// Files are now accessible at:
+// http://localhost:3000/static/css/style.css
+// http://localhost:3000/assets/js/app.js
+// http://localhost:3000/uploads/images/photo.jpg</code></pre>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Conditional Static Serving
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">// Environment-based static serving
+if (process.env.NODE_ENV === 'production') {
+    // In production, serve compressed files
+    app.use('/static', express.static('dist', {
+        maxAge: '1y', // Cache for 1 year
+        etag: false,
+        immutable: true
+    }));
+} else {
+    // In development, serve source files
+    app.use('/static', express.static('src', {
+        maxAge: 0 // No caching in development
+    }));
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Static File Options -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Static File Configuration Options
+        </h2>
+
+        <div class="space-y-6">
+          <!-- Common Options -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              Common Configuration Options
+            </h3>
+
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 relative">
+              <button
+                class="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600 copy-btn"
+                onclick="copyCode(this)"
+              >
+                Copy
+              </button>
+              <pre><code class="language-javascript">app.use('/static', express.static('public', {
+    // Caching options
+    maxAge: '1d',              // Cache for 1 day (0, '30d', 86400000)
+    etag: true,                // Enable ETag headers (default: true)
+    lastModified: true,        // Enable Last-Modified headers (default: true)
+    immutable: false,          // Mark files as immutable (default: false)
+    
+    // Index file options
+    index: ['index.html', 'index.htm'], // Default index files
+    // index: false,           // Disable directory indexing
+    
+    // Security options
+    dotfiles: 'ignore',        // How to handle dotfiles ('allow', 'deny', 'ignore')
+    
+    // Performance options
+    setHeaders: (res, path, stat) => {
+        // Custom headers for specific file types
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css; charset=utf-8');
+        }
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+        }
+        if (path.includes('/api/')) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    },
+    
+    // Fallback options
+    fallthrough: true,         // Continue to next middleware if file not found
+    
+    // Redirect options
+    redirect: true             // Redirect to trailing slash for directories
+}));</code></pre>
+            </div>
+          </div>
+
+          <!-- Advanced Examples -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <button
+              class="w-full flex justify-between items-center text-left"
+              onclick="toggleSection('advanced-config')"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                Advanced Configuration Examples
+              </h3>
+              <svg
+                id="advanced-config-icon"
+                class="w-5 h-5 text-gray-500 transform transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+
+            <div id="advanced-config-content" class="mt-4">
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                    Production-Optimized Setup
+                  </h4>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <pre><code class="language-javascript">// Production static file serving with optimization
+const compression = require('compression');
+
+// Enable gzip compression
+app.use(compression());
+
+// Serve assets with long-term caching
+app.use('/assets', express.static('public/assets', {
+    maxAge: '1y',
+    immutable: true,
+    etag: false,
+    setHeaders: (res, path) => {
+        // Add security headers
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('X-Frame-Options', 'DENY');
+        
+        // Versioned assets get long cache
+        if (path.includes('.min.') || path.includes('-v')) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+    }
+}));
+
+// Serve other static files with shorter cache
+app.use(express.static('public', {
+    maxAge: '1h',
+    etag: true,
+    setHeaders: (res, path) => {
+        if (path.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    }
+}));</code></pre>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                    Content Type Detection
+                  </h4>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <pre><code class="language-javascript">const mime = require('mime-types');
+
+app.use('/files', express.static('uploads', {
+    setHeaders: (res, path, stat) => {
+        // Custom MIME type handling
+        const mimeType = mime.lookup(path);
+        
+        if (mimeType) {
+            res.setHeader('Content-Type', mimeType);
+        }
+        
+        // Force download for certain file types
+        if (path.endsWith('.pdf') || path.endsWith('.doc')) {
+            res.setHeader('Content-Disposition', 'attachment');
+        }
+        
+        // Set CORS headers for fonts
+        if (path.includes('/fonts/')) {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+        }
+        
+        // Security headers for images
+        if (mimeType && mimeType.startsWith('image/')) {
+            res.setHeader('X-Content-Type-Options', 'nosniff');
+        }
+    }
+}));</code></pre>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                    Conditional Serving with Authentication
+                  </h4>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <pre><code class="language-javascript">// Protect certain static files with authentication
+const authenticateUser = (req, res, next) => {
+    // Your authentication logic
+    if (req.session && req.session.user) {
+        next();
+    } else {
+        res.status(401).json({ error: 'Authentication required' });
+    }
+};
+
+// Public assets (no authentication)
+app.use('/public', express.static('public'));
+
+// Protected assets (require authentication)
+app.use('/private', authenticateUser, express.static('private', {
+    setHeaders: (res, path) => {
+        // No caching for private files
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+    }
+}));
+
+// Admin-only assets
+app.use('/admin-assets', requireAdminRole, express.static('admin'));</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- File Upload and Serving -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          File Upload and Dynamic Serving
+        </h2>
+
+        <div class="space-y-6">
+          <!-- File Upload Setup -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              File Upload with Multer
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Basic Upload Setup
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">const multer = require('multer');
+const path = require('path');
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        // Generate unique filename
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 5 * 1024 * 1024 // 5MB limit
+    },
+    fileFilter: (req, file, cb) => {
+        // Allow only images
+        if (file.mimetype.startsWith('image/')) {
+            cb(null, true);
+        } else {
+            cb(new Error('Only image files are allowed!'), false);
+        }
+    }
+});
+
+// Upload endpoint
+app.post('/upload', upload.single('image'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded' });
+    }
+    
+    res.json({
+        message: 'File uploaded successfully',
+        filename: req.file.filename,
+        url: `/uploads/${req.file.filename}`
+    });
+});
+
+// Serve uploaded files
+app.use('/uploads', express.static('uploads'));</code></pre>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Secure File Serving
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">// Secure file serving with validation
+app.get('/secure-file/:filename', authenticateUser, (req, res) => {
+    const filename = req.params.filename;
+    
+    // Validate filename to prevent directory traversal
+    if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+        return res.status(400).json({ error: 'Invalid filename' });
+    }
+    
+    const filePath = path.join(__dirname, 'private-uploads', filename);
+    
+    // Check if file exists and user has permission
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            return res.status(404).json({ error: 'File not found' });
+        }
+        
+        // Check file ownership or permissions
+        if (!userCanAccessFile(req.user, filename)) {
+            return res.status(403).json({ error: 'Access denied' });
+        }
+        
+        // Serve the file
+        res.sendFile(filePath);
+    });
+});</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic File Processing -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <button
+              class="w-full flex justify-between items-center text-left"
+              onclick="toggleSection('dynamic-processing')"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                Dynamic File Processing
+              </h3>
+              <svg
+                id="dynamic-processing-icon"
+                class="w-5 h-5 text-gray-500 transform transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+
+            <div id="dynamic-processing-content" class="mt-4 hidden">
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                    Image Resizing on Demand
+                  </h4>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <pre><code class="language-javascript">const sharp = require('sharp');
+
+// Dynamic image resizing
+app.get('/images/:filename/:width?/:height?', (req, res) => {
+    const { filename, width, height } = req.params;
+    const originalPath = path.join(__dirname, 'uploads', filename);
+    
+    // Check if original file exists
+    if (!fs.existsSync(originalPath)) {
+        return res.status(404).json({ error: 'Image not found' });
+    }
+    
+    let pipeline = sharp(originalPath);
+    
+    // Apply resizing if dimensions provided
+    if (width || height) {
+        pipeline = pipeline.resize(
+            width ? parseInt(width) : null,
+            height ? parseInt(height) : null,
+            { 
+                fit: 'inside',
+                withoutEnlargement: true 
+            }
+        );
+    }
+    
+    // Set appropriate headers
+    res.setHeader('Content-Type', 'image/jpeg');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+    
+    // Pipe the processed image
+    pipeline
+        .jpeg({ quality: 80 })
+        .pipe(res)
+        .on('error', (err) => {
+            res.status(500).json({ error: 'Image processing failed' });
+        });
+});</code></pre>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                    CSS/JS Compilation on Demand
+                  </h4>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <pre><code class="language-javascript">const sass = require('sass');
+const babel = require('@babel/core');
+
+// Compile SCSS on demand
+app.get('/css/:filename.css', (req, res) => {
+    const scssPath = path.join(__dirname, 'src/scss', req.params.filename + '.scss');
+    
+    try {
+        const result = sass.renderSync({
+            file: scssPath,
+            outputStyle: 'compressed',
+            sourceMap: process.env.NODE_ENV === 'development'
+        });
+        
+        res.setHeader('Content-Type', 'text/css');
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+        res.send(result.css);
+    } catch (error) {
+        res.status(404).send('/* CSS file not found or compilation error */');
+    }
+});
+
+// Transpile JavaScript on demand
+app.get('/js/:filename.js', (req, res) => {
+    const jsPath = path.join(__dirname, 'src/js', req.params.filename + '.js');
+    
+    if (!fs.existsSync(jsPath)) {
+        return res.status(404).send('// JavaScript file not found');
+    }
+    
+    const sourceCode = fs.readFileSync(jsPath, 'utf8');
+    
+    babel.transform(sourceCode, {
+        presets: ['@babel/preset-env'],
+        minified: process.env.NODE_ENV === 'production'
+    }, (err, result) => {
+        if (err) {
+            return res.status(500).send('// Compilation error');
+        }
+        
+        res.setHeader('Content-Type', 'application/javascript');
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+        res.send(result.code);
+    });
+});</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Performance Optimization -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Performance Optimization
+        </h2>
+
+        <div class="space-y-6">
+          <!-- Caching Strategies -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              Caching Strategies
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Browser Caching
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded p-3 text-sm">
+                  <pre><code class="language-javascript">// Different caching strategies for different file types
+app.use('/assets', express.static('public', {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css') || path.endsWith('.js')) {
+            // Cache for 1 year
+            res.setHeader('Cache-Control', 'public, max-age=31536000');
+        } else if (path.match(/\.(jpg|jpeg|png|gif|ico|svg)$/)) {
+            // Cache images for 1 month
+            res.setHeader('Cache-Control', 'public, max-age=2592000');
+        } else if (path.endsWith('.html')) {
+            // No cache for HTML files
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    }
+}));</code></pre>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  ETag and Conditional Requests
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded p-3 text-sm">
+                  <pre><code class="language-javascript">// Enable ETags for efficient caching
+app.use(express.static('public', {
+    etag: true,
+    lastModified: true,
+    setHeaders: (res, path, stat) => {
+        // Custom ETag generation
+        const etag = `"${stat.size}-${stat.mtime.getTime()}"`;
+        res.setHeader('ETag', etag);
+        
+        // Handle conditional requests
+        if (req.headers['if-none-match'] === etag) {
+            res.status(304).end();
+            return;
+        }
+    }
+}));</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compression -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              Compression and Minification
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Gzip/Brotli Compression
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">const compression = require('compression');
+
+// Enable compression middleware
+app.use(compression({
+    filter: (req, res) => {
+        // Don't compress responses if this request has a "x-no-compression" header
+        if (req.headers['x-no-compression']) {
+            return false;
+        }
+        
+        // Use compression for all requests
+        return compression.filter(req, res);
+    },
+    level: 6,        // Compression level (1-9, 6 is default)
+    threshold: 1024, // Only compress if response is larger than 1KB
+    windowBits: 15,  // Zlib window size
+    memLevel: 8      // Memory usage (1-9, 8 is default)
+}));
+
+// Serve pre-compressed files if available
+const serveStatic = require('serve-static');
+app.use(serveStatic('public', {
+    index: false,
+    // Serve .gz files if they exist
+    setHeaders: (res, path) => {
+        if (path.endsWith('.gz')) {
+            res.setHeader('Content-Encoding', 'gzip');
+            res.setHeader('Content-Type', getOriginalContentType(path));
+        }
+    }
+}));</code></pre>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-gray-900 dark:text-white mb-2">
+                  Build-time Optimization
+                </h4>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <pre><code class="language-javascript">// Example build script integration
+const fs = require('fs');
+const path = require('path');
+const UglifyJS = require('uglify-js');
+const CleanCSS = require('clean-css');
+
+// Pre-process static files during build
+function optimizeStaticFiles() {
+    const publicDir = path.join(__dirname, 'public');
+    
+    // Minify JavaScript files
+    const jsFiles = glob.sync('**/*.js', { cwd: publicDir });
+    jsFiles.forEach(file => {
+        const filePath = path.join(publicDir, file);
+        const code = fs.readFileSync(filePath, 'utf8');
+        const minified = UglifyJS.minify(code);
+        
+        if (!minified.error) {
+            fs.writeFileSync(filePath.replace('.js', '.min.js'), minified.code);
+        }
+    });
+    
+    // Minify CSS files
+    const cssFiles = glob.sync('**/*.css', { cwd: publicDir });
+    const cleanCSS = new CleanCSS();
+    
+    cssFiles.forEach(file => {
+        const filePath = path.join(publicDir, file);
+        const css = fs.readFileSync(filePath, 'utf8');
+        const minified = cleanCSS.minify(css);
+        
+        fs.writeFileSync(filePath.replace('.css', '.min.css'), minified.styles);
+    });
+}
+
+// Run optimization in production
+if (process.env.NODE_ENV === 'production') {
+    optimizeStaticFiles();
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security Considerations -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Security Considerations
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div
+              class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4"
+            >
+              <h3 class="font-semibold text-red-800 dark:text-red-200 mb-2">
+                🚨 Security Risks
+              </h3>
+              <ul class="text-red-700 dark:text-red-300 space-y-2 text-sm">
+                <li>
+                  • <strong>Directory Traversal:</strong> Accessing files
+                  outside intended directories
+                </li>
+                <li>
+                  • <strong>File Type Confusion:</strong> Serving executable
+                  files as static
+                </li>
+                <li>
+                  • <strong>Information Disclosure:</strong> Exposing sensitive
+                  configuration files
+                </li>
+                <li>
+                  • <strong>MIME Type Attacks:</strong> Incorrect content type
+                  handling
+                </li>
+                <li>
+                  • <strong>Cache Poisoning:</strong> Malicious content in
+                  cached responses
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4"
+            >
+              <h3
+                class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2"
+              >
+                ⚠️ Best Practices
+              </h3>
+              <ul
+                class="text-yellow-700 dark:text-yellow-300 space-y-2 text-sm"
+              >
+                <li>• Validate all file paths and names</li>
+                <li>• Use whitelist for allowed file types</li>
+                <li>• Set proper Content-Type headers</li>
+                <li>• Implement access controls</li>
+                <li>• Regular security audits</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+            >
+              <h3
+                class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+              >
+                Secure Static File Setup
+              </h3>
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                <pre><code class="language-javascript">// Secure static file configuration
+app.use('/static', express.static('public', {
+    // Ignore dotfiles (hidden files)
+    dotfiles: 'ignore',
+    
+    // Disable directory indexing
+    index: false,
+    
+    // Security headers
+    setHeaders: (res, path, stat) => {
+        // Prevent MIME type sniffing
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        
+        // Prevent clickjacking
+        res.setHeader('X-Frame-Options', 'DENY');
+        
+        // Content Security Policy
+        res.setHeader('Content-Security-Policy', 
+            "default-src 'self'");
+        
+        // HTTPS enforcement
+        if (process.env.NODE_ENV === 'production') {
+            res.setHeader('Strict-Transport-Security',
+                'max-age=31536000; includeSubDomains');
+        }
+    }
+}));</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Complete Example -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Complete Example: File Management System
+        </h2>
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+        >
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            Production-Ready Static File Server
+          </h3>
+
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 relative">
+            <button
+              class="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600 copy-btn"
+              onclick="copyCode(this)"
+            >
+              Copy
+            </button>
+            <pre><code class="language-javascript">const express = require('express');
+const compression = require('compression');
+const helmet = require('helmet');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+const sharp = require('sharp');
+
+const app = express();
+
+// Security middleware
+app.use(helmet());
+
+// Compression middleware
+app.use(compression());
+
+// File upload configuration
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        const uploadPath = path.join(__dirname, 'uploads');
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
+        }
+        cb(null, uploadPath);
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = /jpeg|jpg|png|gif|pdf|txt|doc|docx/;
+        const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+        const mimetype = allowedTypes.test(file.mimetype);
+        
+        if (mimetype && extname) {
+            return cb(null, true);
+        } else {
+            cb(new Error('Invalid file type'));
+        }
+    }
+});
+
+// Static file serving with different cache strategies
+// Long-term cache for versioned assets
+app.use('/assets', express.static(path.join(__dirname, 'public/assets'), {
+    maxAge: '1y',
+    immutable: true,
+    etag: false,
+    setHeaders: (res, path) => {
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('Access-Control-Allow-Origin', '*');
+    }
+}));
+
+// Short-term cache for regular static files
+app.use('/static', express.static(path.join(__dirname, 'public'), {
+    maxAge: '1h',
+    etag: true,
+    dotfiles: 'ignore',
+    index: false,
+    setHeaders: (res, path) => {
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    }
+}));
+
+// Protected file serving
+app.use('/files', authenticateUser, express.static(path.join(__dirname, 'uploads'), {
+    maxAge: 0,
+    setHeaders: (res, path) => {
+        res.setHeader('Cache-Control', 'no-store');
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+    }
+}));
+
+// Dynamic image resizing
+app.get('/images/:filename/:size?', (req, res) => {
+    const { filename, size } = req.params;
+    const originalPath = path.join(__dirname, 'uploads', filename);
+    
+    if (!fs.existsSync(originalPath)) {
+        return res.status(404).json({ error: 'Image not found' });
+    }
+    
+    let width = null, height = null;
+    if (size) {
+        const dimensions = size.split('x');
+        width = parseInt(dimensions[0]) || null;
+        height = parseInt(dimensions[1]) || null;
+    }
+    
+    res.setHeader('Content-Type', 'image/jpeg');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    
+    sharp(originalPath)
+        .resize(width, height, { 
+            fit: 'inside', 
+            withoutEnlargement: true 
+        })
+        .jpeg({ quality: 85 })
+        .pipe(res)
+        .on('error', () => {
+            res.status(500).json({ error: 'Image processing failed' });
+        });
+});
+
+// File upload endpoint
+app.post('/upload', upload.array('files', 5), (req, res) => {
+    if (!req.files || req.files.length === 0) {
+        return res.status(400).json({ error: 'No files uploaded' });
+    }
+    
+    const uploadedFiles = req.files.map(file => ({
+        filename: file.filename,
+        originalName: file.originalname,
+        size: file.size,
+        mimetype: file.mimetype,
+        url: `/files/${file.filename}`
+    }));
+    
+    res.json({
+        message: 'Files uploaded successfully',
+        files: uploadedFiles
+    });
+});
+
+// Error handling middleware
+app.use((error, req, res, next) => {
+    if (error instanceof multer.MulterError) {
+        if (error.code === 'LIMIT_FILE_SIZE') {
+            return res.status(400).json({ error: 'File too large' });
+        }
+        if (error.code === 'LIMIT_FILE_COUNT') {
+            return res.status(400).json({ error: 'Too many files' });
+        }
+    }
+    
+    res.status(500).json({ error: 'Server error' });
+});
+
+function authenticateUser(req, res, next) {
+    // Your authentication logic here
+    const token = req.headers.authorization;
+    if (token && validateToken(token)) {
+        next();
+    } else {
+        res.status(401).json({ error: 'Authentication required' });
+    }
+}
+
+function validateToken(token) {
+    // Your token validation logic
+    return true; // Simplified for example
+}
+
+app.listen(3000, () => {
+    console.log('File server running on port 3000');
+});</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Reference -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Quick Reference
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-lg font-semibold text-gray-900 dark:text-white mb-3"
+            >
+              Common express.static() Options
+            </h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="text-blue-600 dark:text-blue-400">maxAge</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Cache duration</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-blue-600 dark:text-blue-400">etag</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Enable ETag headers</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-blue-600 dark:text-blue-400">index</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Default index files</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-blue-600 dark:text-blue-400">dotfiles</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Handle hidden files</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-blue-600 dark:text-blue-400">setHeaders</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Custom header function</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-blue-600 dark:text-blue-400">immutable</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Mark as immutable</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-lg font-semibold text-gray-900 dark:text-white mb-3"
+            >
+              Cache Control Values
+            </h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="text-green-600 dark:text-green-400">'1y'</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >1 year (assets)</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-green-600 dark:text-green-400">'30d'</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >30 days (images)</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-green-600 dark:text-green-400">'1h'</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >1 hour (general)</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-green-600 dark:text-green-400">86400000</code>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >1 day (milliseconds)</span
+                >
+              </div>
+              <div class="flex justify-between">
+                <code class="text-green-600 dark:text-green-400">0</code>
+                <span class="text-gray-600 dark:text-gray-400">No cache</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <script>
+      // Toggle section functionality
+      function toggleSection(sectionId) {
+        const content = document.getElementById(`${sectionId}-content`);
+        const icon = document.getElementById(`${sectionId}-icon`);
+
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          icon.style.transform = "rotate(180deg)";
+        } else {
+          content.classList.add("hidden");
+          icon.style.transform = "rotate(0deg)";
+        }
+      }
+
+      // Copy functionality
+      function copyCode(button) {
+        const codeBlock = button.nextElementSibling.querySelector("code");
+        const text = codeBlock.textContent;
+
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copied!";
+          button.classList.add("bg-green-500");
+          button.classList.remove("bg-blue-500");
+
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.classList.remove("bg-green-500");
+            button.classList.add("bg-blue-500");
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

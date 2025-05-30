@@ -1,0 +1,259 @@
+<div class="content-section">
+  <div class="flex items-center space-x-3 mb-6">
+    <span class="text-4xl">🖥️</span>
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+      What is a Server?
+    </h1>
+  </div>
+
+  <div class="prose prose-gray dark:prose-invert max-w-none">
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+      A server is a computer program or device that provides services to other
+      programs or devices, called clients. Understanding servers is fundamental
+      to backend development.
+    </p>
+
+    <h2>Server Definition</h2>
+    <p>
+      In the context of web development, a server is a program that runs
+      continuously, listening for requests from clients (usually web browsers)
+      and responding with the requested data, files, or services.
+    </p>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-6"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
+        Client-Server Model
+      </h3>
+      <div class="text-center">
+        <div class="inline-flex items-center space-x-4">
+          <div class="bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded">
+            <span class="text-green-800 dark:text-green-200 font-medium"
+              >Client</span
+            >
+            <div class="text-sm text-green-600 dark:text-green-300">
+              Makes requests
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-2xl">→</span>
+            <span class="text-sm">HTTP Request</span>
+            <span class="text-2xl">→</span>
+          </div>
+          <div class="bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded">
+            <span class="text-blue-800 dark:text-blue-200 font-medium"
+              >Server</span
+            >
+            <div class="text-sm text-blue-600 dark:text-blue-300">
+              Processes & responds
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center justify-center space-x-2">
+          <span class="text-2xl">←</span>
+          <span class="text-sm">HTTP Response</span>
+          <span class="text-2xl">←</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Types of Servers</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 my-6">
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          Web Server
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Serves static files (HTML, CSS, JS, images) and handles HTTP requests.
+        </p>
+        <div class="mt-2">
+          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+            >Apache</span
+          >
+          <span
+            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
+            >Nginx</span
+          >
+        </div>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          Application Server
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Executes application code and handles business logic.
+        </p>
+        <div class="mt-2">
+          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+            >Node.js</span
+          >
+          <span
+            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
+            >Express</span
+          >
+        </div>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          Database Server
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Manages data storage, retrieval, and database operations.
+        </p>
+        <div class="mt-2">
+          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+            >MySQL</span
+          >
+          <span
+            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
+            >MongoDB</span
+          >
+        </div>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          API Server
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Provides programmatic access to services via APIs.
+        </p>
+        <div class="mt-2">
+          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+            >REST</span
+          >
+          <span
+            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
+            >GraphQL</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <h2>Server Responsibilities</h2>
+    <ul>
+      <li>
+        <strong>Request Handling:</strong> Receiving and parsing HTTP requests
+      </li>
+      <li>
+        <strong>Route Processing:</strong> Determining which code to execute
+        based on the request
+      </li>
+      <li>
+        <strong>Business Logic:</strong> Processing data and executing
+        application logic
+      </li>
+      <li>
+        <strong>Data Management:</strong> Interacting with databases and
+        external services
+      </li>
+      <li>
+        <strong>Response Generation:</strong> Creating and sending HTTP
+        responses
+      </li>
+      <li>
+        <strong>Security:</strong> Authentication, authorization, and data
+        protection
+      </li>
+      <li>
+        <strong>Performance:</strong> Optimizing response times and resource
+        usage
+      </li>
+    </ul>
+
+    <h2>Basic Server Example</h2>
+    <p>Here's a simple server that demonstrates core concepts:</p>
+
+    <pre><code class="language-javascript">const http = require('http');
+const url = require('url');
+
+const server = http.createServer((req, res) => {
+  const parsedUrl = url.parse(req.url, true);
+  const path = parsedUrl.pathname;
+  const method = req.method;
+
+  // Set response headers
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  // Route handling
+  if (path === '/' && method === 'GET') {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ 
+      message: 'Welcome to our API',
+      timestamp: new Date().toISOString()
+    }));
+  } else if (path === '/users' && method === 'GET') {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ 
+      users: [
+        { id: 1, name: 'John Doe' },
+        { id: 2, name: 'Jane Smith' }
+      ]
+    }));
+  } else {
+    res.statusCode = 404;
+    res.end(JSON.stringify({ 
+      error: 'Route not found' 
+    }));
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});</code></pre>
+
+    <div
+      class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-400 p-4 my-6"
+    >
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <svg
+            class="h-5 w-5 text-green-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div class="ml-3">
+          <p class="text-green-700 dark:text-green-200">
+            <strong>Key Takeaway:</strong> This example shows basic request
+            handling, routing, and response generation - the core functions of
+            any server.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Next Steps</h2>
+    <p>
+      Now that you understand what a server is, let's dive deeper into the HTTP
+      protocol and learn how clients and servers communicate.
+    </p>
+
+    <div class="flex justify-between mt-8">
+      <a
+        href="#server-fundamentals/index"
+        class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
+      >
+        ← Back to Overview
+      </a>
+      <a
+        href="#server-fundamentals/http-cycle"
+        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+      >
+        HTTP Protocol →
+      </a>
+    </div>
+  </div>
+</div>

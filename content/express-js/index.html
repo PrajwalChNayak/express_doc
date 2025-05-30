@@ -1,0 +1,615 @@
+<div class="content-section">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+    Express.js Framework Overview
+  </h1>
+
+  <div class="prose max-w-none">
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+      Express.js is the most popular Node.js web application framework,
+      providing a robust set of features for building web applications and APIs.
+      It's minimal, flexible, and provides a solid foundation for building
+      scalable applications.
+    </p>
+
+    <div
+      class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8"
+    >
+      <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">
+        Why Express.js?
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ul
+          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+        >
+          <li>Minimal and unopinionated framework</li>
+          <li>Large ecosystem of middleware</li>
+          <li>Excellent performance</li>
+          <li>Great community support</li>
+        </ul>
+        <ul
+          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+        >
+          <li>Easy to learn and use</li>
+          <li>Flexible routing system</li>
+          <li>Built-in security features</li>
+          <li>Industry standard for Node.js APIs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
+        Learning Path
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+          >
+            1
+          </div>
+          <p class="text-blue-800 dark:text-blue-200 font-medium">
+            Setup & Basics
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+          >
+            2
+          </div>
+          <p class="text-blue-800 dark:text-blue-200 font-medium">
+            Routing & Middleware
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+          >
+            3
+          </div>
+          <p class="text-blue-800 dark:text-blue-200 font-medium">
+            Error Handling
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+          >
+            4
+          </div>
+          <p class="text-blue-800 dark:text-blue-200 font-medium">
+            Advanced Features
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Quick Start Example
+    </h2>
+
+    <p class="text-gray-600 dark:text-gray-300 mb-4">
+      Let's start with a simple Express.js application to understand the basics:
+    </p>
+
+    <div class="code-block mb-6">
+      <div class="code-header">
+        <span>Basic Express Server</span>
+        <button class="copy-btn" data-copy="basic-express">Copy</button>
+      </div>
+      <pre><code id="basic-express">const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// Basic route
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Welcome to Express.js!',
+        timestamp: new Date().toISOString()
+    });
+});
+
+// API endpoint
+app.get('/api/users', (req, res) => {
+    res.json([
+        { id: 1, name: 'John Doe', email: 'john@example.com' },
+        { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+    ]);
+});
+
+// POST endpoint
+app.post('/api/users', (req, res) => {
+    const { name, email } = req.body;
+    
+    // Basic validation
+    if (!name || !email) {
+        return res.status(400).json({ 
+            error: 'Name and email are required' 
+        });
+    }
+    
+    // Simulate creating user
+    const newUser = {
+        id: Date.now(),
+        name,
+        email,
+        createdAt: new Date().toISOString()
+    };
+    
+    res.status(201).json({
+        message: 'User created successfully',
+        user: newUser
+    });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ 
+        error: 'Something went wrong!' 
+    });
+});
+
+// 404 handler
+app.use('*', (req, res) => {
+    res.status(404).json({ 
+        error: 'Route not found' 
+    });
+});
+
+// Start server
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+});</code></pre>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Core Concepts
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          🎯 Application Object
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mb-3">
+          The Express application object represents your web application and
+          provides methods for routing, middleware, and configuration.
+        </p>
+        <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
+          <code>const app = express();</code>
+        </div>
+      </div>
+
+      <div
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          🛣️ Routing
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mb-3">
+          Define how your application responds to different HTTP methods and URL
+          paths.
+        </p>
+        <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
+          <code>app.get('/users', handler);</code>
+        </div>
+      </div>
+
+      <div
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          ⚙️ Middleware
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mb-3">
+          Functions that execute during the request-response cycle, providing
+          modularity and reusability.
+        </p>
+        <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
+          <code>app.use(middleware);</code>
+        </div>
+      </div>
+
+      <div
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          📨 Request/Response
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mb-3">
+          Objects that represent the HTTP request and response, enhanced with
+          Express features.
+        </p>
+        <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
+          <code>(req, res) => { ... }</code>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Installation & Setup
+    </h2>
+
+    <div class="tabbed-content mb-6" data-tabbed>
+      <div class="tab-buttons flex space-x-2 mb-4">
+        <button
+          class="tab-button active bg-blue-500 text-white px-4 py-2 rounded"
+          data-tab="new"
+        >
+          New Project
+        </button>
+        <button
+          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded"
+          data-tab="existing"
+        >
+          Existing Project
+        </button>
+        <button
+          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded"
+          data-tab="generator"
+        >
+          Express Generator
+        </button>
+      </div>
+
+      <div class="tab-content active" data-content="new">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Creating a New Express Project
+        </h4>
+
+        <div class="code-block mb-4">
+          <div class="code-header">
+            <span>Project Setup</span>
+            <button class="copy-btn" data-copy="new-project">Copy</button>
+          </div>
+          <pre><code id="new-project"># Create project directory
+mkdir my-express-app
+cd my-express-app
+
+# Initialize npm project
+npm init -y
+
+# Install Express
+npm install express
+
+# Install development dependencies
+npm install -D nodemon
+
+# Create basic structure
+mkdir src routes middleware controllers
+touch src/app.js src/server.js</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span>package.json Scripts</span>
+            <button class="copy-btn" data-copy="package-scripts-new">
+              Copy
+            </button>
+          </div>
+          <pre><code id="package-scripts-new">{
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" data-content="existing">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Adding Express to Existing Project
+        </h4>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span>Install Express</span>
+            <button class="copy-btn" data-copy="existing-install">Copy</button>
+          </div>
+          <pre><code id="existing-install"># Install Express in existing project
+npm install express
+
+# Add to existing server file
+const express = require('express');
+const app = express();
+
+// Your existing code here...</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" data-content="generator">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Using Express Application Generator
+        </h4>
+
+        <div class="code-block mb-4">
+          <div class="code-header">
+            <span>Express Generator</span>
+            <button class="copy-btn" data-copy="express-generator">Copy</button>
+          </div>
+          <pre><code id="express-generator"># Install Express generator globally
+npm install -g express-generator
+
+# Create new app with view engine
+express --view=ejs my-express-app
+
+# Or create API-only app
+express --no-view my-api-app
+
+# Navigate and install dependencies
+cd my-express-app
+npm install
+
+# Start the application
+npm start</code></pre>
+        </div>
+
+        <div
+          class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4"
+        >
+          <p class="text-yellow-800 dark:text-yellow-200 text-sm">
+            <strong>Note:</strong> The Express generator creates a more
+            opinionated structure with views, public assets, and additional
+            middleware. Great for traditional web applications.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Project Structure Best Practices
+    </h2>
+
+    <div class="expandable-section mb-6" data-expandable>
+      <button
+        class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white"
+      >
+        Recommended Project Structure
+        <span class="float-right">+</span>
+      </button>
+      <div
+        class="expandable-content hidden mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+      >
+        <div class="code-block mb-4">
+          <div class="code-header">
+            <span>Directory Structure</span>
+            <button class="copy-btn" data-copy="project-structure-full">
+              Copy
+            </button>
+          </div>
+          <pre><code id="project-structure-full">my-express-app/
+├── src/
+│   ├── controllers/          # Route handlers
+│   │   ├── authController.js
+│   │   ├── userController.js
+│   │   └── index.js
+│   ├── middleware/           # Custom middleware
+│   │   ├── auth.js
+│   │   ├── validation.js
+│   │   └── index.js
+│   ├── models/              # Data models
+│   │   ├── User.js
+│   │   └── index.js
+│   ├── routes/              # Route definitions
+│   │   ├── auth.js
+│   │   ├── users.js
+│   │   └── index.js
+│   ├── services/            # Business logic
+│   │   ├── authService.js
+│   │   ├── userService.js
+│   │   └── index.js
+│   ├── utils/               # Utility functions
+│   │   ├── logger.js
+│   │   ├── helpers.js
+│   │   └── index.js
+│   ├── config/              # Configuration files
+│   │   ├── database.js
+│   │   ├── auth.js
+│   │   └── index.js
+│   ├── app.js               # Express app setup
+│   └── server.js            # Server startup
+├── tests/                   # Test files
+│   ├── unit/
+│   ├── integration/
+│   └── helpers/
+├── docs/                    # Documentation
+├── public/                  # Static assets
+├── uploads/                 # File uploads
+├── .env.example            # Environment template
+├── .env                    # Environment variables
+├── .gitignore              # Git ignore rules
+├── package.json            # Dependencies
+├── README.md               # Project documentation
+└── Dockerfile              # Docker configuration</code></pre>
+        </div>
+
+        <h5 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Structure Explanation
+        </h5>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">
+              <strong>controllers/</strong> - Handle HTTP requests and responses
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">
+              <strong>middleware/</strong> - Custom middleware functions
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">
+              <strong>models/</strong> - Data models and schemas
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              <strong>routes/</strong> - Route definitions and organization
+            </p>
+          </div>
+          <div>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">
+              <strong>services/</strong> - Business logic and data processing
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">
+              <strong>utils/</strong> - Helper functions and utilities
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">
+              <strong>config/</strong> - Configuration and settings
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              <strong>tests/</strong> - Unit and integration tests
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Express Features Overview
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div
+        class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-3">
+          🚀 Performance
+        </h4>
+        <ul class="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+          <li>• Minimal overhead</li>
+          <li>• Fast routing</li>
+          <li>• Efficient middleware</li>
+          <li>• Scalable architecture</li>
+        </ul>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-green-900 dark:text-green-100 mb-3">
+          🔧 Flexibility
+        </h4>
+        <ul class="text-sm text-green-800 dark:text-green-200 space-y-1">
+          <li>• Unopinionated design</li>
+          <li>• Modular architecture</li>
+          <li>• Extensive middleware ecosystem</li>
+          <li>• Template engine agnostic</li>
+        </ul>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-3">
+          🛠️ Developer Experience
+        </h4>
+        <ul class="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+          <li>• Simple and intuitive API</li>
+          <li>• Excellent documentation</li>
+          <li>• Large community</li>
+          <li>• Rich ecosystem</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Common Use Cases
+    </h2>
+
+    <div class="space-y-4 mb-8">
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          🌐 REST APIs
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Build scalable REST APIs with proper HTTP methods, status codes, and
+          JSON responses.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          📱 Mobile App Backends
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Create backends for mobile applications with user authentication, data
+          storage, and push notifications.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          🔗 Microservices
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Develop lightweight microservices that communicate via HTTP APIs.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          🌍 Web Applications
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Build traditional web applications with server-side rendering and
+          template engines.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8"
+    >
+      <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">
+        What's Next?
+      </h3>
+      <p class="text-green-800 dark:text-green-200 mb-4">
+        Now that you understand the basics of Express.js, let's dive deeper into
+        specific topics:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ul
+          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+        >
+          <li>Express.js Installation & Setup</li>
+          <li>Routing and Route Parameters</li>
+          <li>Middleware and Custom Middleware</li>
+          <li>Error Handling Strategies</li>
+        </ul>
+        <ul
+          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+        >
+          <li>Request/Response Objects</li>
+          <li>Template Engines Integration</li>
+          <li>Static File Serving</li>
+          <li>Testing Express Applications</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
+        💡 Pro Tips
+      </h3>
+      <ul
+        class="list-disc list-inside text-blue-800 dark:text-blue-200 space-y-2"
+      >
+        <li>Always handle errors gracefully with proper error middleware</li>
+        <li>Use environment variables for configuration</li>
+        <li>Implement proper logging for debugging and monitoring</li>
+        <li>Follow RESTful conventions for API design</li>
+        <li>
+          Use middleware for cross-cutting concerns like authentication and
+          validation
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

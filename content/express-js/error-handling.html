@@ -1,0 +1,1118 @@
+<div class="max-w-7xl mx-auto p-6">
+  <!-- Header Section -->
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      Error Handling in Express.js
+    </h1>
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">
+      Comprehensive guide to handling errors gracefully in Express.js
+      applications.
+    </p>
+
+    <!-- Quick Navigation -->
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
+        In This Section
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+        <a
+          href="#error-basics"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Error Basics</a
+        >
+        <a
+          href="#error-middleware"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Error Middleware</a
+        >
+        <a
+          href="#async-errors"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Async Errors</a
+        >
+        <a
+          href="#custom-errors"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+          >Custom Errors</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Basics Section -->
+  <section id="error-basics" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Error Handling Basics
+    </h2>
+
+    <div class="prose prose-lg dark:prose-invert max-w-none mb-6">
+      <p>
+        Express.js has built-in error handling that catches and processes errors
+        that occur both in synchronous code and in middleware functions.
+      </p>
+    </div>
+
+    <div
+      class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-6 mb-6"
+    >
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <i class="fas fa-lightbulb text-yellow-400"></i>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-lg font-medium text-yellow-800 dark:text-yellow-200">
+            Key Concept
+          </h3>
+          <p class="text-yellow-700 dark:text-yellow-300 mt-2">
+            Express catches errors automatically in synchronous code, but async
+            errors need special handling.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div
+        class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+      >
+        <h3
+          class="text-lg font-semibold text-green-900 dark:text-green-100 mb-4"
+        >
+          ✅ Automatic Catching
+        </h3>
+        <div class="bg-gray-900 rounded-lg overflow-hidden">
+          <pre
+            class="p-4 text-gray-300 overflow-x-auto text-sm"
+          ><code>// Express automatically catches this
+app.get('/sync-error', (req, res) => {
+  throw new Error('Something went wrong!');
+});</code></pre>
+        </div>
+      </div>
+      <div
+        class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6"
+      >
+        <h3 class="text-lg font-semibold text-red-900 dark:text-red-100 mb-4">
+          ❌ Manual Handling Required
+        </h3>
+        <div class="bg-gray-900 rounded-lg overflow-hidden">
+          <pre
+            class="p-4 text-gray-300 overflow-x-auto text-sm"
+          ><code>// Must use next() for async errors
+app.get('/async-error', async (req, res, next) => {
+  try {
+    await someAsyncOperation();
+  } catch (error) {
+    next(error); // Pass to error handler
+  }
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Error Middleware Section -->
+  <section id="error-middleware" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Error Handling Middleware
+    </h2>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
+        Error Middleware Signature
+      </h3>
+      <p class="text-blue-700 dark:text-blue-300">
+        Error-handling middleware has <strong>4 parameters</strong>: (err, req,
+        res, next)
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Basic Error Handler -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="basic-error-handler"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Basic Error Handler
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Simple error handling middleware
+          </p>
+        </button>
+        <div id="basic-error-handler" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">basic-error-handler.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="basic-error-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="basic-error-code">const express = require('express');
+const app = express();
+
+// Regular routes
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.get('/error', (req, res) => {
+  throw new Error('Something went wrong!');
+});
+
+// Basic error handling middleware (must be last)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+app.listen(3000);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Error Handler -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="advanced-error-handler"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Advanced Error Handler
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Production-ready error handling with logging and proper responses
+          </p>
+        </button>
+        <div id="advanced-error-handler" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm"
+                >advanced-error-handler.js</span
+              >
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="advanced-error-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="advanced-error-code">const winston = require('winston');
+
+// Logger setup
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.Console()
+  ]
+});
+
+// Advanced error handling middleware
+const errorHandler = (err, req, res, next) => {
+  let error = { ...err };
+  error.message = err.message;
+
+  // Log error
+  logger.error({
+    message: err.message,
+    stack: err.stack,
+    url: req.url,
+    method: req.method,
+    ip: req.ip,
+    userAgent: req.get('User-Agent')
+  });
+
+  // Mongoose bad ObjectId
+  if (err.name === 'CastError') {
+    const message = 'Resource not found';
+    error = { message, statusCode: 404 };
+  }
+
+  // Mongoose duplicate key
+  if (err.code === 11000) {
+    const message = 'Duplicate field value entered';
+    error = { message, statusCode: 400 };
+  }
+
+  // Mongoose validation error
+  if (err.name === 'ValidationError') {
+    const message = Object.values(err.errors).map(val => val.message);
+    error = { message, statusCode: 400 };
+  }
+
+  // JWT errors
+  if (err.name === 'JsonWebTokenError') {
+    const message = 'Invalid token';
+    error = { message, statusCode: 401 };
+  }
+
+  if (err.name === 'TokenExpiredError') {
+    const message = 'Token expired';
+    error = { message, statusCode: 401 };
+  }
+
+  res.status(error.statusCode || 500).json({
+    success: false,
+    error: error.message || 'Server Error',
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+  });
+};
+
+module.exports = errorHandler;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 404 Handler -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="not-found-handler"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              404 Not Found Handler
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Handling routes that don't exist
+          </p>
+        </button>
+        <div id="not-found-handler" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">404-handler.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="not-found-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="not-found-code">// All your routes go here first
+app.get('/', (req, res) => {
+  res.send('Home page');
+});
+
+app.get('/users', (req, res) => {
+  res.json({ users: [] });
+});
+
+// 404 middleware (after all routes)
+const notFound = (req, res, next) => {
+  const error = new Error(`Not Found - ${req.originalUrl}`);
+  res.status(404);
+  next(error);
+};
+
+// Custom 404 with helpful information
+const notFoundAdvanced = (req, res, next) => {
+  res.status(404).json({
+    success: false,
+    error: 'Route not found',
+    message: `The route ${req.method} ${req.originalUrl} does not exist`,
+    availableRoutes: [
+      'GET /',
+      'GET /users',
+      'POST /users',
+      'GET /api/docs'
+    ]
+  });
+};
+
+// Use the 404 handler
+app.use(notFound);
+
+// Then use the error handler
+app.use(errorHandler);</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Async Error Handling Section -->
+  <section id="async-errors" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Handling Async Errors
+    </h2>
+
+    <div
+      class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-400 p-6 mb-6"
+    >
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <i class="fas fa-exclamation-triangle text-red-400"></i>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-lg font-medium text-red-800 dark:text-red-200">
+            Important!
+          </h3>
+          <p class="text-red-700 dark:text-red-300 mt-2">
+            Express doesn't catch errors in async functions automatically. You
+            must handle them manually.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Try-Catch Approach -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="try-catch-async"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Try-Catch Approach
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Manual error handling with try-catch blocks
+          </p>
+        </button>
+        <div id="try-catch-async" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">try-catch-async.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="try-catch-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="try-catch-code">// Manual try-catch in every async route
+app.get('/users/:id', async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    res.json(user);
+  } catch (error) {
+    next(error); // Pass error to error handler
+  }
+});
+
+// Database operation with error handling
+app.post('/users', async (req, res, next) => {
+  try {
+    // Validate input
+    const { error, value } = userSchema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ 
+        error: 'Validation failed', 
+        details: error.details 
+      });
+    }
+
+    // Create user
+    const user = await User.create(value);
+    res.status(201).json(user);
+  } catch (error) {
+    // Handle specific database errors
+    if (error.code === 11000) {
+      return res.status(400).json({ 
+        error: 'User already exists' 
+      });
+    }
+    next(error);
+  }
+});
+
+// Multiple async operations
+app.get('/user-profile/:id', async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    const posts = await Post.find({ userId: req.params.id });
+    const followers = await Follow.countDocuments({ 
+      following: req.params.id 
+    });
+
+    res.json({
+      user,
+      posts,
+      followerCount: followers
+    });
+  } catch (error) {
+    next(error);
+  }
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Async Wrapper -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="async-wrapper"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Async Wrapper
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            DRY approach using a wrapper function
+          </p>
+        </button>
+        <div id="async-wrapper" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">async-wrapper.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="async-wrapper-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="async-wrapper-code">// Async wrapper function
+const asyncHandler = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch(next);
+};
+
+// Alternative implementation
+const catchAsync = (fn) => {
+  return (req, res, next) => {
+    fn(req, res, next).catch(next);
+  };
+};
+
+// Usage with wrapper
+app.get('/users/:id', asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  
+  res.json(user);
+}));
+
+app.post('/users', asyncHandler(async (req, res) => {
+  const user = await User.create(req.body);
+  res.status(201).json(user);
+}));
+
+// Clean and readable routes
+app.get('/user-stats/:id', catchAsync(async (req, res) => {
+  const [user, postCount, followerCount] = await Promise.all([
+    User.findById(req.params.id),
+    Post.countDocuments({ userId: req.params.id }),
+    Follow.countDocuments({ following: req.params.id })
+  ]);
+
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  res.json({
+    user: {
+      ...user.toObject(),
+      stats: {
+        posts: postCount,
+        followers: followerCount
+      }
+    }
+  });
+}));</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Express Async Errors Package -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="express-async-errors"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Express Async Errors Package
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Automatic async error handling with a package
+          </p>
+        </button>
+        <div id="express-async-errors" class="expandable-content hidden p-6">
+          <div class="space-y-4">
+            <div
+              class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4"
+            >
+              <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                Installation
+              </h4>
+              <code
+                class="text-sm bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                >npm install express-async-errors</code
+              >
+            </div>
+
+            <div class="bg-gray-900 rounded-lg overflow-hidden">
+              <div
+                class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+              >
+                <span class="text-gray-300 text-sm"
+                  >express-async-errors.js</span
+                >
+                <button
+                  class="copy-btn text-gray-400 hover:text-white"
+                  data-copy="express-async-errors-code"
+                >
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+              <pre
+                class="p-4 text-gray-300 overflow-x-auto"
+              ><code id="express-async-errors-code">// Just require at the top of your main file
+require('express-async-errors');
+
+const express = require('express');
+const app = express();
+
+// Now async errors are automatically caught!
+app.get('/users/:id', async (req, res) => {
+  const user = await User.findById(req.params.id);
+  
+  if (!user) {
+    const error = new Error('User not found');
+    error.statusCode = 404;
+    throw error; // This will be caught automatically
+  }
+  
+  res.json(user);
+});
+
+app.post('/users', async (req, res) => {
+  // Any error thrown here will be caught
+  const user = await User.create(req.body);
+  res.status(201).json(user);
+});
+
+// Still need error handling middleware
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+  
+  res.status(statusCode).json({
+    success: false,
+    error: message
+  });
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Error Classes Section -->
+  <section id="custom-errors" class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Custom Error Classes
+    </h2>
+
+    <div class="space-y-8">
+      <!-- Base Error Class -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="base-error-class"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Base Error Class
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Custom error class with status codes and messages
+          </p>
+        </button>
+        <div id="base-error-class" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">errors/AppError.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="base-error-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="base-error-code">class AppError extends Error {
+  constructor(message, statusCode) {
+    super(message);
+    
+    this.statusCode = statusCode;
+    this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
+    this.isOperational = true;
+
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+module.exports = AppError;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specific Error Classes -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="specific-errors"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Specific Error Classes
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            Specialized error classes for different scenarios
+          </p>
+        </button>
+        <div id="specific-errors" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">errors/index.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="specific-errors-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="specific-errors-code">const AppError = require('./AppError');
+
+class ValidationError extends AppError {
+  constructor(message = 'Validation failed') {
+    super(message, 400);
+    this.name = 'ValidationError';
+  }
+}
+
+class NotFoundError extends AppError {
+  constructor(resource = 'Resource') {
+    super(`${resource} not found`, 404);
+    this.name = 'NotFoundError';
+  }
+}
+
+class UnauthorizedError extends AppError {
+  constructor(message = 'Unauthorized access') {
+    super(message, 401);
+    this.name = 'UnauthorizedError';
+  }
+}
+
+class ForbiddenError extends AppError {
+  constructor(message = 'Forbidden') {
+    super(message, 403);
+    this.name = 'ForbiddenError';
+  }
+}
+
+class ConflictError extends AppError {
+  constructor(message = 'Resource already exists') {
+    super(message, 409);
+    this.name = 'ConflictError';
+  }
+}
+
+class RateLimitError extends AppError {
+  constructor(message = 'Too many requests') {
+    super(message, 429);
+    this.name = 'RateLimitError';
+  }
+}
+
+module.exports = {
+  AppError,
+  ValidationError,
+  NotFoundError,
+  UnauthorizedError,
+  ForbiddenError,
+  ConflictError,
+  RateLimitError
+};</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Using Custom Errors -->
+      <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+        <button
+          class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg"
+          data-target="using-custom-errors"
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              Using Custom Errors
+            </h3>
+            <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">
+            How to use custom error classes in your routes
+          </p>
+        </button>
+        <div id="using-custom-errors" class="expandable-content hidden p-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+            <div
+              class="bg-gray-800 px-4 py-2 flex justify-between items-center"
+            >
+              <span class="text-gray-300 text-sm">using-custom-errors.js</span>
+              <button
+                class="copy-btn text-gray-400 hover:text-white"
+                data-copy="using-custom-errors-code"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <pre
+              class="p-4 text-gray-300 overflow-x-auto"
+            ><code id="using-custom-errors-code">const { 
+  NotFoundError, 
+  ValidationError, 
+  UnauthorizedError,
+  ConflictError 
+} = require('./errors');
+
+// User routes with custom errors
+app.get('/users/:id', async (req, res) => {
+  const user = await User.findById(req.params.id);
+  
+  if (!user) {
+    throw new NotFoundError('User');
+  }
+  
+  res.json(user);
+});
+
+app.post('/users', async (req, res) => {
+  const { error } = userSchema.validate(req.body);
+  if (error) {
+    throw new ValidationError(error.details[0].message);
+  }
+
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    throw new ConflictError('User with this email already exists');
+  }
+
+  const user = await User.create(req.body);
+  res.status(201).json(user);
+});
+
+// Protected route
+app.get('/profile', authenticateToken, async (req, res) => {
+  if (!req.user) {
+    throw new UnauthorizedError('Invalid token');
+  }
+
+  const user = await User.findById(req.user.id);
+  if (!user) {
+    throw new NotFoundError('User profile');
+  }
+
+  res.json(user);
+});
+
+// Admin only route
+app.delete('/users/:id', authenticateToken, async (req, res) => {
+  if (req.user.role !== 'admin') {
+    throw new ForbiddenError('Admin access required');
+  }
+
+  const user = await User.findByIdAndDelete(req.params.id);
+  if (!user) {
+    throw new NotFoundError('User');
+  }
+
+  res.status(204).send();
+});</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Production Error Handling -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Production Error Handling
+    </h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="space-y-6">
+        <div
+          class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+        >
+          <h3
+            class="text-lg font-semibold text-green-900 dark:text-green-100 mb-4"
+          >
+            ✅ Production Best Practices
+          </h3>
+          <ul class="space-y-2 text-green-700 dark:text-green-300 text-sm">
+            <li>• Never expose stack traces to clients</li>
+            <li>• Log all errors with proper context</li>
+            <li>• Use structured logging (JSON format)</li>
+            <li>• Implement error monitoring (Sentry, etc.)</li>
+            <li>• Set up alerting for critical errors</li>
+            <li>• Use health checks and circuit breakers</li>
+            <li>• Graceful shutdown on uncaught exceptions</li>
+          </ul>
+        </div>
+
+        <div
+          class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+        >
+          <h3
+            class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4"
+          >
+            🔍 Error Monitoring
+          </h3>
+          <div class="space-y-3">
+            <div>
+              <h4 class="font-medium text-blue-800 dark:text-blue-200">
+                Sentry
+              </h4>
+              <code
+                class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                >npm install @sentry/node</code
+              >
+            </div>
+            <div>
+              <h4 class="font-medium text-blue-800 dark:text-blue-200">
+                LogRocket
+              </h4>
+              <code
+                class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                >npm install logrocket</code
+              >
+            </div>
+            <div>
+              <h4 class="font-medium text-blue-800 dark:text-blue-200">
+                Bugsnag
+              </h4>
+              <code
+                class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                >npm install @bugsnag/js</code
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-gray-900 rounded-lg overflow-hidden">
+          <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+            <span class="text-gray-300 text-sm"
+              >production-error-handler.js</span
+            >
+            <button
+              class="copy-btn text-gray-400 hover:text-white"
+              data-copy="production-error-code"
+            >
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <pre
+            class="p-4 text-gray-300 overflow-x-auto text-sm"
+          ><code id="production-error-code">const sendErrorDev = (err, res) => {
+  res.status(err.statusCode).json({
+    status: err.status,
+    error: err,
+    message: err.message,
+    stack: err.stack
+  });
+};
+
+const sendErrorProd = (err, res) => {
+  // Operational errors: send message to client
+  if (err.isOperational) {
+    res.status(err.statusCode).json({
+      status: err.status,
+      message: err.message
+    });
+  } else {
+    // Programming errors: don't leak details
+    console.error('ERROR 💥', err);
+    
+    res.status(500).json({
+      status: 'error',
+      message: 'Something went wrong!'
+    });
+  }
+};
+
+module.exports = (err, req, res, next) => {
+  err.statusCode = err.statusCode || 500;
+  err.status = err.status || 'error';
+
+  if (process.env.NODE_ENV === 'development') {
+    sendErrorDev(err, res);
+  } else {
+    sendErrorProd(err, res);
+  }
+};</code></pre>
+        </div>
+
+        <div
+          class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6"
+        >
+          <h3
+            class="text-lg font-semibold text-yellow-900 dark:text-yellow-100 mb-4"
+          >
+            ⚠️ Global Error Handlers
+          </h3>
+          <div class="bg-gray-900 rounded-lg overflow-hidden">
+            <pre
+              class="p-3 text-gray-300 overflow-x-auto text-xs"
+            ><code>// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+  console.log('UNHANDLED REJECTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
+});</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Reference -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      Quick Reference
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div
+        class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-red-900 dark:text-red-100 mb-2">400</h3>
+        <p class="text-red-700 dark:text-red-300 text-sm">Bad Request</p>
+      </div>
+      <div
+        class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-orange-900 dark:text-orange-100 mb-2">
+          401
+        </h3>
+        <p class="text-orange-700 dark:text-orange-300 text-sm">Unauthorized</p>
+      </div>
+      <div
+        class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">
+          403
+        </h3>
+        <p class="text-yellow-700 dark:text-yellow-300 text-sm">Forbidden</p>
+      </div>
+      <div
+        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">404</h3>
+        <p class="text-blue-700 dark:text-blue-300 text-sm">Not Found</p>
+      </div>
+      <div
+        class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">
+          409
+        </h3>
+        <p class="text-purple-700 dark:text-purple-300 text-sm">Conflict</p>
+      </div>
+      <div
+        class="bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-pink-900 dark:text-pink-100 mb-2">429</h3>
+        <p class="text-pink-700 dark:text-pink-300 text-sm">
+          Too Many Requests
+        </p>
+      </div>
+      <div
+        class="bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">500</h3>
+        <p class="text-gray-700 dark:text-gray-300 text-sm">
+          Internal Server Error
+        </p>
+      </div>
+      <div
+        class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-4 text-center"
+      >
+        <h3 class="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">
+          503
+        </h3>
+        <p class="text-indigo-700 dark:text-indigo-300 text-sm">
+          Service Unavailable
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

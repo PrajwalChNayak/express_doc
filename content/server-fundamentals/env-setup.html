@@ -1,0 +1,488 @@
+<div class="content-section">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Development Environment Setup</h1>
+    
+    <div class="prose max-w-none">
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            Setting up a proper development environment is crucial for efficient backend development. 
+            This guide will walk you through setting up Node.js, package managers, development tools, and best practices.
+        </p>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">What You'll Learn</h3>
+            <ul class="list-disc list-inside text-blue-800 dark:text-blue-200 space-y-2">
+                <li>Install and configure Node.js and npm</li>
+                <li>Set up essential development tools</li>
+                <li>Configure environment variables and secrets</li>
+                <li>Implement debugging and testing workflows</li>
+            </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Node.js Installation</h2>
+        
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Node.js is the runtime environment for executing JavaScript on the server. Let's install it using the recommended methods.
+        </p>
+
+        <div class="tabbed-content mb-6" data-tabbed>
+            <div class="tab-buttons flex space-x-2 mb-4">
+                <button class="tab-button active bg-blue-500 text-white px-4 py-2 rounded" data-tab="nvm">NVM (Recommended)</button>
+                <button class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded" data-tab="official">Official Installer</button>
+                <button class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded" data-tab="package">Package Manager</button>
+            </div>
+            
+            <div class="tab-content active" data-content="nvm">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Using Node Version Manager (NVM)</h4>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">NVM allows you to install and switch between multiple Node.js versions.</p>
+                
+                <div class="code-block mb-4">
+                    <div class="code-header">
+                        <span>Install NVM (macOS/Linux)</span>
+                        <button class="copy-btn" data-copy="nvm-install">Copy</button>
+                    </div>
+                    <pre><code id="nvm-install"># Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# Reload your terminal or run:
+source ~/.bashrc
+
+# Install latest LTS Node.js
+nvm install --lts
+nvm use --lts
+nvm alias default node</code></pre>
+                </div>
+
+                <div class="code-block mb-4">
+                    <div class="code-header">
+                        <span>NVM Commands</span>
+                        <button class="copy-btn" data-copy="nvm-commands">Copy</button>
+                    </div>
+                    <pre><code id="nvm-commands"># List available versions
+nvm list-remote
+
+# Install specific version
+nvm install 18.17.0
+
+# Use specific version
+nvm use 18.17.0
+
+# Set default version
+nvm alias default 18.17.0
+
+# Check current version
+node --version</code></pre>
+                </div>
+            </div>
+            
+            <div class="tab-content hidden" data-content="official">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Official Node.js Installer</h4>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Download from the official Node.js website.</p>
+                
+                <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-4">
+                    <p class="text-yellow-800 dark:text-yellow-200">
+                        <strong>Note:</strong> Download the LTS version from <a href="https://nodejs.org" class="text-blue-600 hover:underline">nodejs.org</a>
+                    </p>
+                </div>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Verify Installation</span>
+                        <button class="copy-btn" data-copy="verify-node">Copy</button>
+                    </div>
+                    <pre><code id="verify-node"># Check Node.js version
+node --version
+
+# Check npm version
+npm --version</code></pre>
+                </div>
+            </div>
+            
+            <div class="tab-content hidden" data-content="package">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Package Managers</h4>
+                
+                <div class="space-y-4">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Ubuntu/Debian</span>
+                            <button class="copy-btn" data-copy="ubuntu-install">Copy</button>
+                        </div>
+                        <pre><code id="ubuntu-install"># Update package index
+sudo apt update
+
+# Install Node.js and npm
+sudo apt install nodejs npm
+
+# Verify installation
+node --version
+npm --version</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>macOS (Homebrew)</span>
+                            <button class="copy-btn" data-copy="macos-install">Copy</button>
+                        </div>
+                        <pre><code id="macos-install"># Install Node.js
+brew install node
+
+# Verify installation
+node --version
+npm --version</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Package Managers</h2>
+        
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Choose a package manager for dependency management. Each has its own benefits.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">npm</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Default package manager that comes with Node.js</p>
+                <div class="code-block text-xs">
+                    <pre><code># Install dependencies
+npm install
+
+# Add dependency
+npm install express
+
+# Global install
+npm install -g nodemon</code></pre>
+                </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Yarn</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Faster alternative with better caching</p>
+                <div class="code-block text-xs">
+                    <pre><code># Install Yarn
+npm install -g yarn
+
+# Install dependencies
+yarn install
+
+# Add dependency
+yarn add express</code></pre>
+                </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">pnpm</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Efficient package manager with shared storage</p>
+                <div class="code-block text-xs">
+                    <pre><code># Install pnpm
+npm install -g pnpm
+
+# Install dependencies
+pnpm install
+
+# Add dependency
+pnpm add express</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Essential Development Tools</h2>
+
+        <div class="expandable-section mb-6" data-expandable>
+            <button class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white">
+                Code Editor Setup (VS Code)
+                <span class="float-right">+</span>
+            </button>
+            <div class="expandable-content hidden mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Recommended Extensions</h4>
+                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 mb-4">
+                    <li><strong>ES7+ React/Redux/React-Native snippets</strong> - Code snippets</li>
+                    <li><strong>Prettier</strong> - Code formatter</li>
+                    <li><strong>ESLint</strong> - JavaScript linter</li>
+                    <li><strong>Thunder Client</strong> - API testing</li>
+                    <li><strong>Auto Rename Tag</strong> - HTML/XML tag renaming</li>
+                    <li><strong>GitLens</strong> - Git integration</li>
+                </ul>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>VS Code Settings (settings.json)</span>
+                        <button class="copy-btn" data-copy="vscode-settings">Copy</button>
+                    </div>
+                    <pre><code id="vscode-settings">{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">Development Dependencies</h3>
+        
+        <div class="code-block mb-6">
+            <div class="code-header">
+                <span>Essential Dev Dependencies</span>
+                <button class="copy-btn" data-copy="dev-deps">Copy</button>
+            </div>
+            <pre><code id="dev-deps"># Development server with auto-restart
+npm install -D nodemon
+
+# Code linting
+npm install -D eslint
+
+# Code formatting
+npm install -D prettier
+
+# Testing framework
+npm install -D jest
+
+# Environment variables
+npm install dotenv
+
+# HTTP client for testing
+npm install -D supertest</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Project Structure</h2>
+        
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Here's a recommended project structure for Node.js/Express applications:
+        </p>
+
+        <div class="code-block mb-6">
+            <div class="code-header">
+                <span>Project Structure</span>
+                <button class="copy-btn" data-copy="project-structure">Copy</button>
+            </div>
+            <pre><code id="project-structure">my-backend-app/
+├── src/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   └── app.js
+├── tests/
+│   ├── unit/
+│   └── integration/
+├── config/
+│   ├── database.js
+│   └── auth.js
+├── public/
+├── docs/
+├── .env.example
+├── .env
+├── .gitignore
+├── package.json
+├── README.md
+└── server.js</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Environment Variables</h2>
+        
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Environment variables help manage configuration across different environments securely.
+        </p>
+
+        <div class="code-block mb-4">
+            <div class="code-header">
+                <span>.env.example</span>
+                <button class="copy-btn" data-copy="env-example">Copy</button>
+            </div>
+            <pre><code id="env-example"># Server Configuration
+PORT=3000
+NODE_ENV=development
+
+# Database
+DATABASE_URL=mongodb://localhost:27017/myapp
+DB_NAME=myapp
+
+# Authentication
+JWT_SECRET=your-super-secret-jwt-key
+JWT_EXPIRES_IN=7d
+
+# External APIs
+STRIPE_SECRET_KEY=sk_test_...
+SENDGRID_API_KEY=SG...
+
+# File Upload
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret</code></pre>
+        </div>
+
+        <div class="code-block mb-6">
+            <div class="code-header">
+                <span>Loading Environment Variables</span>
+                <button class="copy-btn" data-copy="env-config">Copy</button>
+            </div>
+            <pre><code id="env-config">// config/env.js
+require('dotenv').config();
+
+const config = {
+    port: process.env.PORT || 3000,
+    nodeEnv: process.env.NODE_ENV || 'development',
+    databaseUrl: process.env.DATABASE_URL,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d'
+};
+
+// Validate required environment variables
+const requiredEnvVars = ['DATABASE_URL', 'JWT_SECRET'];
+requiredEnvVars.forEach(envVar => {
+    if (!process.env[envVar]) {
+        console.error(`❌ Missing required environment variable: ${envVar}`);
+        process.exit(1);
+    }
+});
+
+module.exports = config;</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Scripts and Automation</h2>
+        
+        <div class="code-block mb-6">
+            <div class="code-header">
+                <span>package.json Scripts</span>
+                <button class="copy-btn" data-copy="package-scripts">Copy</button>
+            </div>
+            <pre><code id="package-scripts">{
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
+        "format": "prettier --write src/",
+        "build": "npm run lint && npm run test",
+        "prepare": "husky install"
+    }
+}</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Git Configuration</h2>
+        
+        <div class="code-block mb-4">
+            <div class="code-header">
+                <span>.gitignore</span>
+                <button class="copy-btn" data-copy="gitignore">Copy</button>
+            </div>
+            <pre><code id="gitignore"># Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Debugging Setup</h2>
+        
+        <div class="expandable-section mb-6" data-expandable>
+            <button class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white">
+                VS Code Debugging Configuration
+                <span class="float-right">+</span>
+            </button>
+            <div class="expandable-content hidden mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>.vscode/launch.json</span>
+                        <button class="copy-btn" data-copy="debug-config">Copy</button>
+                    </div>
+                    <pre><code id="debug-config">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Program",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/server.js",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "integratedTerminal",
+            "restart": true,
+            "runtimeExecutable": "nodemon",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "port": 9229
+        }
+    ]
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">Quick Start Checklist</h3>
+            <ul class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2">
+                <li>✅ Install Node.js (preferably via NVM)</li>
+                <li>✅ Choose and configure a package manager</li>
+                <li>✅ Set up your code editor with extensions</li>
+                <li>✅ Create project structure and initialize git</li>
+                <li>✅ Configure environment variables</li>
+                <li>✅ Set up linting, formatting, and testing</li>
+                <li>✅ Configure debugging tools</li>
+            </ul>
+        </div>
+
+        <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-yellow-900 dark:text-yellow-100 mb-3">Next Steps</h3>
+            <p class="text-yellow-800 dark:text-yellow-200">
+                With your development environment set up, you're ready to start building backend applications. 
+                Next, we'll explore security fundamentals to ensure your applications are built with security in mind from the start.
+            </p>
+        </div>
+    </div>
+</div>

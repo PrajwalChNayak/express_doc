@@ -1,0 +1,671 @@
+<div class="content-section">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+    Express.js Installation & Setup
+  </h1>
+
+  <div class="prose max-w-none">
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+      Learn how to install Express.js, set up your development environment, and
+      create your first Express application with proper configuration and best
+      practices.
+    </p>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
+        Prerequisites
+      </h3>
+      <ul
+        class="list-disc list-inside text-blue-800 dark:text-blue-200 space-y-2"
+      >
+        <li>Node.js (v14 or higher) installed on your system</li>
+        <li>npm or yarn package manager</li>
+        <li>Basic knowledge of JavaScript and Node.js</li>
+        <li>Code editor (VS Code, Sublime Text, etc.)</li>
+      </ul>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Installation Methods
+    </h2>
+
+    <div class="tabbed-content mb-6" data-tabbed>
+      <div class="tab-buttons flex space-x-2 mb-4">
+        <button
+          class="tab-button active bg-blue-500 text-white px-4 py-2 rounded"
+          data-tab="npm"
+        >
+          npm
+        </button>
+        <button
+          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded"
+          data-tab="yarn"
+        >
+          Yarn
+        </button>
+        <button
+          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded"
+          data-tab="pnpm"
+        >
+          pnpm
+        </button>
+      </div>
+
+      <div class="tab-content active" data-content="npm">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Using npm
+        </h4>
+
+        <div class="code-block mb-4">
+          <div class="code-header">
+            <span>Install Express.js</span>
+            <button class="copy-btn" data-copy="npm-install">Copy</button>
+          </div>
+          <pre><code id="npm-install"># Create new project directory
+mkdir my-express-app
+cd my-express-app
+
+# Initialize npm project
+npm init -y
+
+# Install Express.js
+npm install express
+
+# Install development dependencies
+npm install -D nodemon
+
+# Verify installation
+npm list express</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" data-content="yarn">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Using Yarn
+        </h4>
+
+        <div class="code-block mb-4">
+          <div class="code-header">
+            <span>Install Express.js with Yarn</span>
+            <button class="copy-btn" data-copy="yarn-install">Copy</button>
+          </div>
+          <pre><code id="yarn-install"># Create new project directory
+mkdir my-express-app
+cd my-express-app
+
+# Initialize yarn project
+yarn init -y
+
+# Install Express.js
+yarn add express
+
+# Install development dependencies
+yarn add -D nodemon
+
+# Verify installation
+yarn list express</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" data-content="pnpm">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          Using pnpm
+        </h4>
+
+        <div class="code-block mb-4">
+          <div class="code-header">
+            <span>Install Express.js with pnpm</span>
+            <button class="copy-btn" data-copy="pnpm-install">Copy</button>
+          </div>
+          <pre><code id="pnpm-install"># Create new project directory
+mkdir my-express-app
+cd my-express-app
+
+# Initialize pnpm project
+pnpm init
+
+# Install Express.js
+pnpm add express
+
+# Install development dependencies
+pnpm add -D nodemon
+
+# Verify installation
+pnpm list express</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Project Setup
+    </h2>
+
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
+      1. Project Structure
+    </h3>
+
+    <div class="code-block mb-6">
+      <div class="code-header">
+        <span>Create Project Structure</span>
+        <button class="copy-btn" data-copy="project-structure">Copy</button>
+      </div>
+      <pre><code id="project-structure"># Create directories
+mkdir src routes middleware controllers models utils config tests
+
+# Create main files
+touch src/app.js src/server.js
+touch .env .env.example .gitignore
+touch README.md
+
+# Your project structure should look like:
+my-express-app/
+├── src/
+│   ├── app.js           # Express app configuration
+│   └── server.js        # Server startup
+├── routes/              # Route definitions
+├── middleware/          # Custom middleware
+├── controllers/         # Route handlers
+├── models/             # Data models
+├── utils/              # Utility functions
+├── config/             # Configuration files
+├── tests/              # Test files
+├── .env                # Environment variables
+├── .env.example        # Environment template
+├── .gitignore          # Git ignore rules
+├── package.json        # Project dependencies
+└── README.md           # Project documentation</code></pre>
+    </div>
+
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
+      2. Package.json Configuration
+    </h3>
+
+    <div class="code-block mb-6">
+      <div class="code-header">
+        <span>package.json</span>
+        <button class="copy-btn" data-copy="package-json">Copy</button>
+      </div>
+      <pre><code id="package-json">{
+    "name": "my-express-app",
+    "version": "1.0.0",
+    "description": "Express.js application",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix"
+    },
+    "keywords": ["express", "node", "api"],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "dotenv": "^16.3.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1",
+        "jest": "^29.7.0",
+        "eslint": "^8.50.0",
+        "supertest": "^6.3.3"
+    },
+    "engines": {
+        "node": ">=14.0.0",
+        "npm": ">=6.0.0"
+    }
+}</code></pre>
+    </div>
+
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
+      3. Basic Express Application
+    </h3>
+
+    <div class="expandable-section mb-6" data-expandable>
+      <button
+        class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white"
+      >
+        Create app.js - Application Configuration
+        <span class="float-right">+</span>
+      </button>
+      <div
+        class="expandable-content hidden mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+      >
+        <div class="code-block">
+          <div class="code-header">
+            <span>src/app.js</span>
+            <button class="copy-btn" data-copy="app-js">Copy</button>
+          </div>
+          <pre><code id="app-js">const express = require('express');
+const path = require('path');
+require('dotenv').config();
+
+const app = express();
+
+// Trust proxy if behind reverse proxy
+app.set('trust proxy', 1);
+
+// View engine setup (optional)
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'ejs');
+
+// Middleware for parsing requests
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Static files
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Custom middleware
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+    next();
+});
+
+// Routes
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Welcome to Express.js API!',
+        version: '1.0.0',
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
+
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'OK',
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
+    });
+});
+
+// API routes (to be added later)
+// app.use('/api/users', require('./routes/users'));
+// app.use('/api/auth', require('./routes/auth'));
+
+// 404 handler
+app.use('*', (req, res) => {
+    res.status(404).json({
+        error: 'Route not found',
+        method: req.method,
+        url: req.originalUrl
+    });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error('Error:', err.stack);
+    
+    res.status(err.status || 500).json({
+        error: process.env.NODE_ENV === 'production' 
+            ? 'Internal server error' 
+            : err.message,
+        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    });
+});
+
+module.exports = app;</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="expandable-section mb-6" data-expandable>
+      <button
+        class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white"
+      >
+        Create server.js - Server Startup
+        <span class="float-right">+</span>
+      </button>
+      <div
+        class="expandable-content hidden mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+      >
+        <div class="code-block">
+          <div class="code-header">
+            <span>src/server.js</span>
+            <button class="copy-btn" data-copy="server-js">Copy</button>
+          </div>
+          <pre><code id="server-js">const app = require('./app');
+
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || 'localhost';
+
+// Graceful shutdown handler
+const gracefulShutdown = (signal) => {
+    console.log(`\n🛑 Received ${signal}. Shutting down gracefully...`);
+    
+    server.close(() => {
+        console.log('✅ HTTP server closed.');
+        process.exit(0);
+    });
+    
+    // Force close after 10 seconds
+    setTimeout(() => {
+        console.error('❌ Could not close connections in time, forcefully shutting down');
+        process.exit(1);
+    }, 10000);
+};
+
+// Start server
+const server = app.listen(PORT, HOST, () => {
+    console.log(`🚀 Server running on http://${HOST}:${PORT}`);
+    console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`🕐 Started at: ${new Date().toISOString()}`);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+    gracefulShutdown('UNHANDLED_REJECTION');
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
+    gracefulShutdown('UNCAUGHT_EXCEPTION');
+});
+
+// Handle termination signals
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+module.exports = server;</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
+      4. Environment Configuration
+    </h3>
+
+    <div class="code-block mb-4">
+      <div class="code-header">
+        <span>.env.example</span>
+        <button class="copy-btn" data-copy="env-example">Copy</button>
+      </div>
+      <pre><code id="env-example"># Server Configuration
+NODE_ENV=development
+PORT=3000
+HOST=localhost
+
+# Database
+DATABASE_URL=mongodb://localhost:27017/myapp
+
+# Authentication
+JWT_SECRET=your-super-secret-jwt-key
+JWT_EXPIRES_IN=7d
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# CORS
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001
+
+# Logging
+LOG_LEVEL=info</code></pre>
+    </div>
+
+    <div class="code-block mb-6">
+      <div class="code-header">
+        <span>.gitignore</span>
+        <button class="copy-btn" data-copy="gitignore">Copy</button>
+      </div>
+      <pre><code id="gitignore"># Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build output
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/</code></pre>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Testing Your Setup
+    </h2>
+
+    <div class="code-block mb-6">
+      <div class="code-header">
+        <span>Start Development Server</span>
+        <button class="copy-btn" data-copy="start-server">Copy</button>
+      </div>
+      <pre><code id="start-server"># Copy environment variables
+cp .env.example .env
+
+# Start development server
+npm run dev
+
+# Or start production server
+npm start
+
+# Test the API
+curl http://localhost:3000
+curl http://localhost:3000/health</code></pre>
+    </div>
+
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
+      Expected Response
+    </h3>
+
+    <div class="code-block mb-6">
+      <div class="code-header">
+        <span>API Response</span>
+        <button class="copy-btn" data-copy="api-response">Copy</button>
+      </div>
+      <pre><code id="api-response"># GET http://localhost:3000
+{
+    "message": "Welcome to Express.js API!",
+    "version": "1.0.0",
+    "timestamp": "2023-10-15T10:30:00.000Z",
+    "environment": "development"
+}
+
+# GET http://localhost:3000/health
+{
+    "status": "OK",
+    "uptime": 42.123,
+    "timestamp": "2023-10-15T10:30:00.000Z"
+}</code></pre>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Development Tools Setup
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          🔄 Auto-restart with Nodemon
+        </h4>
+        <div class="code-block text-sm">
+          <pre><code># Install nodemon globally (optional)
+npm install -g nodemon
+
+# Or use npx
+npx nodemon src/server.js
+
+# Configure nodemon.json
+{
+    "watch": ["src"],
+    "ext": "js,json",
+    "ignore": ["tests/"],
+    "exec": "node src/server.js"
+}</code></pre>
+        </div>
+      </div>
+
+      <div
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
+          🐛 Debugging Setup
+        </h4>
+        <div class="code-block text-sm">
+          <pre><code># Debug mode
+DEBUG=app:* node src/server.js
+
+# VS Code launch.json
+{
+    "name": "Debug Express",
+    "type": "node",
+    "request": "launch",
+    "program": "${workspaceFolder}/src/server.js",
+    "env": { "NODE_ENV": "development" },
+    "restart": true,
+    "console": "integratedTerminal"
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Common Installation Issues
+    </h2>
+
+    <div class="space-y-4 mb-8">
+      <div class="expandable-section" data-expandable>
+        <button
+          class="expandable-header bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 w-full text-left p-4 rounded-lg font-semibold text-red-900 dark:text-red-100"
+        >
+          Node.js Version Compatibility
+          <span class="float-right">+</span>
+        </button>
+        <div
+          class="expandable-content hidden mt-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+        >
+          <p class="text-red-800 dark:text-red-200 mb-3">
+            <strong>Problem:</strong> Express.js requires Node.js v14 or higher.
+          </p>
+          <div class="code-block">
+            <pre><code># Check Node.js version
+node --version
+
+# Update Node.js using nvm
+nvm install --lts
+nvm use --lts
+
+# Or using n (Node.js version manager)
+npm install -g n
+n latest</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable-section" data-expandable>
+        <button
+          class="expandable-header bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 w-full text-left p-4 rounded-lg font-semibold text-yellow-900 dark:text-yellow-100"
+        >
+          Permission Issues
+          <span class="float-right">+</span>
+        </button>
+        <div
+          class="expandable-content hidden mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg"
+        >
+          <p class="text-yellow-800 dark:text-yellow-200 mb-3">
+            <strong>Problem:</strong> Permission denied when installing packages
+            globally.
+          </p>
+          <div class="code-block">
+            <pre><code># Fix npm permissions
+npm config set prefix ~/.npm-global
+export PATH=~/.npm-global/bin:$PATH
+
+# Or use npx instead of global installs
+npx express-generator my-app
+
+# For macOS/Linux with homebrew
+brew install node</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8"
+    >
+      <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">
+        ✅ Installation Checklist
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ul
+          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+        >
+          <li>Node.js v14+ installed</li>
+          <li>Express.js package installed</li>
+          <li>Project structure created</li>
+          <li>Basic app.js and server.js files</li>
+        </ul>
+        <ul
+          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+        >
+          <li>Environment variables configured</li>
+          <li>Development scripts in package.json</li>
+          <li>Nodemon for auto-restart</li>
+          <li>Server starts without errors</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+    >
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
+        🎉 Congratulations!
+      </h3>
+      <p class="text-blue-800 dark:text-blue-200 mb-3">
+        You've successfully set up your Express.js development environment. Your
+        server should be running and responding to requests.
+      </p>
+      <p class="text-blue-800 dark:text-blue-200">
+        <strong>Next Steps:</strong> Learn about routing, middleware, and
+        building your first API endpoints.
+      </p>
+    </div>
+  </div>
+</div>

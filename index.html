@@ -1,507 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Express.js Documentation</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    .animate-fadeIn {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-    
-    .animate-float {
-      animation: float 4s ease-in-out infinite;
-    }
-    
-    .animate-pulse {
-      animation: pulse 2s ease-in-out infinite;
-    }
-    
-    .animate-slideInLeft {
-      animation: slideInLeft 0.8s ease-out forwards;
-    }
-    
-    .animate-slideInRight {
-      animation: slideInRight 0.8s ease-out forwards;
-    }
-    
-    .animate-rotate {
-      animation: rotate 10s linear infinite;
-    }
-    
-    .animate-bounce {
-      animation: bounce 2s ease-in-out infinite;
-    }
-    
-    .stagger-delay-1 { animation-delay: 0.2s; }
-    .stagger-delay-2 { animation-delay: 0.4s; }
-    .stagger-delay-3 { animation-delay: 0.6s; }
-    .stagger-delay-4 { animation-delay: 0.8s; }
-    
-    .hero-pattern {
-      background-color: #2d3748;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%234a5568' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
-    }
-    
-    .glow {
-      box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
-    }
-    
-    .rotate-icon {
-      transition: transform 0.3s ease;
-    }
-    
-    .card-link:hover .rotate-icon {
-      transform: rotate(90deg);
-    }
-    
-    .parallax-bg {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .parallax-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-      opacity: 0.3;
-      z-index: -1;
-      transform: translateZ(-1px) scale(2);
-      transition: transform 0.5s ease;
-    }
-  </style>
-</head>
-<body class="bg-gray-900 min-h-screen flex flex-col">
-  <!-- Header will be inserted here by JavaScript -->
-  <div id="header"></div>
-  
-  <main class="container mx-auto px-4 py-8 flex-grow" style="margin-top: -10px;">
-    <!-- Background particles -->
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full opacity-60 animate-pulse"></div>
-      <div class="absolute top-1/3 left-1/2 w-3 h-3 bg-green-400 rounded-full opacity-60 animate-float"></div>
-      <div class="absolute top-2/3 left-1/5 w-2 h-2 bg-green-500 rounded-full opacity-60 animate-pulse"></div>
-      <div class="absolute top-1/2 left-3/4 w-3 h-3 bg-green-300 rounded-full opacity-60 animate-float"></div>
-      <div class="absolute top-3/4 left-2/3 w-2 h-2 bg-green-600 rounded-full opacity-60 animate-pulse"></div>
-      <div class="absolute top-1/5 left-4/5 w-4 h-4 bg-green-500 rounded-full opacity-40 animate-float"></div>
-      <div class="absolute top-3/5 left-1/3 w-3 h-3 bg-green-400 rounded-full opacity-40 animate-pulse"></div>
-    </div>
-    <!-- Hero section with enhanced animation -->
-    <section class="relative mb-12 py-16 rounded-lg overflow-hidden">
-      <!-- Custom background gradient matching header/footer style -->
-      <div class="absolute inset-0 bg-gradient-to-br from-green-900 via-green-800 to-green-700 opacity-80"></div>
-      <!-- Background pattern like in header/footer -->
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ij48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTlWOGgtMnYxN2gyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-10"></div>
-      
-      <!-- Animated background particles -->
-      <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-4 left-1/4 w-8 h-8 bg-green-400 rounded-full opacity-20 animate-float"></div>
-        <div class="absolute top-1/4 right-1/4 w-12 h-12 bg-green-300 rounded-full opacity-20 animate-float stagger-delay-1"></div>
-        <div class="absolute bottom-1/4 left-1/3 w-10 h-10 bg-green-400 rounded-full opacity-20 animate-float stagger-delay-2"></div>
-        <div class="absolute bottom-1/3 right-1/3 w-6 h-6 bg-green-200 rounded-full opacity-20 animate-float stagger-delay-3"></div>
-        <div class="absolute top-1/2 left-1/5 w-14 h-14 bg-green-500 rounded-full opacity-20 animate-float stagger-delay-4"></div>
-      </div>
-      
-      <!-- Content -->
-      <div class="text-center animate-fadeIn relative z-10">
-        <!-- No need for title - header already has it -->
-        <p class="text-2xl text-green-100 max-w-3xl mx-auto mt-4">
-          A comprehensive guide to Express.js, the fast, unopinionated, minimalist web framework for Node.js
-        </p>
-        
-        <!-- Animated code example -->
-        <div class="mt-10 max-w-lg mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-green-500 border-opacity-20">
-          <div class="flex items-center bg-gray-900 px-4 py-2">
-            <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-            <span class="ml-4 text-gray-400 text-sm">server.js</span>
-          </div>
-          <div class="p-4 text-left font-mono text-sm">
-            <div class="text-blue-400">const <span class="text-green-400">express</span> = require(<span class="text-yellow-300">'express'</span>);</div>
-            <div class="text-blue-400">const <span class="text-green-400">app</span> = express();</div>
-            <div class="my-2 text-gray-400">// Define routes</div>
-            <div class="text-green-400">app<span class="text-white">.</span><span class="text-purple-400">get</span>(<span class="text-yellow-300">'/'</span>, <span class="text-orange-400">(req, res)</span> => {</div>
-            <div class="text-white ml-4"><span class="text-purple-400">res.send</span>(<span class="text-yellow-300">'Hello World!'</span>);</div>
-            <div class="text-white">});</div>
-            <div class="mt-2 text-green-400">app<span class="text-white">.</span><span class="text-purple-400">listen</span>(<span class="text-orange-400">3000</span>, <span class="text-orange-400">()</span> => {</div>
-            <div class="text-gray-300 ml-4">console.log(<span class="text-yellow-300">'Server running on port 3000'</span>);</div>
-            <div class="text-white">});</div>
-          </div>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend Development Docs</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Prism.js for syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css"
+    />
+    <!-- Additional Prism.js languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- App Container -->
+    <div id="app" class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="hidden md:block w-64 bg-gray-100 dark:bg-gray-800 overflow-y-auto transition-all duration-300"
+      >
+        <div class="p-4">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search documentation..."
+            class="w-full p-2 rounded border dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
-        
-        <div class="mt-12 flex justify-center">
-          <div class="relative">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-green-300 rounded-full blur opacity-75 animate-pulse"></div>
-            <img src="https://expressjs.com/images/express-facebook-share.png" alt="Express.js Logo" class="h-24 relative rounded-full bg-gray-900 p-2 mx-auto animate-float">
-          </div>
-        </div>
+        <nav class="px-4 pb-4" id="sidebar-nav">
+          <!-- Navigation will be dynamically populated -->
+        </nav>
+      </aside>
 
-        <!-- Wave separator like in footer -->
-        <div class="relative h-10 mt-12">
-          <div class="absolute bottom-0 left-0 w-full h-4 overflow-hidden">
-            <div class="flex w-full h-full">
-              <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE0NDAuNTIgODEuNTE5Yy0yODcuMDMgMC01NzQuMDUgMzguNDgxLTcyMC41OC0uMDAyLTE0Ni41Mi0zOC40ODQtNDMzLjU1IDAtNzIwLjU4IDBWMTIwaDEyMjEuMlY4MS41MTl6IiBmaWxsPSIjMjEyZjJiIiBmaWxsLW9wYWNpdHk9Ii44Ii8+PC9zdmc+')] bg-repeat-x animate-wave"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-gradient-to-b from-gray-900 to-gray-800 rounded-lg shadow-2xl p-8 mb-12 max-w-4xl mx-auto parallax-bg">
-      <h3 class="text-3xl font-semibold mb-8 text-center text-white relative">
-        <span class="relative inline-block">
-          <span class="absolute inset-0 bg-gradient-to-r from-green-500 to-green-300 blur-md opacity-50"></span>
-          <span class="relative">Welcome to Express.js - A Beginner's Guide</span>
-        </span>
-      </h3>
-      
-      <div class="space-y-16 text-gray-200">
-        <!-- Server section with enhanced animation -->
-        <div class="flex flex-col md:flex-row items-center gap-6 relative group">
-          <div class="md:w-2/3 animate-slideInLeft">
-            <div class="relative">
-              <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
-              <div class="relative bg-gray-800 p-6 rounded-lg">
-                <h4 class="text-2xl font-medium text-blue-400 mb-3 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                  What is a Server?
-                </h4>
-                <p class="text-gray-300">A server is like a computer program that waits for requests and sends back responses. Think of it as a restaurant waiter - it takes orders from customers (web browsers or apps), delivers those orders to the kitchen (processes the requests), and brings back food (data) to the customers.</p>
-              </div>
-            </div>
-          </div>
-          <div class="md:w-1/3 animate-slideInRight">
-            <div class="bg-gradient-to-br from-blue-600 to-blue-400 p-1 rounded-full">
-              <div class="bg-gray-900 rounded-full p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/4149/4149472.png" alt="Server Illustration" class="w-full max-w-[200px] mx-auto rounded-full shadow-lg animate-float">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- API section with enhanced animation -->
-        <div class="flex flex-col md:flex-row-reverse items-center gap-6 relative group">
-          <div class="md:w-2/3 animate-slideInRight">
-            <div class="relative">
-              <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
-              <div class="relative bg-gray-800 p-6 rounded-lg">
-                <h4 class="text-2xl font-medium text-green-400 mb-3 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  What is an API?
-                </h4>
-                <p class="text-gray-300">API stands for Application Programming Interface. It's a set of rules that allows different software applications to communicate with each other. Imagine an API as a menu in a restaurant - it lists all the dishes (functions) available, how to order them (required parameters), and what you'll get in return (response data).</p>
-              </div>
-            </div>
-          </div>
-          <div class="md:w-1/3 animate-slideInLeft">
-            <div class="bg-gradient-to-br from-green-600 to-green-400 p-1 rounded-full">
-              <div class="bg-gray-900 rounded-full p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/1493/1493169.png" alt="API Illustration" class="w-full max-w-[200px] mx-auto rounded-full shadow-lg animate-pulse">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- REST API section with enhanced animation -->
-        <div class="flex flex-col md:flex-row items-center gap-6 relative group">
-          <div class="md:w-2/3 animate-slideInLeft">
-            <div class="relative">
-              <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
-              <div class="relative bg-gray-800 p-6 rounded-lg">
-                <h4 class="text-2xl font-medium text-purple-400 mb-3 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 animate-rotate" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                  </svg>
-                  What is a REST API?
-                </h4>
-                <p class="text-gray-300">REST (Representational State Transfer) is a popular style for building APIs on the web. REST APIs use standard HTTP methods:</p>
-                <ul class="mt-3 space-y-2">
-                  <li class="bg-gray-700/50 p-2 rounded flex items-center">
-                    <span class="inline-block mr-2 px-2 py-1 bg-blue-600 text-white text-xs font-bold rounded">GET</span>
-                    <span>Fetch information (like viewing a webpage)</span>
-                  </li>
-                  <li class="bg-gray-700/50 p-2 rounded flex items-center">
-                    <span class="inline-block mr-2 px-2 py-1 bg-green-600 text-white text-xs font-bold rounded">POST</span>
-                    <span>Create new data (like submitting a form)</span>
-                  </li>
-                  <li class="bg-gray-700/50 p-2 rounded flex items-center">
-                    <span class="inline-block mr-2 px-2 py-1 bg-yellow-600 text-white text-xs font-bold rounded">PUT/PATCH</span>
-                    <span>Update existing data</span>
-                  </li>
-                  <li class="bg-gray-700/50 p-2 rounded flex items-center">
-                    <span class="inline-block mr-2 px-2 py-1 bg-red-600 text-white text-xs font-bold rounded">DELETE</span>
-                    <span>Remove data</span>
-                  </li>
-                </ul>
-                <p class="mt-3 text-gray-300">These familiar actions make REST APIs easy to understand and work with.</p>
-              </div>
-            </div>
-          </div>
-          <div class="md:w-1/3 animate-slideInRight">
-            <div class="bg-gradient-to-br from-purple-600 to-purple-400 p-1 rounded-full">
-              <div class="bg-gray-900 rounded-full p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/4727/4727324.png" alt="REST API Illustration" class="w-full max-w-[200px] mx-auto rounded-full shadow-lg animate-rotate">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- JavaScript section with enhanced animation -->
-        <div class="flex flex-col md:flex-row-reverse items-center gap-6 relative group">
-          <div class="md:w-2/3 animate-slideInRight">
-            <div class="relative">
-              <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
-              <div class="relative bg-gray-800 p-6 rounded-lg">
-                <h4 class="text-2xl font-medium text-yellow-400 mb-3 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 animate-float" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                  Why JavaScript Knowledge is Required
-                </h4>
-                <p class="text-gray-300">Express.js is built on JavaScript, so understanding these basics will help you:</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-3">
-                  <div class="bg-gray-700/50 p-3 rounded-lg hover:bg-gray-700 transition-all transform hover:-translate-y-1">
-                    <div class="font-bold text-yellow-300">Variables & Data Types</div>
-                    <div class="text-sm opacity-80">let, const, strings, numbers, etc.</div>
-                  </div>
-                  <div class="bg-gray-700/50 p-3 rounded-lg hover:bg-gray-700 transition-all transform hover:-translate-y-1">
-                    <div class="font-bold text-yellow-300">Functions</div>
-                    <div class="text-sm opacity-80">Regular, arrow, and function expressions</div>
-                  </div>
-                  <div class="bg-gray-700/50 p-3 rounded-lg hover:bg-gray-700 transition-all transform hover:-translate-y-1">
-                    <div class="font-bold text-yellow-300">Callbacks</div>
-                    <div class="text-sm opacity-80">Used extensively in Express.js</div>
-                  </div>
-                  <div class="bg-gray-700/50 p-3 rounded-lg hover:bg-gray-700 transition-all transform hover:-translate-y-1">
-                    <div class="font-bold text-yellow-300">Async/Await</div>
-                    <div class="text-sm opacity-80">For handling async operations</div>
-                  </div>
-                  <div class="bg-gray-700/50 p-3 rounded-lg hover:bg-gray-700 transition-all transform hover:-translate-y-1">
-                    <div class="font-bold text-yellow-300">Objects & Arrays</div>
-                    <div class="text-sm opacity-80">Storing and manipulating data</div>
-                  </div>
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+          <div class="max-w-full px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <button id="mobile-menu-button" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+                  <span class="text-white font-bold text-sm">BD</span>
                 </div>
-                <p class="mt-3 text-gray-300">Don't worry if you're not an expert! This documentation will guide you step by step.</p>
-              </div>
-            </div>
-          </div>
-          <div class="md:w-1/3 animate-slideInLeft">
-            <div class="bg-gradient-to-br from-yellow-600 to-yellow-300 p-1 rounded-full">
-              <div class="bg-gray-900 rounded-full p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript Illustration" class="w-full max-w-[200px] mx-auto rounded-full shadow-lg animate-bounce">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Enhanced call to action -->
-        <div class="relative mt-16 overflow-hidden group">
-          <div class="absolute -inset-2 bg-gradient-to-r from-green-600 via-green-500 to-green-400 rounded-xl opacity-75 blur-xl group-hover:opacity-100 transition duration-700 animate-pulse"></div>
-          <div class="relative bg-gradient-to-r from-green-900 to-green-700 p-8 rounded-lg z-10">
-            <div class="absolute -right-10 -top-10 opacity-20">
-              <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" class="animate-rotate text-white">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M16 8l-8 8"></path>
-                <path d="M8 8l8 8"></path>
-                <circle cx="12" cy="12" r="4"></circle>
-              </svg>
-            </div>
-          
-            <div class="flex flex-col md:flex-row items-center">
-              <div class="mr-6">
-                <div class="relative">
-                  <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-green-300 rounded-full blur animate-pulse"></div>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 relative animate-float text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-              </div>
-              <div class="text-center md:text-left mt-4 md:mt-0">
-                <h4 class="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-white">Ready to start your Express.js journey?</h4>
-                <p class="text-green-200 text-lg">Dive into the documentation sections to learn how to build fast, efficient web applications with Express!</p>
+                <span class="text-xl font-semibold">Backend Docs</span>
               </div>
             </div>
             
-            <div class="mt-6 flex justify-center">
-              <a href="sections/introduction.html" class="relative group overflow-hidden inline-flex items-center px-8 py-3 rounded-full">
-                <span class="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 group-hover:from-green-500 group-hover:to-green-400 transition duration-500"></span>
-                <span class="relative flex items-center font-bold text-white">
-                  <span class="mr-2">Get Started</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </a>
+            <nav class="hidden md:flex space-x-4">
+              <a href="/" class="hover:text-blue-500 transition-colors" data-route="home">Home</a>
+              <a href="/guides" class="hover:text-blue-500 transition-colors" data-route="guides">Guides</a>
+              <a href="/api-explorer" class="hover:text-blue-500 transition-colors" data-route="api-explorer">API Explorer</a>
+              <a href="/tools" class="hover:text-blue-500 transition-colors" data-route="tools">Tools</a>
+            </nav>
+            
+            <div class="flex items-center space-x-2">
+              <button id="theme-toggle" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                </svg>
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+              </button>
             </div>
           </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <div class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 py-2">
+          <nav class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400" id="breadcrumb">
+            <!-- Breadcrumb will be dynamically populated -->
+          </nav>
         </div>
+
+        <!-- Progress Bar -->
+        <div class="bg-gray-200 dark:bg-gray-700 h-1">
+          <div id="progress-bar" class="bg-blue-600 h-1 transition-all duration-300" style="width: 0%"></div>
+        </div>
+
+        <!-- Content Area -->
+        <main class="flex-1 overflow-auto">
+          <!-- Loading Spinner -->
+          <div id="loading-spinner" class="hidden fixed inset-0 bg-white bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 z-50 flex items-center justify-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          </div>
+          
+          <!-- Main Content Container -->
+          <div id="main-content" class="p-6 max-w-4xl mx-auto transition-opacity duration-300">
+            <!-- Content will be loaded here dynamically -->
+            <div class="prose dark:prose-invert max-w-none">
+              <h1>Welcome to Backend Development Documentation</h1>
+              <p>Select a topic from the sidebar to get started with your backend development journey.</p>
+            </div>
+          </div>
+          
+          <!-- Navigation Footer -->
+          <div id="content-navigation" class="hidden border-t border-gray-200 dark:border-gray-700 p-6 bg-gray-50 dark:bg-gray-800">
+            <div class="flex justify-between items-center max-w-4xl mx-auto">
+              <button id="prev-btn" class="hidden flex items-center space-x-2 px-4 py-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900 rounded transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <span>Previous</span>
+              </button>
+              
+              <div class="flex-1 text-center">
+                <span id="page-progress" class="text-sm text-gray-600 dark:text-gray-400"></span>
+              </div>
+              
+              <button id="next-btn" class="hidden flex items-center space-x-2 px-4 py-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900 rounded transition-colors">
+                <span>Next</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </main>
       </div>
-    </section>
-    
-    <section class="mb-16 max-w-5xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-8 text-center relative inline-block">
-        <span class="absolute inset-0 bg-gradient-to-r from-green-500 to-green-300 opacity-50 blur transform -skew-x-12"></span>
-        <span class="relative text-white">Explore Express.js Documentation</span>
-      </h3>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="sections/introduction.html" class="group">
-          <div class="relative transition-all duration-300 transform hover:-translate-y-2">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100"></div>
-            <div class="relative bg-gray-800 p-6 rounded-lg">
-              <div class="flex items-center">
-                <div class="mr-4 bg-green-600 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rotate-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-white">Getting Started</h4>
-              </div>
-              <p class="text-gray-300 mt-3">Learn the basics of Express.js and set up your first server with step-by-step guidance.</p>
-            </div>
-          </div>
-        </a>
-        
-        <a href="sections/routing.html" class="group">
-          <div class="relative transition-all duration-300 transform hover:-translate-y-2">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100"></div>
-            <div class="relative bg-gray-800 p-6 rounded-lg">
-              <div class="flex items-center">
-                <div class="mr-4 bg-green-600 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rotate-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-white">Routing</h4>
-              </div>
-              <p class="text-gray-300 mt-3">Understand how to handle different URLs and HTTP methods in your Express applications.</p>
-            </div>
-          </div>
-        </a>
-        
-        <a href="sections/middleware.html" class="group">
-          <div class="relative transition-all duration-300 transform hover:-translate-y-2">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100"></div>
-            <div class="relative bg-gray-800 p-6 rounded-lg">
-              <div class="flex items-center">
-                <div class="mr-4 bg-purple-600 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rotate-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-white">Middleware</h4>
-              </div>
-              <p class="text-gray-300 mt-3">Extend your application with powerful middleware functions for enhanced functionality.</p>
-            </div>
-          </div>
-        </a>
-        
-        <a href="sections/template-engines.html" class="group">
-          <div class="relative transition-all duration-300 transform hover:-translate-y-2">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100"></div>
-            <div class="relative bg-gray-800 p-6 rounded-lg">
-              <div class="flex items-center">
-                <div class="mr-4 bg-green-600 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rotate-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-white">Template Engines</h4>
-              </div>
-              <p class="text-gray-300 mt-3">Render dynamic HTML pages with template engines for interactive web applications.</p>
-            </div>
-          </div>
-        </a>
-        
-        <a href="sections/error-handling.html" class="group">
-          <div class="relative transition-all duration-300 transform hover:-translate-y-2">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100"></div>
-            <div class="relative bg-gray-800 p-6 rounded-lg">
-              <div class="flex items-center">
-                <div class="mr-4 bg-green-600 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rotate-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-white">Error Handling</h4>
-              </div>
-              <p class="text-gray-300 mt-3">Learn techniques to handle errors effectively in your Express applications.</p>
-            </div>
-          </div>
-        </a>
-        
-        <a href="sections/database-integration.html" class="group">
-          <div class="relative transition-all duration-300 transform hover:-translate-y-2">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100"></div>
-            <div class="relative bg-gray-800 p-6 rounded-lg">
-              <div class="flex items-center">
-                <div class="mr-4 bg-green-600 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rotate-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-white">Database Integration</h4>
-              </div>
-              <p class="text-gray-300 mt-3">Connect your Express application to databases for persistent data storage.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-  </main>
-  
-  <!-- Footer will be inserted here by JavaScript -->
-  <div id="footer"></div>
-  
-  <!-- Common JavaScript for header and footer -->
-  <script src="js/common.js"></script>
-</body>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/content-loader.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+  </body>
 </html>

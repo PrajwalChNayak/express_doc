@@ -1,0 +1,1453 @@
+<div class="max-w-7xl mx-auto p-6">
+    <!-- Header Section -->
+    <div class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Request & Response Objects</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">
+            Deep dive into Express.js request and response objects and their methods.
+        </p>
+        
+        <!-- Quick Navigation -->
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">In This Section</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+                <a href="#request-object" class="text-blue-600 dark:text-blue-400 hover:underline">Request Object</a>
+                <a href="#response-object" class="text-blue-600 dark:text-blue-400 hover:underline">Response Object</a>
+                <a href="#headers-cookies" class="text-blue-600 dark:text-blue-400 hover:underline">Headers & Cookies</a>
+                <a href="#file-handling" class="text-blue-600 dark:text-blue-400 hover:underline">File Handling</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Object Section -->
+    <section id="request-object" class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Request Object (req)</h2>
+        
+        <div class="prose prose-lg dark:prose-invert max-w-none mb-6">
+            <p>
+                The request object represents the HTTP request and contains properties for the request query string, 
+                parameters, body, HTTP headers, and more.
+            </p>
+        </div>
+
+        <div class="space-y-8">
+            <!-- Basic Request Properties -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="basic-request">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basic Request Properties</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Essential properties of the request object</p>
+                </button>
+                <div id="basic-request" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">basic-request.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="basic-request-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="basic-request-code">app.get('/request-info/:id', (req, res) => {
+  const requestInfo = {
+    // URL and routing
+    url: req.url,                    // '/request-info/123?name=john'
+    originalUrl: req.originalUrl,    // Full original URL
+    path: req.path,                  // '/request-info/123'
+    baseUrl: req.baseUrl,            // Base URL if mounted on router
+    
+    // HTTP method and protocol
+    method: req.method,              // 'GET'
+    protocol: req.protocol,          // 'http' or 'https'
+    secure: req.secure,              // true if HTTPS
+    
+    // Host information
+    hostname: req.hostname,          // 'localhost'
+    ip: req.ip,                      // Client IP address
+    ips: req.ips,                    // Array of IPs (when behind proxy)
+    
+    // Route parameters
+    params: req.params,              // { id: '123' }
+    
+    // Query parameters
+    query: req.query,                // { name: 'john' }
+    
+    // Request body (requires body parser)
+    body: req.body,                  // Parsed request body
+    
+    // Headers
+    headers: req.headers,            // All request headers
+    userAgent: req.get('User-Agent'), // Specific header
+    
+    // Other useful properties
+    fresh: req.fresh,                // Is response fresh?
+    stale: req.stale,                // Is response stale?
+    xhr: req.xhr                     // Is AJAX request?
+  };
+  
+  res.json(requestInfo);
+});
+
+// Example output for GET /request-info/123?name=john&age=25
+/*
+{
+  "url": "/request-info/123?name=john&age=25",
+  "originalUrl": "/request-info/123?name=john&age=25",
+  "path": "/request-info/123",
+  "method": "GET",
+  "protocol": "http",
+  "hostname": "localhost",
+  "params": { "id": "123" },
+  "query": { "name": "john", "age": "25" },
+  "headers": { ... },
+  "userAgent": "Mozilla/5.0...",
+  "xhr": false
+}
+*/</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Request Parameters -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="request-params">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Request Parameters & Query</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Working with URL parameters and query strings</p>
+                </button>
+                <div id="request-params" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">request-params.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="request-params-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="request-params-code">// Route parameters (req.params)
+app.get('/users/:userId/posts/:postId', (req, res) => {
+  const { userId, postId } = req.params;
+  
+  res.json({
+    message: `User ${userId}, Post ${postId}`,
+    params: req.params
+  });
+});
+
+// Query parameters (req.query)
+app.get('/search', (req, res) => {
+  const {
+    q,           // search query
+    page = 1,    // pagination
+    limit = 10,  // items per page
+    sort = 'name',
+    order = 'asc'
+  } = req.query;
+  
+  // Convert strings to numbers
+  const pageNum = parseInt(page);
+  const limitNum = parseInt(limit);
+  
+  res.json({
+    query: q,
+    pagination: {
+      page: pageNum,
+      limit: limitNum,
+      offset: (pageNum - 1) * limitNum
+    },
+    sorting: { sort, order }
+  });
+});
+
+// Complex query handling
+app.get('/products', (req, res) => {
+  const {
+    category,
+    minPrice,
+    maxPrice,
+    tags,
+    inStock,
+    sort = 'name',
+    order = 'asc',
+    page = 1,
+    limit = 20
+  } = req.query;
+  
+  // Handle arrays in query (tags=electronics,computers)
+  const tagArray = tags ? tags.split(',') : [];
+  
+  // Handle boolean values
+  const inStockBoolean = inStock === 'true';
+  
+  // Handle numeric values
+  const filters = {
+    category,
+    price: {
+      min: minPrice ? parseFloat(minPrice) : undefined,
+      max: maxPrice ? parseFloat(maxPrice) : undefined
+    },
+    tags: tagArray,
+    inStock: inStock ? inStockBoolean : undefined
+  };
+  
+  res.json({
+    filters,
+    sorting: { sort, order },
+    pagination: {
+      page: parseInt(page),
+      limit: parseInt(limit)
+    }
+  });
+});
+
+// Wildcard parameters
+app.get('/files/*', (req, res) => {
+  const filePath = req.params[0]; // Everything after /files/
+  
+  res.json({
+    requestedFile: filePath,
+    segments: filePath.split('/')
+  });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Request Body -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="request-body">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Request Body Handling</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Working with different types of request bodies</p>
+                </button>
+                <div id="request-body" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">request-body.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="request-body-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="request-body-code">const express = require('express');
+const app = express();
+
+// Middleware for parsing different body types
+app.use(express.json()); // Parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // Parse form data
+app.use(express.raw()); // Parse raw bodies
+app.use(express.text()); // Parse text bodies
+
+// JSON body handling
+app.post('/users', (req, res) => {
+  const { name, email, age } = req.body;
+  
+  // Validate required fields
+  if (!name || !email) {
+    return res.status(400).json({
+      error: 'Name and email are required'
+    });
+  }
+  
+  // Create user object
+  const user = {
+    id: Date.now(),
+    name,
+    email,
+    age: age ? parseInt(age) : null,
+    createdAt: new Date().toISOString()
+  };
+  
+  res.status(201).json(user);
+});
+
+// Form data handling (application/x-www-form-urlencoded)
+app.post('/contact', (req, res) => {
+  const { name, email, message, subscribe } = req.body;
+  
+  const contact = {
+    name,
+    email,
+    message,
+    subscribe: subscribe === 'on', // Checkbox handling
+    submittedAt: new Date().toISOString()
+  };
+  
+  res.json({
+    success: true,
+    data: contact
+  });
+});
+
+// Raw body handling
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+  const payload = req.body; // Buffer
+  const signature = req.get('X-Signature');
+  
+  // Verify webhook signature (example)
+  const calculatedSig = calculateSignature(payload);
+  
+  if (signature !== calculatedSig) {
+    return res.status(401).json({ error: 'Invalid signature' });
+  }
+  
+  // Process webhook
+  const data = JSON.parse(payload.toString());
+  
+  res.json({ received: true });
+});
+
+// Text body handling
+app.post('/notes', express.text(), (req, res) => {
+  const noteContent = req.body; // String
+  
+  const note = {
+    id: Date.now(),
+    content: noteContent,
+    length: noteContent.length,
+    createdAt: new Date().toISOString()
+  };
+  
+  res.status(201).json(note);
+});
+
+// Custom body parsing
+app.post('/custom', (req, res) => {
+  let body = '';
+  
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
+  
+  req.on('end', () => {
+    try {
+      const data = JSON.parse(body);
+      res.json({ received: data });
+    } catch (error) {
+      res.status(400).json({ error: 'Invalid JSON' });
+    }
+  });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Request Headers -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="request-headers">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Request Headers</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Working with HTTP request headers</p>
+                </button>
+                <div id="request-headers" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">request-headers.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="request-headers-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="request-headers-code">app.get('/headers', (req, res) => {
+  // Get specific headers
+  const userAgent = req.get('User-Agent');
+  const authorization = req.get('Authorization');
+  const contentType = req.get('Content-Type');
+  const acceptLanguage = req.get('Accept-Language');
+  
+  // Check for specific header values
+  const isAjax = req.xhr; // Checks X-Requested-With header
+  const acceptsJson = req.accepts('json');
+  const acceptsHtml = req.accepts('html');
+  
+  // Get all headers
+  const allHeaders = req.headers;
+  
+  res.json({
+    userAgent,
+    authorization: authorization ? 'Present' : 'Not present',
+    contentType,
+    acceptLanguage,
+    isAjax,
+    acceptsJson: !!acceptsJson,
+    acceptsHtml: !!acceptsHtml,
+    allHeaders
+  });
+});
+
+// Authentication header handling
+app.get('/protected', (req, res) => {
+  const authHeader = req.get('Authorization');
+  
+  if (!authHeader) {
+    return res.status(401).json({
+      error: 'Authorization header required'
+    });
+  }
+  
+  // Bearer token format: "Bearer <token>"
+  const token = authHeader.split(' ')[1];
+  
+  if (!token) {
+    return res.status(401).json({
+      error: 'Token required'
+    });
+  }
+  
+  // Verify token (simplified)
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    
+    res.json({
+      message: 'Access granted',
+      user: req.user
+    });
+  } catch (error) {
+    res.status(403).json({
+      error: 'Invalid token'
+    });
+  }
+});
+
+// Content negotiation
+app.get('/data', (req, res) => {
+  const data = { message: 'Hello World', timestamp: Date.now() };
+  
+  // Respond based on Accept header
+  res.format({
+    'text/plain': () => {
+      res.send(`${data.message} - ${data.timestamp}`);
+    },
+    'text/html': () => {
+      res.send(`<h1>${data.message}</h1><p>Time: ${data.timestamp}</p>`);
+    },
+    'application/json': () => {
+      res.json(data);
+    },
+    'application/xml': () => {
+      res.type('xml').send(`
+        <response>
+          <message>${data.message}</message>
+          <timestamp>${data.timestamp}</timestamp>
+        </response>
+      `);
+    },
+    default: () => {
+      res.status(406).json({ error: 'Not Acceptable' });
+    }
+  });
+});
+
+// Custom header handling
+app.post('/api/data', (req, res) => {
+  const apiKey = req.get('X-API-Key');
+  const clientVersion = req.get('X-Client-Version');
+  const requestId = req.get('X-Request-ID') || generateRequestId();
+  
+  // Set request ID for logging
+  req.requestId = requestId;
+  
+  if (!apiKey) {
+    return res.status(401).json({
+      error: 'API key required',
+      requestId
+    });
+  }
+  
+  // Version compatibility check
+  if (clientVersion && !isVersionSupported(clientVersion)) {
+    return res.status(400).json({
+      error: 'Client version not supported',
+      minVersion: '1.0.0',
+      requestId
+    });
+  }
+  
+  res.json({
+    success: true,
+    requestId,
+    clientVersion
+  });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Object Section -->
+    <section id="response-object" class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Response Object (res)</h2>
+
+        <div class="space-y-8">
+            <!-- Basic Response Methods -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="basic-response">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Basic Response Methods</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Essential methods for sending responses</p>
+                </button>
+                <div id="basic-response" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">basic-response.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="basic-response-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="basic-response-code">// Send plain text
+app.get('/text', (req, res) => {
+  res.send('Hello World!');
+});
+
+// Send JSON response
+app.get('/json', (req, res) => {
+  res.json({
+    message: 'Hello World!',
+    timestamp: new Date().toISOString(),
+    data: [1, 2, 3, 4, 5]
+  });
+});
+
+// Send with status code
+app.post('/users', (req, res) => {
+  const user = createUser(req.body);
+  res.status(201).json(user);
+});
+
+// Send status code only
+app.delete('/users/:id', (req, res) => {
+  deleteUser(req.params.id);
+  res.status(204).send(); // No content
+});
+
+// Send file
+app.get('/download', (req, res) => {
+  res.sendFile('/path/to/file.pdf');
+});
+
+// Redirect
+app.get('/old-url', (req, res) => {
+  res.redirect('/new-url');
+});
+
+// Redirect with status code
+app.get('/moved', (req, res) => {
+  res.redirect(301, '/new-location');
+});
+
+// Render template (requires template engine)
+app.get('/profile', (req, res) => {
+  res.render('profile', {
+    user: req.user,
+    title: 'User Profile'
+  });
+});
+
+// Send HTML
+app.get('/html', (req, res) => {
+  res.send(`
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+        <p>Current time: ${new Date()}</p>
+      </body>
+    </html>
+  `);
+});
+
+// End response without sending data
+app.get('/health', (req, res) => {
+  res.status(200).end();
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Headers -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="response-headers">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Response Headers</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Setting and managing response headers</p>
+                </button>
+                <div id="response-headers" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">response-headers.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="response-headers-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="response-headers-code">// Set individual headers
+app.get('/api/data', (req, res) => {
+  res.set('X-API-Version', '1.0');
+  res.set('X-Response-Time', Date.now());
+  res.set('Cache-Control', 'no-cache');
+  
+  res.json({ data: 'some data' });
+});
+
+// Set multiple headers at once
+app.get('/secure-data', (req, res) => {
+  res.set({
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'X-XSS-Protection': '1; mode=block',
+    'Strict-Transport-Security': 'max-age=31536000'
+  });
+  
+  res.json({ sensitive: 'data' });
+});
+
+// Content-Type handling
+app.get('/xml', (req, res) => {
+  res.type('xml'); // Sets Content-Type to application/xml
+  res.send('<root><message>Hello XML</message></root>');
+});
+
+app.get('/csv', (req, res) => {
+  res.type('text/csv');
+  res.attachment('data.csv'); // Triggers download
+  res.send('Name,Age,Email\nJohn,30,john@example.com');
+});
+
+// CORS headers
+app.get('/api/public', (req, res) => {
+  res.set({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  });
+  
+  res.json({ public: 'data' });
+});
+
+// Cache control
+app.get('/static-data', (req, res) => {
+  // Cache for 1 hour
+  res.set('Cache-Control', 'public, max-age=3600');
+  res.set('ETag', 'some-etag-value');
+  
+  res.json({ 
+    data: 'This data can be cached',
+    generated: new Date().toISOString()
+  });
+});
+
+// No cache
+app.get('/dynamic-data', (req, res) => {
+  res.set({
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+  
+  res.json({
+    timestamp: Date.now(),
+    random: Math.random()
+  });
+});
+
+// Custom headers for API
+app.get('/api/items', (req, res) => {
+  const items = getItems();
+  const total = getTotalCount();
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  
+  res.set({
+    'X-Total-Count': total,
+    'X-Page': page,
+    'X-Per-Page': limit,
+    'X-Total-Pages': Math.ceil(total / limit)
+  });
+  
+  res.json(items);
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Status Codes -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="response-status">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Response Status Codes</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Proper usage of HTTP status codes</p>
+                </button>
+                <div id="response-status" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">response-status.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="response-status-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="response-status-code">// Success responses (2xx)
+app.get('/users/:id', (req, res) => {
+  const user = findUser(req.params.id);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  
+  res.status(200).json(user); // OK (default)
+});
+
+app.post('/users', (req, res) => {
+  const user = createUser(req.body);
+  res.status(201).json(user); // Created
+});
+
+app.put('/users/:id', (req, res) => {
+  const user = updateUser(req.params.id, req.body);
+  res.status(200).json(user); // OK
+});
+
+app.delete('/users/:id', (req, res) => {
+  deleteUser(req.params.id);
+  res.status(204).send(); // No Content
+});
+
+// Client error responses (4xx)
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  
+  if (!username || !password) {
+    return res.status(400).json({
+      error: 'Username and password required'
+    }); // Bad Request
+  }
+  
+  const user = authenticateUser(username, password);
+  
+  if (!user) {
+    return res.status(401).json({
+      error: 'Invalid credentials'
+    }); // Unauthorized
+  }
+  
+  res.status(200).json({ token: generateToken(user) });
+});
+
+app.get('/admin', authenticateToken, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({
+      error: 'Admin access required'
+    }); // Forbidden
+  }
+  
+  res.json({ admin: 'data' });
+});
+
+app.get('/users/:id', (req, res) => {
+  const user = findUser(req.params.id);
+  
+  if (!user) {
+    return res.status(404).json({
+      error: 'User not found'
+    }); // Not Found
+  }
+  
+  res.json(user);
+});
+
+app.post('/users', (req, res) => {
+  const existingUser = findUserByEmail(req.body.email);
+  
+  if (existingUser) {
+    return res.status(409).json({
+      error: 'User already exists'
+    }); // Conflict
+  }
+  
+  const user = createUser(req.body);
+  res.status(201).json(user);
+});
+
+// Rate limiting
+app.use('/api', rateLimiter, (req, res, next) => {
+  if (rateLimitExceeded(req)) {
+    return res.status(429).json({
+      error: 'Too many requests',
+      retryAfter: 3600
+    }); // Too Many Requests
+  }
+  next();
+});
+
+// Server error responses (5xx)
+app.get('/data', async (req, res) => {
+  try {
+    const data = await fetchExternalData();
+    res.json(data);
+  } catch (error) {
+    console.error('External service error:', error);
+    
+    res.status(503).json({
+      error: 'Service temporarily unavailable'
+    }); // Service Unavailable
+  }
+});
+
+// Generic error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  
+  res.status(500).json({
+    error: 'Internal server error'
+  }); // Internal Server Error
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Headers & Cookies Section -->
+    <section id="headers-cookies" class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Headers & Cookies</h2>
+
+        <div class="space-y-8">
+            <!-- Cookie Handling -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="cookie-handling">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Cookie Handling</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Reading and setting cookies</p>
+                </button>
+                <div id="cookie-handling" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">cookie-handling.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="cookie-handling-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="cookie-handling-code">const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+// Reading cookies
+app.get('/profile', (req, res) => {
+  const sessionId = req.cookies.sessionId;
+  const preferences = req.cookies.preferences;
+  
+  if (!sessionId) {
+    return res.status(401).json({ error: 'Not authenticated' });
+  }
+  
+  res.json({
+    sessionId,
+    preferences: preferences ? JSON.parse(preferences) : {},
+    allCookies: req.cookies
+  });
+});
+
+// Setting cookies
+app.post('/login', (req, res) => {
+  const user = authenticateUser(req.body);
+  
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+  
+  const sessionId = generateSessionId();
+  
+  // Simple cookie
+  res.cookie('sessionId', sessionId);
+  
+  // Cookie with options
+  res.cookie('sessionId', sessionId, {
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    httpOnly: true,               // Prevent XSS
+    secure: process.env.NODE_ENV === 'production', // HTTPS only
+    sameSite: 'strict'           // CSRF protection
+  });
+  
+  // JSON cookie
+  res.cookie('user', JSON.stringify({
+    id: user.id,
+    name: user.name
+  }), {
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    httpOnly: true
+  });
+  
+  res.json({ message: 'Logged in successfully' });
+});
+
+// Signed cookies (requires cookie secret)
+app.use(cookieParser('your-secret-key'));
+
+app.post('/secure-login', (req, res) => {
+  const user = authenticateUser(req.body);
+  
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+  
+  // Signed cookie
+  res.cookie('secureSession', user.id, {
+    signed: true,
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true
+  });
+  
+  res.json({ message: 'Logged in securely' });
+});
+
+// Reading signed cookies
+app.get('/secure-profile', (req, res) => {
+  const userId = req.signedCookies.secureSession;
+  
+  if (!userId) {
+    return res.status(401).json({ error: 'Invalid session' });
+  }
+  
+  const user = findUser(userId);
+  res.json(user);
+});
+
+// Clearing cookies
+app.post('/logout', (req, res) => {
+  res.clearCookie('sessionId');
+  res.clearCookie('user');
+  res.clearCookie('preferences');
+  
+  res.json({ message: 'Logged out successfully' });
+});
+
+// Cookie preferences
+app.post('/preferences', (req, res) => {
+  const { theme, language, notifications } = req.body;
+  
+  const preferences = {
+    theme,
+    language,
+    notifications,
+    updatedAt: new Date().toISOString()
+  };
+  
+  res.cookie('preferences', JSON.stringify(preferences), {
+    maxAge: 365 * 24 * 60 * 60 * 1000, // 1 year
+    httpOnly: false // Allow client-side access
+  });
+  
+  res.json({ message: 'Preferences saved', preferences });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Negotiation -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="content-negotiation">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Content Negotiation</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Responding with different content types</p>
+                </button>
+                <div id="content-negotiation" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">content-negotiation.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="content-negotiation-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="content-negotiation-code">// Content negotiation based on Accept header
+app.get('/api/users/:id', (req, res) => {
+  const user = findUser(req.params.id);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  
+  res.format({
+    'text/plain': () => {
+      res.send(`Name: ${user.name}\nEmail: ${user.email}\nAge: ${user.age}`);
+    },
+    
+    'text/html': () => {
+      res.send(`
+        <div class="user-card">
+          <h2>${user.name}</h2>
+          <p>Email: ${user.email}</p>
+          <p>Age: ${user.age}</p>
+        </div>
+      `);
+    },
+    
+    'application/json': () => {
+      res.json(user);
+    },
+    
+    'application/xml': () => {
+      res.type('xml').send(`
+        <user>
+          <name>${user.name}</name>
+          <email>${user.email}</email>
+          <age>${user.age}</age>
+        </user>
+      `);
+    },
+    
+    'text/csv': () => {
+      res.type('csv');
+      res.attachment(`user-${user.id}.csv`);
+      res.send(`Name,Email,Age\n${user.name},${user.email},${user.age}`);
+    },
+    
+    default: () => {
+      res.status(406).json({ 
+        error: 'Not Acceptable',
+        supportedTypes: ['text/plain', 'text/html', 'application/json', 'application/xml', 'text/csv']
+      });
+    }
+  });
+});
+
+// Language negotiation
+app.get('/welcome', (req, res) => {
+  const acceptLanguage = req.get('Accept-Language') || 'en';
+  const language = acceptLanguage.split(',')[0].split('-')[0];
+  
+  const messages = {
+    en: 'Welcome to our application!',
+    es: '¡Bienvenido a nuestra aplicación!',
+    fr: 'Bienvenue dans notre application!',
+    de: 'Willkommen in unserer Anwendung!',
+    it: 'Benvenuto nella nostra applicazione!'
+  };
+  
+  const message = messages[language] || messages.en;
+  
+  res.json({
+    message,
+    language,
+    detectedLanguage: language
+  });
+});
+
+// API versioning through headers
+app.get('/api/data', (req, res) => {
+  const apiVersion = req.get('API-Version') || '1.0';
+  
+  switch (apiVersion) {
+    case '1.0':
+      res.json({
+        version: '1.0',
+        data: { message: 'Hello from API v1.0' }
+      });
+      break;
+      
+    case '2.0':
+      res.json({
+        version: '2.0',
+        data: {
+          message: 'Hello from API v2.0',
+          features: ['enhanced', 'improved'],
+          timestamp: new Date().toISOString()
+        }
+      });
+      break;
+      
+    default:
+      res.status(400).json({
+        error: 'Unsupported API version',
+        supportedVersions: ['1.0', '2.0']
+      });
+  }
+});
+
+// Compression support
+app.get('/large-data', (req, res) => {
+  const acceptEncoding = req.get('Accept-Encoding') || '';
+  const data = generateLargeDataset();
+  
+  if (acceptEncoding.includes('gzip')) {
+    res.set('Content-Encoding', 'gzip');
+    // Express compression middleware would handle this
+  }
+  
+  res.json(data);
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Handling Section -->
+    <section id="file-handling" class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">File Handling</h2>
+
+        <div class="space-y-8">
+            <!-- File Downloads -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="file-downloads">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">File Downloads</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Serving files for download</p>
+                </button>
+                <div id="file-downloads" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">file-downloads.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="file-downloads-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="file-downloads-code">const path = require('path');
+const fs = require('fs');
+
+// Basic file download
+app.get('/download/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, 'files', filename);
+  
+  // Check if file exists
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: 'File not found' });
+  }
+  
+  res.download(filePath);
+});
+
+// Download with custom filename
+app.get('/download-report/:id', (req, res) => {
+  const reportId = req.params.id;
+  const filePath = path.join(__dirname, 'reports', `${reportId}.pdf`);
+  const downloadName = `report-${reportId}-${Date.now()}.pdf`;
+  
+  res.download(filePath, downloadName, (err) => {
+    if (err) {
+      console.error('Download error:', err);
+      if (!res.headersSent) {
+        res.status(500).json({ error: 'Download failed' });
+      }
+    }
+  });
+});
+
+// Send file with proper headers
+app.get('/file/:id', (req, res) => {
+  const fileId = req.params.id;
+  const file = findFileById(fileId);
+  
+  if (!file) {
+    return res.status(404).json({ error: 'File not found' });
+  }
+  
+  const filePath = path.join(__dirname, 'uploads', file.filename);
+  
+  // Set appropriate headers
+  res.set({
+    'Content-Type': file.mimeType,
+    'Content-Length': file.size,
+    'Content-Disposition': `attachment; filename="${file.originalName}"`
+  });
+  
+  res.sendFile(filePath);
+});
+
+// Streaming large files
+app.get('/stream/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, 'large-files', filename);
+  
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: 'File not found' });
+  }
+  
+  const stat = fs.statSync(filePath);
+  const range = req.headers.range;
+  
+  if (range) {
+    // Support range requests for large files
+    const parts = range.replace(/bytes=/, "").split("-");
+    const start = parseInt(parts[0], 10);
+    const end = parts[1] ? parseInt(parts[1], 10) : stat.size - 1;
+    const chunksize = (end - start) + 1;
+    
+    res.status(206);
+    res.set({
+      'Content-Range': `bytes ${start}-${end}/${stat.size}`,
+      'Accept-Ranges': 'bytes',
+      'Content-Length': chunksize,
+      'Content-Type': 'application/octet-stream'
+    });
+    
+    const stream = fs.createReadStream(filePath, { start, end });
+    stream.pipe(res);
+  } else {
+    res.set({
+      'Content-Length': stat.size,
+      'Content-Type': 'application/octet-stream'
+    });
+    
+    const stream = fs.createReadStream(filePath);
+    stream.pipe(res);
+  }
+});
+
+// Generate and download dynamic content
+app.get('/export/users.csv', (req, res) => {
+  const users = getAllUsers();
+  
+  let csv = 'Name,Email,Age,Created\n';
+  users.forEach(user => {
+    csv += `"${user.name}","${user.email}",${user.age},"${user.created}"\n`;
+  });
+  
+  res.set({
+    'Content-Type': 'text/csv',
+    'Content-Disposition': 'attachment; filename="users.csv"'
+  });
+  
+  res.send(csv);
+});
+
+// Generate PDF report
+app.get('/report/:id.pdf', async (req, res) => {
+  try {
+    const reportData = await getReportData(req.params.id);
+    const pdfBuffer = await generatePDF(reportData);
+    
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Length': pdfBuffer.length,
+      'Content-Disposition': `attachment; filename="report-${req.params.id}.pdf"`
+    });
+    
+    res.send(pdfBuffer);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate report' });
+  }
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Uploads -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button class="expand-btn w-full text-left p-6 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-750 rounded-t-lg" data-target="file-uploads">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">File Uploads</h3>
+                        <span class="text-gray-500 dark:text-gray-400 expand-icon">+</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Handling file uploads with multer</p>
+                </button>
+                <div id="file-uploads" class="expandable-content hidden p-6">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden mb-4">
+                        <div class="bg-gray-800 px-4 py-2 flex justify-between items-center">
+                            <span class="text-gray-300 text-sm">file-uploads.js</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" data-copy="file-uploads-code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="p-4 text-gray-300 overflow-x-auto"><code id="file-uploads-code">const multer = require('multer');
+const path = require('path');
+const crypto = require('crypto');
+
+// Basic file upload configuration
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    // Generate unique filename
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ 
+  storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB limit
+  },
+  fileFilter: (req, file, cb) => {
+    // Allow only specific file types
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
+    
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type'), false);
+    }
+  }
+});
+
+// Single file upload
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+  
+  res.json({
+    message: 'File uploaded successfully',
+    file: {
+      originalName: req.file.originalname,
+      filename: req.file.filename,
+      size: req.file.size,
+      mimetype: req.file.mimetype,
+      path: req.file.path
+    }
+  });
+});
+
+// Multiple file upload
+app.post('/upload-multiple', upload.array('files', 5), (req, res) => {
+  if (!req.files || req.files.length === 0) {
+    return res.status(400).json({ error: 'No files uploaded' });
+  }
+  
+  const files = req.files.map(file => ({
+    originalName: file.originalname,
+    filename: file.filename,
+    size: file.size,
+    mimetype: file.mimetype
+  }));
+  
+  res.json({
+    message: `${files.length} files uploaded successfully`,
+    files
+  });
+});
+
+// Profile picture upload with validation
+const profileUpload = multer({
+  storage: multer.diskStorage({
+    destination: 'uploads/profiles/',
+    filename: (req, file, cb) => {
+      const userId = req.user.id;
+      const ext = path.extname(file.originalname);
+      cb(null, `profile-${userId}-${Date.now()}${ext}`);
+    }
+  }),
+  limits: {
+    fileSize: 2 * 1024 * 1024 // 2MB for profile pictures
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only JPEG and PNG images allowed'), false);
+    }
+  }
+});
+
+app.post('/upload-profile', authenticateToken, profileUpload.single('avatar'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'Profile picture required' });
+  }
+  
+  // Update user profile with new avatar
+  updateUserAvatar(req.user.id, req.file.filename);
+  
+  res.json({
+    message: 'Profile picture updated successfully',
+    avatar: `/uploads/profiles/${req.file.filename}`
+  });
+});
+
+// Memory storage for temporary processing
+const memoryUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 1024 * 1024 // 1MB
+  }
+});
+
+app.post('/process-file', memoryUpload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file provided' });
+  }
+  
+  // Process file buffer
+  const buffer = req.file.buffer;
+  const processedData = processFileBuffer(buffer);
+  
+  res.json({
+    message: 'File processed successfully',
+    result: processedData
+  });
+});
+
+// Error handling for uploads
+app.use((error, req, res, next) => {
+  if (error instanceof multer.MulterError) {
+    if (error.code === 'LIMIT_FILE_SIZE') {
+      return res.status(400).json({ error: 'File too large' });
+    }
+    if (error.code === 'LIMIT_UNEXPECTED_FILE') {
+      return res.status(400).json({ error: 'Unexpected file field' });
+    }
+  }
+  
+  if (error.message.includes('Invalid file type')) {
+    return res.status(400).json({ error: 'Invalid file type' });
+  }
+  
+  next(error);
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Reference Table -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Quick Reference</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Request Methods -->
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Request Object Properties</h3>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between"><code>req.params</code><span class="text-gray-600 dark:text-gray-400">Route parameters</span></div>
+                    <div class="flex justify-between"><code>req.query</code><span class="text-gray-600 dark:text-gray-400">Query parameters</span></div>
+                    <div class="flex justify-between"><code>req.body</code><span class="text-gray-600 dark:text-gray-400">Request body</span></div>
+                    <div class="flex justify-between"><code>req.headers</code><span class="text-gray-600 dark:text-gray-400">Request headers</span></div>
+                    <div class="flex justify-between"><code>req.cookies</code><span class="text-gray-600 dark:text-gray-400">Request cookies</span></div>
+                    <div class="flex justify-between"><code>req.method</code><span class="text-gray-600 dark:text-gray-400">HTTP method</span></div>
+                    <div class="flex justify-between"><code>req.url</code><span class="text-gray-600 dark:text-gray-400">Request URL</span></div>
+                    <div class="flex justify-between"><code>req.ip</code><span class="text-gray-600 dark:text-gray-400">Client IP</span></div>
+                </div>
+            </div>
+
+            <!-- Response Methods -->
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Response Object Methods</h3>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between"><code>res.send()</code><span class="text-gray-600 dark:text-gray-400">Send response</span></div>
+                    <div class="flex justify-between"><code>res.json()</code><span class="text-gray-600 dark:text-gray-400">Send JSON</span></div>
+                    <div class="flex justify-between"><code>res.status()</code><span class="text-gray-600 dark:text-gray-400">Set status code</span></div>
+                    <div class="flex justify-between"><code>res.redirect()</code><span class="text-gray-600 dark:text-gray-400">Redirect request</span></div>
+                    <div class="flex justify-between"><code>res.cookie()</code><span class="text-gray-600 dark:text-gray-400">Set cookie</span></div>
+                    <div class="flex justify-between"><code>res.set()</code><span class="text-gray-600 dark:text-gray-400">Set header</span></div>
+                    <div class="flex justify-between"><code>res.sendFile()</code><span class="text-gray-600 dark:text-gray-400">Send file</span></div>
+                    <div class="flex justify-between"><code>res.download()</code><span class="text-gray-600 dark:text-gray-400">File download</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
