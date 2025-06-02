@@ -1,88 +1,866 @@
 <div class="content-section">
-  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-    Express.js Framework Overview
-  </h1>
-
-  <div class="prose max-w-none">
-    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
-      Express.js is the most popular Node.js web application framework,
-      providing a robust set of features for building web applications and APIs.
-      It's minimal, flexible, and provides a solid foundation for building
-      scalable applications.
-    </p>
-
-    <div
-      class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8"
-    >
-      <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">
-        Why Express.js?
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ul
-          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
+  <!-- Hero Section -->
+  <div
+    class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-green-600 rounded-2xl p-8 mb-12 text-white"
+  >
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative z-10">
+      <div class="flex items-center mb-4">
+        <div
+          class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mr-4"
         >
-          <li>Minimal and unopinionated framework</li>
-          <li>Large ecosystem of middleware</li>
-          <li>Excellent performance</li>
-          <li>Great community support</li>
-        </ul>
-        <ul
-          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
-        >
-          <li>Easy to learn and use</li>
-          <li>Flexible routing system</li>
-          <li>Built-in security features</li>
-          <li>Industry standard for Node.js APIs</li>
-        </ul>
+          <span class="text-3xl">⚡</span>
+        </div>
+        <div>
+          <h1 class="text-4xl font-bold mb-2">Express.js Framework</h1>
+          <p class="text-xl text-blue-100">
+            Fast, unopinionated, minimalist web framework for Node.js
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div class="text-2xl mb-2">🚀</div>
+          <h3 class="font-semibold mb-1">Lightning Fast</h3>
+          <p class="text-sm text-blue-100">
+            Minimal overhead with maximum performance
+          </p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div class="text-2xl mb-2">🔧</div>
+          <h3 class="font-semibold mb-1">Flexible</h3>
+          <p class="text-sm text-blue-100">
+            Unopinionated design that adapts to your needs
+          </p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <div class="text-2xl mb-2">🌟</div>
+          <h3 class="font-semibold mb-1">Industry Standard</h3>
+          <p class="text-sm text-blue-100">
+            Used by Netflix, Uber, and thousands of companies
+          </p>
+        </div>
       </div>
     </div>
 
+    <!-- Decorative elements -->
     <div
-      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8"
+      class="absolute top-4 right-4 w-32 h-32 bg-white/5 rounded-full blur-xl"
+    ></div>
+    <div
+      class="absolute bottom-4 left-4 w-24 h-24 bg-white/5 rounded-full blur-lg"
+    ></div>
+  </div>
+
+  <div class="prose max-w-none">
+    <div
+      class="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-blue-900/20 rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-700"
     >
-      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
-        Learning Path
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="text-center">
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-0 leading-relaxed">
+        <span class="font-semibold text-blue-600 dark:text-blue-400"
+          >Express.js</span
+        >
+        is a powerful toolkit that makes building web servers and APIs
+        dramatically easier than using plain Node.js. While Node.js gives you
+        the raw power to create web applications, Express.js provides the
+        <span class="font-medium text-green-600 dark:text-green-400"
+          >structure, tools, and shortcuts</span
+        >
+        that developers actually need in real-world projects.
+      </p>
+    </div>
+
+    <!-- Problems Section with Visual Appeal -->
+    <div class="mb-12">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          🎯 What Problems Does Express.js Solve?
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Building a web application with plain Node.js is like constructing a
+          house with just basic tools - it's possible, but unnecessarily
+          difficult.
+        </p>
+      </div>
+
+      <!-- Animated Comparison Cards -->
+      <div
+        class="bg-gradient-to-r from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-900/10 dark:via-orange-900/10 dark:to-red-900/10 rounded-2xl p-8 mb-8 border border-yellow-200 dark:border-yellow-800 shadow-lg"
+      >
+        <div class="text-center mb-6">
           <div
-            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+            class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-4"
           >
-            1
+            <span class="text-2xl">⚖️</span>
           </div>
-          <p class="text-blue-800 dark:text-blue-200 font-medium">
-            Setup & Basics
+          <h4 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            The Great Comparison
+          </h4>
+          <p class="text-gray-600 dark:text-gray-300">
+            See the dramatic difference Express.js makes
           </p>
         </div>
-        <div class="text-center">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Plain Node.js Card -->
           <div
-            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-red-200 dark:border-red-800 relative overflow-hidden"
           >
-            2
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-600"
+            ></div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-3"
+              >
+                <span class="text-xl">😰</span>
+              </div>
+              <h5 class="text-xl font-bold text-red-800 dark:text-red-300">
+                Plain Node.js
+              </h5>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-center text-red-700 dark:text-red-300">
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
+                <span class="text-sm">50+ lines for basic routing</span>
+              </li>
+              <li class="flex items-center text-red-700 dark:text-red-300">
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
+                <span class="text-sm">Manual URL parsing nightmare</span>
+              </li>
+              <li class="flex items-center text-red-700 dark:text-red-300">
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
+                <span class="text-sm">Complex request handling</span>
+              </li>
+              <li class="flex items-center text-red-700 dark:text-red-300">
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
+                <span class="text-sm">No built-in middleware system</span>
+              </li>
+              <li class="flex items-center text-red-700 dark:text-red-300">
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
+                <span class="text-sm">Reinventing the wheel constantly</span>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+              <p class="text-xs text-red-600 dark:text-red-400 font-medium">
+                ⏱️ Development Time: Weeks to months
+              </p>
+            </div>
           </div>
-          <p class="text-blue-800 dark:text-blue-200 font-medium">
-            Routing & Middleware
+
+          <!-- Express.js Card -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-green-200 dark:border-green-800 relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-green-600"
+            ></div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-3"
+              >
+                <span class="text-xl">🎉</span>
+              </div>
+              <h5 class="text-xl font-bold text-green-800 dark:text-green-300">
+                With Express.js
+              </h5>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-center text-green-700 dark:text-green-300">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                <span class="text-sm">5 lines for the same routing</span>
+              </li>
+              <li class="flex items-center text-green-700 dark:text-green-300">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                <span class="text-sm">Automatic URL and data parsing</span>
+              </li>
+              <li class="flex items-center text-green-700 dark:text-green-300">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                <span class="text-sm">Simple, intuitive request handling</span>
+              </li>
+              <li class="flex items-center text-green-700 dark:text-green-300">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                <span class="text-sm">Rich middleware ecosystem</span>
+              </li>
+              <li class="flex items-center text-green-700 dark:text-green-300">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                <span class="text-sm"
+                  >Battle-tested solutions ready to use</span
+                >
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p class="text-xs text-green-600 dark:text-green-400 font-medium">
+                ⚡ Development Time: Hours to days
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- VS Arrow -->
+        <div class="flex justify-center my-6">
+          <div
+            class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg"
+          >
+            VS
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Express.js - Enhanced -->
+    <div
+      class="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-green-900/10 dark:via-blue-900/10 dark:to-purple-900/10 rounded-2xl p-8 mb-12 border border-green-200 dark:border-green-800 shadow-lg"
+    >
+      <div class="text-center mb-8">
+        <div
+          class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-4"
+        >
+          <span class="text-3xl">🎯</span>
+        </div>
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+          Why Choose Express.js?
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Join millions of developers who trust Express.js for their web
+          applications
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+        >
+          <div
+            class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4"
+          >
+            <span class="text-xl">🧠</span>
+          </div>
+          <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+            Developer-Friendly
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Intuitive API that feels natural to use
           </p>
         </div>
-        <div class="text-center">
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+        >
           <div
-            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+            class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-4"
           >
-            3
+            <span class="text-xl">🚀</span>
           </div>
-          <p class="text-blue-800 dark:text-blue-200 font-medium">
-            Error Handling
+          <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+            Lightning Fast
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Excellent performance and speed
           </p>
         </div>
-        <div class="text-center">
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+        >
           <div
-            class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2"
+            class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-4"
           >
-            4
+            <span class="text-xl">🔧</span>
           </div>
-          <p class="text-blue-800 dark:text-blue-200 font-medium">
-            Advanced Features
+          <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+            Flexible Design
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Unopinionated and adaptable
           </p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700"
+        >
+          <div
+            class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-4"
+          >
+            <span class="text-xl">🌟</span>
+          </div>
+          <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+            Industry Standard
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Used by Netflix, Uber, WhatsApp
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-gray-200 dark:border-gray-600"
+      >
+        <div class="text-center">
+          <div class="text-2xl font-bold text-green-600 dark:text-green-400">
+            50M+
+          </div>
+          <div class="text-sm text-gray-600 dark:text-gray-300">
+            Weekly Downloads
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+            15K+
+          </div>
+          <div class="text-sm text-gray-600 dark:text-gray-300">
+            Middleware Packages
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">
+            12+
+          </div>
+          <div class="text-sm text-gray-600 dark:text-gray-300">
+            Years Battle-Tested
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">
+            1M+
+          </div>
+          <div class="text-sm text-gray-600 dark:text-gray-300">
+            GitHub Stars
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning Journey - Enhanced -->
+    <div class="mb-12">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          🚀 Your Learning Journey
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          A clear roadmap from beginner to Express.js expert
+        </p>
+      </div>
+
+      <!-- Before Learning Section -->
+      <div
+        class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 rounded-2xl p-8 mb-8 border border-blue-200 dark:border-blue-800 shadow-lg"
+      >
+        <div class="text-center mb-8">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mb-4"
+          >
+            <span class="text-2xl">📚</span>
+          </div>
+          <h4 class="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-2">
+            Before Learning Express.js
+          </h4>
+          <p class="text-blue-700 dark:text-blue-300">
+            Build your foundation with these essential skills
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-blue-200 dark:border-blue-700 relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"
+            ></div>
+            <div
+              class="flex items-center justify-center w-16 h-16 bg-blue-500 text-white rounded-full mx-auto mb-4 text-xl font-bold"
+            >
+              1
+            </div>
+            <h5
+              class="text-lg font-bold text-center text-gray-900 dark:text-white mb-3"
+            >
+              JavaScript Fundamentals
+            </h5>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                Functions & arrow functions
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                Objects & destructuring
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                Async/await & Promises
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                ES6+ features
+              </li>
+            </ul>
+            <div class="mt-4 text-center">
+              <span
+                class="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-medium"
+              >
+                ⏱️ 2-4 weeks
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-indigo-200 dark:border-indigo-700 relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-400 to-indigo-600"
+            ></div>
+            <div
+              class="flex items-center justify-center w-16 h-16 bg-indigo-500 text-white rounded-full mx-auto mb-4 text-xl font-bold"
+            >
+              2
+            </div>
+            <h5
+              class="text-lg font-bold text-center text-gray-900 dark:text-white mb-3"
+            >
+              Node.js Basics
+            </h5>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
+                npm package management
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
+                Module system (require/import)
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
+                File system operations
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
+                Basic server concepts
+              </li>
+            </ul>
+            <div class="mt-4 text-center">
+              <span
+                class="inline-block bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-medium"
+              >
+                ⏱️ 1-2 weeks
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-purple-200 dark:border-purple-700 relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600"
+            ></div>
+            <div
+              class="flex items-center justify-center w-16 h-16 bg-purple-500 text-white rounded-full mx-auto mb-4 text-xl font-bold"
+            >
+              3
+            </div>
+            <h5
+              class="text-lg font-bold text-center text-gray-900 dark:text-white mb-3"
+            >
+              HTTP Concepts
+            </h5>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                HTTP methods (GET, POST, PUT)
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                Status codes & headers
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                Request/Response cycle
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                JSON & APIs basics
+              </li>
+            </ul>
+            <div class="mt-4 text-center">
+              <span
+                class="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-medium"
+              >
+                ⏱️ 1 week
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- After Learning Section -->
+      <div
+        class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl p-8 border border-green-200 dark:border-green-800 shadow-lg"
+      >
+        <div class="text-center mb-8">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full mb-4"
+          >
+            <span class="text-2xl">🎓</span>
+          </div>
+          <h4
+            class="text-2xl font-bold text-green-900 dark:text-green-100 mb-2"
+          >
+            After Mastering Express.js
+          </h4>
+          <p class="text-green-700 dark:text-green-300">
+            Advanced topics to become a full-stack expert
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-green-200 dark:border-green-700"
+          >
+            <div
+              class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-xl">🗄️</span>
+            </div>
+            <h5 class="font-bold text-gray-900 dark:text-white mb-2">
+              Database Integration
+            </h5>
+            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+              <li>• MongoDB & Mongoose</li>
+              <li>• PostgreSQL & Prisma</li>
+              <li>• Redis caching</li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-blue-200 dark:border-blue-700"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-xl">🔐</span>
+            </div>
+            <h5 class="font-bold text-gray-900 dark:text-white mb-2">
+              Authentication
+            </h5>
+            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+              <li>• JWT tokens</li>
+              <li>• OAuth integration</li>
+              <li>• Session management</li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-purple-200 dark:border-purple-700"
+          >
+            <div
+              class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-xl">🧪</span>
+            </div>
+            <h5 class="font-bold text-gray-900 dark:text-white mb-2">
+              Testing & Quality
+            </h5>
+            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+              <li>• Jest & Supertest</li>
+              <li>• API documentation</li>
+              <li>• Code quality tools</li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-orange-200 dark:border-orange-700"
+          >
+            <div
+              class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-xl">🚀</span>
+            </div>
+            <h5 class="font-bold text-gray-900 dark:text-white mb-2">
+              Deployment
+            </h5>
+            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+              <li>• Docker containers</li>
+              <li>• AWS/Heroku/Vercel</li>
+              <li>• CI/CD pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology Ecosystem - Enhanced -->
+    <div class="mb-12">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          🌐 Express.js in the Technology Ecosystem
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          See how Express.js connects with modern development tools and services
+        </p>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-800 dark:to-slate-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-600 shadow-lg"
+      >
+        <div class="text-center mb-8">
+          <div
+            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-gray-400 to-slate-500 rounded-full mb-4"
+          >
+            <span class="text-3xl">🔗</span>
+          </div>
+          <h4 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            How Express.js Connects Everything
+          </h4>
+          <p class="text-gray-600 dark:text-gray-300">
+            Building modern applications with integrated technologies
+          </p>
+        </div>
+
+        <!-- Technology Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Frontend -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md border border-blue-200 dark:border-blue-700 relative overflow-hidden group hover:shadow-lg transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-cyan-500"
+            ></div>
+            <div
+              class="w-14 h-14 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-2xl">⚛️</span>
+            </div>
+            <h5 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+              Frontend
+            </h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              User interfaces that consume your APIs
+            </p>
+            <div class="space-y-2">
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                React & Next.js
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                Vue & Nuxt.js
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
+                Angular
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
+                Svelte & SvelteKit
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md border border-green-200 dark:border-green-700 relative overflow-hidden group hover:shadow-lg transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-emerald-500"
+            ></div>
+            <div
+              class="w-14 h-14 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-2xl">🗄️</span>
+            </div>
+            <h5 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+              Databases
+            </h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              Store and manage your application data
+            </p>
+            <div class="space-y-2">
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                MongoDB & Mongoose
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                PostgreSQL & Prisma
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
+                MySQL & Sequelize
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
+                Redis for caching
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud Services -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md border border-purple-200 dark:border-purple-700 relative overflow-hidden group hover:shadow-lg transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-indigo-500"
+            ></div>
+            <div
+              class="w-14 h-14 bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-2xl">☁️</span>
+            </div>
+            <h5 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+              Cloud & Hosting
+            </h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              Deploy and scale your applications
+            </p>
+            <div class="space-y-2">
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
+                AWS & Lambda
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                Azure & Functions
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                Heroku & Railway
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-black rounded-full mr-2"></span>
+                Vercel & Netlify
+              </div>
+            </div>
+          </div>
+
+          <!-- Development Tools -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md border border-orange-200 dark:border-orange-700 relative overflow-hidden group hover:shadow-lg transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-red-500"
+            ></div>
+            <div
+              class="w-14 h-14 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-xl flex items-center justify-center mb-4"
+            >
+              <span class="text-2xl">🛠️</span>
+            </div>
+            <h5 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+              Dev Tools
+            </h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              Enhance development workflow
+            </p>
+            <div class="space-y-2">
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                Docker containers
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                Jest testing
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                GitHub Actions
+              </div>
+              <div
+                class="flex items-center text-xs text-gray-500 dark:text-gray-400"
+              >
+                <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
+                Monitoring tools
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div
+          class="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600"
+        >
+          <h5
+            class="text-lg font-bold text-center text-gray-900 dark:text-white mb-6"
+          >
+            Full-Stack Architecture Flow
+          </h5>
+          <div
+            class="flex items-center justify-center space-x-4 flex-wrap gap-4"
+          >
+            <div class="flex items-center space-x-2">
+              <div
+                class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white text-sm font-bold"
+              >
+                UI
+              </div>
+              <span class="text-gray-600 dark:text-gray-300 text-sm"
+                >Frontend</span
+              >
+            </div>
+            <div class="text-gray-400 text-xl">→</div>
+            <div class="flex items-center space-x-2">
+              <div
+                class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-sm font-bold"
+              >
+                E
+              </div>
+              <span class="text-gray-600 dark:text-gray-300 text-sm"
+                >Express.js</span
+              >
+            </div>
+            <div class="text-gray-400 text-xl">→</div>
+            <div class="flex items-center space-x-2">
+              <div
+                class="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center text-white text-sm font-bold"
+              >
+                DB
+              </div>
+              <span class="text-gray-600 dark:text-gray-300 text-sm"
+                >Database</span
+              >
+            </div>
+            <div class="text-gray-400 text-xl">→</div>
+            <div class="flex items-center space-x-2">
+              <div
+                class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white text-sm font-bold"
+              >
+                ☁️
+              </div>
+              <span class="text-gray-600 dark:text-gray-300 text-sm"
+                >Cloud</span
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -170,7 +948,7 @@ app.listen(PORT, () => {
     </div>
 
     <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Core Concepts
+      Key Features That Make Express.js Powerful
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -178,14 +956,15 @@ app.listen(PORT, () => {
         class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
       >
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
-          🎯 Application Object
+          🎯 Smart Routing System
         </h4>
         <p class="text-gray-600 dark:text-gray-300 mb-3">
-          The Express application object represents your web application and
-          provides methods for routing, middleware, and configuration.
+          Like a GPS for your web requests. When someone visits /users or
+          /products, Express.js automatically knows which code to run. You can
+          even capture dynamic parts like /users/123 to get user ID 123.
         </p>
         <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
-          <code>const app = express();</code>
+          <code>app.get('/users/:id', handler);</code>
         </div>
       </div>
 
@@ -193,14 +972,16 @@ app.listen(PORT, () => {
         class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
       >
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
-          🛣️ Routing
+          ⚙️ Middleware Magic
         </h4>
         <p class="text-gray-600 dark:text-gray-300 mb-3">
-          Define how your application responds to different HTTP methods and URL
-          paths.
+          Think of middleware like security checkpoints at an airport. Each
+          piece of middleware can check, modify, or block requests before they
+          reach your main code. Perfect for authentication, logging, and
+          validation.
         </p>
         <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
-          <code>app.get('/users', handler);</code>
+          <code>app.use(authenticate);</code>
         </div>
       </div>
 
@@ -208,14 +989,15 @@ app.listen(PORT, () => {
         class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
       >
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
-          ⚙️ Middleware
+          🎨 Template Engine Support
         </h4>
         <p class="text-gray-600 dark:text-gray-300 mb-3">
-          Functions that execute during the request-response cycle, providing
-          modularity and reusability.
+          Like mail merge for web pages. Create HTML templates with
+          placeholders, and Express.js fills them with real data. Supports
+          popular engines like EJS, Handlebars, and Pug.
         </p>
         <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
-          <code>app.use(middleware);</code>
+          <code>app.set('view engine', 'ejs');</code>
         </div>
       </div>
 
@@ -223,15 +1005,72 @@ app.listen(PORT, () => {
         class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
       >
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
-          📨 Request/Response
+          📁 Static File Serving
         </h4>
         <p class="text-gray-600 dark:text-gray-300 mb-3">
-          Objects that represent the HTTP request and response, enhanced with
-          Express features.
+          Automatically serves images, CSS, JavaScript, and other static files.
+          Just point Express.js to a folder, and it handles the rest - no manual
+          file serving code needed.
         </p>
         <div class="text-sm bg-gray-50 dark:bg-gray-700 p-3 rounded">
-          <code>(req, res) => { ... }</code>
+          <code>app.use(express.static('public'));</code>
         </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Understanding Core Concepts
+    </h2>
+
+    <div class="space-y-6 mb-8">
+      <div
+        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-3">
+          🔄 Middleware: The Assembly Line
+        </h4>
+        <p class="text-blue-800 dark:text-blue-200 mb-3">
+          Imagine a restaurant kitchen where each station handles one task:
+          chopping vegetables, cooking meat, plating food. Middleware works the
+          same way - each piece handles one responsibility like checking if a
+          user is logged in, validating data, or logging requests. The request
+          flows through each middleware in order until it reaches your final
+          route handler.
+        </p>
+        <div class="text-sm bg-blue-100 dark:bg-blue-800 p-3 rounded">
+          <strong>Flow:</strong> Request → Authentication → Validation → Logging
+          → Your Code → Response
+        </div>
+      </div>
+
+      <div
+        class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-3">
+          🛣️ Routing: The Traffic Director
+        </h4>
+        <p class="text-purple-800 dark:text-purple-200 mb-3">
+          Routing is like a traffic director at a busy intersection. When a
+          request comes in for GET /users, POST /login, or DELETE /posts/123,
+          the router directs it to the right handler function. You can organize
+          routes by feature (user routes, product routes) and handle different
+          HTTP methods (GET for reading, POST for creating, PUT for updating).
+        </p>
+      </div>
+
+      <div
+        class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-green-900 dark:text-green-100 mb-3">
+          📨 Request & Response: The Conversation
+        </h4>
+        <p class="text-green-800 dark:text-green-200 mb-3">
+          The request object (req) contains everything the client sent: URL
+          parameters, form data, headers, cookies. The response object (res) is
+          your way to reply: sending JSON data, HTML pages, setting cookies, or
+          redirecting users. It's like having a complete conversation with each
+          visitor to your website.
+        </p>
       </div>
     </div>
 
@@ -518,47 +1357,489 @@ npm start</code></pre>
     </div>
 
     <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Common Use Cases
+      When Should You Choose Express.js?
     </h2>
 
     <div class="space-y-4 mb-8">
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-          🌐 REST APIs
+      <div
+        class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4"
+      >
+        <h4
+          class="font-semibold text-blue-900 dark:text-blue-100 mb-2 flex items-center"
+        >
+          🌐 REST APIs & Backend Services
         </h4>
-        <p class="text-gray-600 dark:text-gray-300 text-sm">
-          Build scalable REST APIs with proper HTTP methods, status codes, and
-          JSON responses.
+        <p class="text-blue-800 dark:text-blue-200 text-sm">
+          Perfect for building APIs that mobile apps and websites can
+          communicate with. Handle user authentication, data processing, and
+          database interactions while serving JSON responses.
         </p>
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+      <div
+        class="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-700 rounded-lg p-4"
+      >
+        <h4
+          class="font-semibold text-green-900 dark:text-green-100 mb-2 flex items-center"
+        >
+          💻 Full-Stack Web Applications
+        </h4>
+        <p class="text-green-800 dark:text-green-200 text-sm">
+          Build complete web applications that serve both HTML pages and API
+          endpoints. Great for traditional websites, admin dashboards, and
+          content management systems.
+        </p>
+      </div>
+
+      <div
+        class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-700 rounded-lg p-4"
+      >
+        <h4
+          class="font-semibold text-purple-900 dark:text-purple-100 mb-2 flex items-center"
+        >
+          🔗 Microservices Architecture
+        </h4>
+        <p class="text-purple-800 dark:text-purple-200 text-sm">
+          Create small, focused services that handle specific business
+          functions. Each service can be developed, deployed, and scaled
+          independently.
+        </p>
+      </div>
+
+      <div
+        class="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border border-orange-200 dark:border-orange-700 rounded-lg p-4"
+      >
+        <h4
+          class="font-semibold text-orange-900 dark:text-orange-100 mb-2 flex items-center"
+        >
           📱 Mobile App Backends
         </h4>
-        <p class="text-gray-600 dark:text-gray-300 text-sm">
-          Create backends for mobile applications with user authentication, data
-          storage, and push notifications.
+        <p class="text-orange-800 dark:text-orange-200 text-sm">
+          Power iOS and Android apps with user management, data synchronization,
+          push notifications, and file uploads.
         </p>
       </div>
+    </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-          🔗 Microservices
+    <!-- Statistics Section -->
+    <div class="mb-12">
+      <h2
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center"
+      >
+        Express.js by the Numbers
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div
+          class="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl border border-blue-200 dark:border-blue-700 hover:scale-105 transition-transform duration-300"
+        >
+          <div
+            class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 stat-number"
+          >
+            20M+
+          </div>
+          <div class="text-sm text-blue-800 dark:text-blue-200">
+            Weekly Downloads
+          </div>
+          <div class="text-xs text-blue-600 dark:text-blue-400 mt-1">
+            on npm
+          </div>
+        </div>
+
+        <div
+          class="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl border border-green-200 dark:border-green-700 hover:scale-105 transition-transform duration-300"
+        >
+          <div
+            class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2 stat-number"
+          >
+            50K+
+          </div>
+          <div class="text-sm text-green-800 dark:text-green-200">
+            GitHub Stars
+          </div>
+          <div class="text-xs text-green-600 dark:text-green-400 mt-1">
+            and growing
+          </div>
+        </div>
+
+        <div
+          class="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-xl border border-purple-200 dark:border-purple-700 hover:scale-105 transition-transform duration-300"
+        >
+          <div
+            class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2 stat-number"
+          >
+            12+
+          </div>
+          <div class="text-sm text-purple-800 dark:text-purple-200">
+            Years Active
+          </div>
+          <div class="text-xs text-purple-600 dark:text-purple-400 mt-1">
+            since 2010
+          </div>
+        </div>
+
+        <div
+          class="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-xl border border-orange-200 dark:border-orange-700 hover:scale-105 transition-transform duration-300"
+        >
+          <div
+            class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2 stat-number"
+          >
+            1000+
+          </div>
+          <div class="text-sm text-orange-800 dark:text-orange-200">
+            Middleware Packages
+          </div>
+          <div class="text-xs text-orange-600 dark:text-orange-400 mt-1">
+            available
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Express.js in the Real World
+    </h2>
+
+    <div
+      class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-6 mb-8"
+    >
+      <h4 class="font-semibold text-gray-900 dark:text-white mb-4">
+        🏢 Companies Using Express.js
+      </h4>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div
+          class="p-4 bg-white dark:bg-gray-600 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 transform hover:scale-105"
+        >
+          <div class="text-2xl mb-2">📺</div>
+          <h5 class="font-semibold text-gray-900 dark:text-white">Netflix</h5>
+          <p class="text-xs text-gray-600 dark:text-gray-300">Streaming APIs</p>
+        </div>
+        <div
+          class="p-4 bg-white dark:bg-gray-600 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 transform hover:scale-105"
+        >
+          <div class="text-2xl mb-2">🚗</div>
+          <h5 class="font-semibold text-gray-900 dark:text-white">Uber</h5>
+          <p class="text-xs text-gray-600 dark:text-gray-300">
+            Backend Services
+          </p>
+        </div>
+        <div
+          class="p-4 bg-white dark:bg-gray-600 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 transform hover:scale-105"
+        >
+          <div class="text-2xl mb-2">💬</div>
+          <h5 class="font-semibold text-gray-900 dark:text-white">WhatsApp</h5>
+          <p class="text-xs text-gray-600 dark:text-gray-300">Messaging APIs</p>
+        </div>
+        <div
+          class="p-4 bg-white dark:bg-gray-600 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 transform hover:scale-105"
+        >
+          <div class="text-2xl mb-2">🏢</div>
+          <h5 class="font-semibold text-gray-900 dark:text-white">IBM</h5>
+          <p class="text-xs text-gray-600 dark:text-gray-300">
+            Enterprise Apps
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Start Interactive Guide -->
+    <div class="mb-12">
+      <h2
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center"
+      >
+        🚀 Quick Start Guide
+      </h2>
+
+      <div
+        class="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 rounded-xl p-8 border border-indigo-200 dark:border-indigo-700"
+      >
+        <div class="text-center mb-6">
+          <h3
+            class="text-xl font-semibold text-indigo-900 dark:text-indigo-100 mb-2"
+          >
+            Get Your Express.js Server Running in 2 Minutes
+          </h3>
+          <p class="text-indigo-700 dark:text-indigo-300">
+            Follow these simple steps to create your first Express.js
+            application
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-indigo-200 dark:border-indigo-700 shadow-sm"
+          >
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3"
+              >
+                1
+              </div>
+              <h4 class="font-semibold text-gray-900 dark:text-white">
+                Setup Project
+              </h4>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-700 rounded p-3 text-sm font-mono"
+            >
+              <div class="text-gray-700 dark:text-gray-300">mkdir my-app</div>
+              <div class="text-gray-700 dark:text-gray-300">cd my-app</div>
+              <div class="text-gray-700 dark:text-gray-300">npm init -y</div>
+              <div class="text-green-600 dark:text-green-400">
+                npm install express
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-indigo-200 dark:border-indigo-700 shadow-sm"
+          >
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3"
+              >
+                2
+              </div>
+              <h4 class="font-semibold text-gray-900 dark:text-white">
+                Create Server
+              </h4>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-700 rounded p-3 text-sm font-mono"
+            >
+              <div class="text-blue-600 dark:text-blue-400">
+                const express = require('express')
+              </div>
+              <div class="text-blue-600 dark:text-blue-400">
+                const app = express()
+              </div>
+              <div class="text-green-600 dark:text-green-400">
+                app.get('/', (req, res) => {
+              </div>
+              <div class="text-green-600 dark:text-green-400 ml-2">
+                res.send('Hello World!')
+              </div>
+              <div class="text-green-600 dark:text-green-400">})</div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-indigo-200 dark:border-indigo-700 shadow-sm"
+          >
+            <div class="flex items-center mb-3">
+              <div
+                class="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3"
+              >
+                3
+              </div>
+              <h4 class="font-semibold text-gray-900 dark:text-white">
+                Start Server
+              </h4>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-700 rounded p-3 text-sm font-mono"
+            >
+              <div class="text-purple-600 dark:text-purple-400">
+                app.listen(3000, () => {
+              </div>
+              <div class="text-purple-600 dark:text-purple-400 ml-2">
+                console.log('Server running!')
+              </div>
+              <div class="text-purple-600 dark:text-purple-400">})</div>
+              <div class="text-gray-700 dark:text-gray-300 mt-2">
+                node app.js
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="text-center mt-6 p-4 bg-green-100 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-700"
+        >
+          <p class="text-green-800 dark:text-green-200">
+            🎉 That's it! Your server is now running at
+            <code class="bg-green-200 dark:bg-green-800 px-2 py-1 rounded"
+              >http://localhost:3000</code
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+      Advantages and When to Look Elsewhere
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div
+        class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-green-900 dark:text-green-100 mb-3">
+          ✅ Express.js Shines When
         </h4>
-        <p class="text-gray-600 dark:text-gray-300 text-sm">
-          Develop lightweight microservices that communicate via HTTP APIs.
-        </p>
+        <ul class="text-sm text-green-800 dark:text-green-200 space-y-2">
+          <li>• Building APIs and web services quickly</li>
+          <li>• You need flexibility and control</li>
+          <li>• Working with existing Node.js ecosystem</li>
+          <li>• Creating prototypes and MVPs</li>
+          <li>• Building microservices</li>
+          <li>• You want a minimal, unopinionated framework</li>
+        </ul>
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-          🌍 Web Applications
+      <div
+        class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6"
+      >
+        <h4 class="font-semibold text-red-900 dark:text-red-100 mb-3">
+          ⚠️ Consider Alternatives For
         </h4>
-        <p class="text-gray-600 dark:text-gray-300 text-sm">
-          Build traditional web applications with server-side rendering and
-          template engines.
-        </p>
+        <ul class="text-sm text-red-800 dark:text-red-200 space-y-2">
+          <li>• Real-time applications (consider Socket.io)</li>
+          <li>• CPU-intensive tasks (consider Go, Rust)</li>
+          <li>• Large enterprise apps (consider NestJS)</li>
+          <li>• When you want opinionated structure</li>
+          <li>• Built-in ORM/database features</li>
+          <li>• Automatic API documentation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Learning Roadmap -->
+    <div class="mb-12">
+      <h2
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center"
+      >
+        🗺️ Your Express.js Learning Journey
+      </h2>
+
+      <div class="relative">
+        <!-- Connecting Line -->
+        <div
+          class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-green-400 to-purple-400 transform md:-translate-x-0.5 rounded-full"
+        ></div>
+
+        <div class="space-y-8">
+          <!-- Beginner Level -->
+          <div class="relative flex items-center roadmap-item">
+            <div
+              class="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 transform md:-translate-x-4 flex items-center justify-center floating"
+            >
+              <span class="text-white text-sm font-bold">1</span>
+            </div>
+            <div class="ml-12 md:ml-0 md:w-1/2 md:pr-8">
+              <div
+                class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3
+                  class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2"
+                >
+                  🌱 Beginner (Week 1-2)
+                </h3>
+                <ul class="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                  <li>• Install Node.js and Express</li>
+                  <li>• Create your first server</li>
+                  <li>• Understand routing basics</li>
+                  <li>• Learn about request/response</li>
+                  <li>• Serve static files</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intermediate Level -->
+          <div
+            class="relative flex items-center md:flex-row-reverse roadmap-item"
+          >
+            <div
+              class="absolute left-0 md:left-1/2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 transform md:-translate-x-4 flex items-center justify-center floating"
+              style="animation-delay: 1s"
+            >
+              <span class="text-white text-sm font-bold">2</span>
+            </div>
+            <div class="ml-12 md:ml-0 md:w-1/2 md:pl-8">
+              <div
+                class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3
+                  class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2"
+                >
+                  🚀 Intermediate (Week 3-6)
+                </h3>
+                <ul
+                  class="text-sm text-green-800 dark:text-green-200 space-y-1"
+                >
+                  <li>• Master middleware concepts</li>
+                  <li>• Build REST APIs</li>
+                  <li>• Connect to databases</li>
+                  <li>• Handle errors gracefully</li>
+                  <li>• Add authentication</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Level -->
+          <div class="relative flex items-center roadmap-item">
+            <div
+              class="absolute left-0 md:left-1/2 w-8 h-8 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800 transform md:-translate-x-4 flex items-center justify-center floating"
+              style="animation-delay: 2s"
+            >
+              <span class="text-white text-sm font-bold">3</span>
+            </div>
+            <div class="ml-12 md:ml-0 md:w-1/2 md:pr-8">
+              <div
+                class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3
+                  class="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-2"
+                >
+                  ⚡ Advanced (Week 7+)
+                </h3>
+                <ul
+                  class="text-sm text-purple-800 dark:text-purple-200 space-y-1"
+                >
+                  <li>• Performance optimization</li>
+                  <li>• Security best practices</li>
+                  <li>• Testing strategies</li>
+                  <li>• Deployment and scaling</li>
+                  <li>• Microservices architecture</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expert Level -->
+          <div
+            class="relative flex items-center md:flex-row-reverse roadmap-item"
+          >
+            <div
+              class="absolute left-0 md:left-1/2 w-8 h-8 bg-orange-500 rounded-full border-4 border-white dark:border-gray-800 transform md:-translate-x-4 flex items-center justify-center floating"
+              style="animation-delay: 3s"
+            >
+              <span class="text-white text-sm font-bold">4</span>
+            </div>
+            <div class="ml-12 md:ml-0 md:w-1/2 md:pl-8">
+              <div
+                class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3
+                  class="text-lg font-semibold text-orange-900 dark:text-orange-100 mb-2"
+                >
+                  🏆 Expert (Ongoing)
+                </h3>
+                <ul
+                  class="text-sm text-orange-800 dark:text-orange-200 space-y-1"
+                >
+                  <li>• Custom middleware development</li>
+                  <li>• Framework optimization</li>
+                  <li>• Team leadership</li>
+                  <li>• Contributing to ecosystem</li>
+                  <li>• Architecture decisions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -566,50 +1847,489 @@ npm start</code></pre>
       class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8"
     >
       <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">
-        What's Next?
+        Ready to Start Your Express.js Journey?
       </h3>
       <p class="text-green-800 dark:text-green-200 mb-4">
-        Now that you understand the basics of Express.js, let's dive deeper into
-        specific topics:
+        Express.js is the perfect entry point into backend development. It's
+        powerful enough for production applications yet simple enough for
+        beginners. Whether you're building your first API or scaling a complex
+        application, Express.js provides the foundation you need.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ul
           class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
         >
-          <li>Express.js Installation & Setup</li>
-          <li>Routing and Route Parameters</li>
-          <li>Middleware and Custom Middleware</li>
-          <li>Error Handling Strategies</li>
+          <li>Start with basic routing and middleware</li>
+          <li>Build your first REST API</li>
+          <li>Learn database integration</li>
+          <li>Master error handling and validation</li>
         </ul>
         <ul
           class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
         >
-          <li>Request/Response Objects</li>
-          <li>Template Engines Integration</li>
-          <li>Static File Serving</li>
-          <li>Testing Express Applications</li>
+          <li>Explore authentication patterns</li>
+          <li>Deploy to cloud platforms</li>
+          <li>Add testing and monitoring</li>
+          <li>Scale with advanced patterns</li>
         </ul>
       </div>
     </div>
 
+    <!-- Enhanced Takeaways -->
     <div
-      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+      class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-8 mb-8"
     >
-      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
-        💡 Pro Tips
-      </h3>
-      <ul
-        class="list-disc list-inside text-blue-800 dark:text-blue-200 space-y-2"
-      >
-        <li>Always handle errors gracefully with proper error middleware</li>
-        <li>Use environment variables for configuration</li>
-        <li>Implement proper logging for debugging and monitoring</li>
-        <li>Follow RESTful conventions for API design</li>
-        <li>
-          Use middleware for cross-cutting concerns like authentication and
-          validation
-        </li>
-      </ul>
+      <div class="text-center mb-6">
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <span class="text-2xl">💡</span>
+        </div>
+        <h3 class="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-2">
+          Essential Takeaways
+        </h3>
+        <p class="text-blue-700 dark:text-blue-300">
+          Key insights to remember as you start your Express.js journey
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-blue-200 dark:border-blue-700"
+        >
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <span class="text-white text-sm">🚀</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                Express.js = Node.js made easy
+              </h4>
+              <p class="text-blue-800 dark:text-blue-200 text-sm">
+                It's the bridge between raw Node.js power and developer
+                productivity
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-green-200 dark:border-green-700"
+        >
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <span class="text-white text-sm">⚙️</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-green-900 dark:text-green-100 mb-2">
+                Think middleware first
+              </h4>
+              <p class="text-green-800 dark:text-green-200 text-sm">
+                Most problems can be solved by understanding the request flow
+                through middleware
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-purple-200 dark:border-purple-700"
+        >
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <span class="text-white text-sm">📈</span>
+            </div>
+            <div>
+              <h4
+                class="font-semibold text-purple-900 dark:text-purple-100 mb-2"
+              >
+                Start small, scale smart
+              </h4>
+              <p class="text-purple-800 dark:text-purple-200 text-sm">
+                Begin with simple routes and gradually add features as your
+                application grows
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-orange-200 dark:border-orange-700"
+        >
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <span class="text-white text-sm">🌟</span>
+            </div>
+            <div>
+              <h4
+                class="font-semibold text-orange-900 dark:text-orange-100 mb-2"
+              >
+                Perfect for APIs
+              </h4>
+              <p class="text-orange-800 dark:text-orange-200 text-sm">
+                If you're building a REST API or backend service, Express.js is
+                often the right choice
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action Footer -->
+    <div
+      class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-xl p-8 text-white text-center"
+    >
+      <div class="max-w-3xl mx-auto">
+        <h3 class="text-2xl font-bold mb-3">
+          🎯 Ready to Build Something Amazing?
+        </h3>
+        <p class="text-indigo-100 mb-6 text-lg">
+          You now have a solid understanding of Express.js. Time to put it into
+          practice and start building!
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <h4 class="font-semibold mb-2">📚 Learn More</h4>
+            <p class="text-sm text-indigo-100">
+              Explore our detailed tutorials and guides
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <h4 class="font-semibold mb-2">🛠️ Start Building</h4>
+            <p class="text-sm text-indigo-100">
+              Create your first Express.js application
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <h4 class="font-semibold mb-2">🚀 Deploy</h4>
+            <p class="text-sm text-indigo-100">
+              Take your app live with our deployment guides
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#"
+            class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors duration-200 inline-flex items-center"
+          >
+            <span class="mr-2">📖</span>
+            Read Installation Guide
+          </a>
+          <a
+            href="#"
+            class="bg-indigo-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-400 transition-colors duration-200 inline-flex items-center"
+          >
+            <span class="mr-2">⚡</span>
+            Quick Start Tutorial
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+  /* Enhanced animations and interactions */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Apply animations to sections */
+  .content-section > div {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Stagger animations for cards */
+  .grid > div:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .grid > div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .grid > div:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .grid > div:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  /* Hover effects for interactive elements */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Enhanced button hover effects */
+  .bg-white:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Progress indicator for roadmap */
+  .roadmap-item {
+    opacity: 0;
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .roadmap-item:nth-child(even) {
+    animation-name: slideInRight;
+  }
+
+  .roadmap-item:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .roadmap-item:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .roadmap-item:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .roadmap-item:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+
+  /* Tab switching effects */
+  .tab-content {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .tab-content.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .tab-content.active {
+    opacity: 1;
+  }
+
+  /* Code block enhancements */
+  .code-block {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .code-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .code-block:hover::before {
+    left: 100%;
+  }
+
+  /* Floating elements */
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Smooth scrolling for internal links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  .prose::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .prose::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .prose::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+  }
+
+  .prose::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #2563eb, #7c3aed);
+  }
+
+  /* Interactive statistics counters */
+  .stat-number {
+    transition: transform 0.3s ease;
+  }
+
+  .stat-number:hover {
+    transform: scale(1.1);
+  }
+
+  /* Responsive text sizing */
+  @media (max-width: 768px) {
+    .text-4xl {
+      font-size: 2rem;
+    }
+    .text-3xl {
+      font-size: 1.5rem;
+    }
+    .text-2xl {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  // Add interactive functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    // Tab switching functionality
+    const tabButtons = document.querySelectorAll("[data-tab]");
+    const tabContents = document.querySelectorAll("[data-content]");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetTab = button.getAttribute("data-tab");
+
+        // Remove active class from all buttons and contents
+        tabButtons.forEach((btn) =>
+          btn.classList.remove("bg-blue-600", "text-white")
+        );
+        tabButtons.forEach((btn) =>
+          btn.classList.add("bg-gray-200", "text-gray-700")
+        );
+        tabContents.forEach((content) => {
+          content.classList.remove("active");
+          content.classList.add("hidden");
+        });
+
+        // Add active class to clicked button and corresponding content
+        button.classList.remove("bg-gray-200", "text-gray-700");
+        button.classList.add("bg-blue-600", "text-white");
+
+        const targetContent = document.querySelector(
+          `[data-content="${targetTab}"]`
+        );
+        if (targetContent) {
+          targetContent.classList.remove("hidden");
+          targetContent.classList.add("active");
+        }
+      });
+    });
+
+    // Copy code functionality
+    const copyButtons = document.querySelectorAll(".copy-btn");
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const codeId = button.getAttribute("data-copy");
+        const codeElement = document.getElementById(codeId);
+
+        if (codeElement) {
+          navigator.clipboard.writeText(codeElement.textContent).then(() => {
+            button.textContent = "Copied!";
+            button.classList.add("bg-green-500");
+
+            setTimeout(() => {
+              button.textContent = "Copy";
+              button.classList.remove("bg-green-500");
+            }, 2000);
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards and sections
+    const cards = document.querySelectorAll(
+      ".bg-white, .bg-gradient-to-br, .border"
+    );
+    cards.forEach((card) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(20px)";
+      card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      observer.observe(card);
+    });
+  });
+</script>

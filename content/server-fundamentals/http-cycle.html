@@ -1,103 +1,170 @@
 <div class="content-section">
   <div class="flex items-center space-x-3 mb-6">
-    <span class="text-4xl">🔄</span>
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-      HTTP Protocol
-    </h1>
+    <div class="text-5xl animate-spin-slow">🔄</div>
+    <div>
+      <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+        HTTP Protocol
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">The language of the web</p>
+    </div>
   </div>
 
   <div class="prose prose-gray dark:prose-invert max-w-none">
     <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-      The HyperText Transfer Protocol (HTTP) is the foundation of data
-      communication on the World Wide Web. Understanding HTTP is crucial for
-      backend development.
+      Imagine you're at a restaurant. You look at the menu, decide what you
+      want, tell the waiter your order, and they bring back your food. HTTP
+      (HyperText Transfer Protocol) works just like this - it's the "language"
+      that allows your web browser to "order" web pages from servers and get
+      them delivered back to you.
     </p>
 
-    <h2>What is HTTP?</h2>
+    <h2>What HTTP Stands For and Its Purpose</h2>
     <p>
-      HTTP is a stateless, application-layer protocol that defines how messages
-      are formatted and transmitted between web browsers (clients) and web
-      servers. It follows a request-response model.
+      <strong>HTTP stands for HyperText Transfer Protocol.</strong> Think of it
+      as the postal service of the internet. Just like the postal service has
+      rules for how to format addresses, where to put stamps, and how to deliver
+      mail, HTTP has rules for how web browsers and servers communicate with
+      each other.
     </p>
+
+    <p>
+      <strong>Why does HTTP exist?</strong> Before HTTP, there was no standard
+      way for computers to share web content. HTTP solved this problem by
+      creating a universal "language" that any web browser could use to request
+      web pages from any web server, anywhere in the world.
+    </p>
+
+    <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 border-2 border-amber-200 dark:border-amber-700 rounded-xl p-6 my-6 shadow-lg">
+      <div class="flex items-center mb-3">
+        <span class="text-2xl mr-3">🍽️</span>
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100">
+          Restaurant Analogy
+        </h3>
+      </div>
+      <div class="bg-amber-100/50 dark:bg-amber-800/30 rounded-lg p-4 border border-amber-300 dark:border-amber-600">
+        <div class="space-y-2 text-amber-800 dark:text-amber-200 text-sm">
+          <div class="flex items-center space-x-2">
+            <span class="font-semibold text-amber-900 dark:text-amber-100">👤 You (Browser):</span>
+            <span>"I'd like the chicken caesar salad, please"</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-semibold text-amber-900 dark:text-amber-100">🚶 Waiter (HTTP):</span>
+            <span>Takes your order to the kitchen</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-semibold text-amber-900 dark:text-amber-100">👨‍🍳 Kitchen (Server):</span>
+            <span>Prepares your food</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-semibold text-amber-900 dark:text-amber-100">🚶 Waiter (HTTP):</span>
+            <span>Brings back your meal</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-semibold text-amber-900 dark:text-amber-100">👤 You (Browser):</span>
+            <span>Enjoy your food (view the webpage)</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div
-      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-6"
+      class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-8 my-8 shadow-xl"
     >
-      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">
-        HTTP Request-Response Cycle
-      </h3>
-      <div class="space-y-4">
-        <div class="flex items-center space-x-4">
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🌐</span>
+        <h3 class="text-2xl font-bold text-blue-900 dark:text-blue-100">
+          How HTTP Works: The Request-Response Cycle
+        </h3>
+      </div>
+      <div class="bg-blue-100/70 dark:bg-blue-800/30 rounded-lg p-4 mb-6 border border-blue-300 dark:border-blue-600">
+        <p class="text-blue-800 dark:text-blue-200 font-medium">
+          💡 When you type "amazon.com" in your browser and hit Enter, here's the magic that happens:
+        </p>
+      </div>
+      <div class="space-y-6">
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border border-blue-200 dark:border-blue-700 shadow-sm hover:shadow-md transition-shadow">
           <div
-            class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+            class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
           >
             1
           </div>
-          <div>
-            <p class="font-medium text-blue-900 dark:text-blue-100">
-              Client sends HTTP request
+          <div class="flex-1">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 text-lg mb-1">
+              Your browser sends a request
             </p>
-            <p class="text-sm text-blue-700 dark:text-blue-300">
-              Browser initiates request to server
+            <p class="text-blue-700 dark:text-blue-300">
+              "Hi Amazon server, can I have your homepage please?" (GET request to amazon.com)
             </p>
           </div>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border border-blue-200 dark:border-blue-700 shadow-sm hover:shadow-md transition-shadow">
           <div
-            class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+            class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
           >
             2
           </div>
-          <div>
-            <p class="font-medium text-blue-900 dark:text-blue-100">
-              Server processes request
+          <div class="flex-1">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 text-lg mb-1">
+              Amazon's server processes your request
             </p>
-            <p class="text-sm text-blue-700 dark:text-blue-300">
-              Server parses request and executes logic
+            <p class="text-blue-700 dark:text-blue-300">
+              Server thinks: "This person wants the homepage. Let me gather all the HTML, images, and data."
             </p>
           </div>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border border-blue-200 dark:border-blue-700 shadow-sm hover:shadow-md transition-shadow">
           <div
-            class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+            class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
           >
             3
           </div>
-          <div>
-            <p class="font-medium text-blue-900 dark:text-blue-100">
-              Server sends HTTP response
+          <div class="flex-1">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 text-lg mb-1">
+              Server sends back a response
             </p>
-            <p class="text-sm text-blue-700 dark:text-blue-300">
-              Server returns data or error to client
+            <p class="text-blue-700 dark:text-blue-300">
+              "Here's the Amazon homepage!" (includes status code 200 = "Success, here you go!")
             </p>
           </div>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border border-blue-200 dark:border-blue-700 shadow-sm hover:shadow-md transition-shadow">
           <div
-            class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+            class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
           >
             4
           </div>
-          <div>
-            <p class="font-medium text-blue-900 dark:text-blue-100">
-              Connection closed
+          <div class="flex-1">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 text-lg mb-1">
+              Your browser displays the page
             </p>
-            <p class="text-sm text-blue-700 dark:text-blue-300">
-              HTTP is stateless - connection ends
+            <p class="text-blue-700 dark:text-blue-300">
+              Browser renders the HTML, loads images, and shows you Amazon's website
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <h2>HTTP Request Structure</h2>
-    <p>An HTTP request consists of four main parts:</p>
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6">
+      📝 HTTP Request Structure - Anatomy of a Request
+    </h2>
+    <p class="text-lg mb-6">
+      Think of an HTTP request like a formal letter. Just like a business letter
+      has specific parts (header with your address, greeting, body, signature),
+      HTTP requests have a standard structure:
+    </p>
 
     <div
-      class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4"
+      class="bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 dark:from-slate-900 dark:via-gray-900 dark:to-zinc-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl p-6 my-6 shadow-xl"
     >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">💌</span>
+        <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+          Sample HTTP Request
+        </h3>
+      </div>
       <pre
-        class="text-sm text-gray-800 dark:text-gray-200"
+        class="text-sm text-gray-800 dark:text-gray-200 bg-white/70 dark:bg-gray-800/70 rounded-lg p-4 border border-gray-200 dark:border-gray-700 overflow-x-auto"
       ><code>POST /api/users HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -110,178 +177,276 @@ Content-Length: 45
 }</code></pre>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6 my-6">
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          1. Request Line
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+    <div class="grid md:grid-cols-2 gap-6 my-8">
+      <div class="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 border-2 border-indigo-200 dark:border-indigo-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center mb-3">
+          <div class="w-8 h-8 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+            1
+          </div>
+          <h3 class="font-bold text-indigo-900 dark:text-indigo-100 text-lg">
+            Request Line
+          </h3>
+        </div>
+        <p class="text-indigo-700 dark:text-indigo-300 text-sm mb-3">
           Contains the HTTP method, URL path, and HTTP version.
         </p>
-        <code class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+        <code class="text-xs bg-indigo-100 dark:bg-indigo-800/50 px-3 py-2 rounded-lg text-indigo-800 dark:text-indigo-200 block"
           >POST /api/users HTTP/1.1</code
         >
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          2. Headers
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+      <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 border-2 border-emerald-200 dark:border-emerald-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center mb-3">
+          <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+            2
+          </div>
+          <h3 class="font-bold text-emerald-900 dark:text-emerald-100 text-lg">
+            Headers
+          </h3>
+        </div>
+        <p class="text-emerald-700 dark:text-emerald-300 text-sm mb-3">
           Key-value pairs providing metadata about the request.
         </p>
-        <code class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+        <code class="text-xs bg-emerald-100 dark:bg-emerald-800/50 px-3 py-2 rounded-lg text-emerald-800 dark:text-emerald-200 block"
           >Content-Type: application/json</code
         >
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          3. Empty Line
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
-          Separates headers from the body.
+      <div class="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/30 dark:to-orange-900/30 border-2 border-yellow-200 dark:border-yellow-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center mb-3">
+          <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+            3
+          </div>
+          <h3 class="font-bold text-yellow-900 dark:text-yellow-100 text-lg">
+            Empty Line
+          </h3>
+        </div>
+        <p class="text-yellow-700 dark:text-yellow-300 text-sm">
+          Separates headers from the body content.
         </p>
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          4. Body (Optional)
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center mb-3">
+          <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+            4
+          </div>
+          <h3 class="font-bold text-purple-900 dark:text-purple-100 text-lg">
+            Body (Optional)
+          </h3>
+        </div>
+        <p class="text-purple-700 dark:text-purple-300 text-sm">
           Contains data sent to the server (for POST, PUT, PATCH).
         </p>
       </div>
     </div>
 
-    <h2>HTTP Methods</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <thead class="bg-gray-50 dark:bg-gray-800">
-          <tr>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
-            >
-              Method
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
-            >
-              Purpose
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
-            >
-              Safe
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
-            >
-              Idempotent
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700"
-        >
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
-            >
-              GET
-            </td>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
-            >
-              Retrieve data
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
-              Yes
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
-              Yes
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
-            >
-              POST
-            </td>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
-            >
-              Create new resource
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
-            >
-              PUT
-            </td>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
-            >
-              Update/replace resource
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
-              Yes
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
-            >
-              PATCH
-            </td>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
-            >
-              Partial update
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-yellow-600">
-              No*
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
-            >
-              DELETE
-            </td>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300"
-            >
-              Remove resource
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">No</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
-              Yes
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+      HTTP Methods - The Different Types of Requests
+    </h2>
+    <p class="text-lg mb-8">
+      Think of HTTP methods as different types of actions you can take. Just
+      like in real life, you might want to <em class="text-blue-600 dark:text-blue-400 font-semibold">read</em> a book,
+      <em class="text-green-600 dark:text-green-400 font-semibold">create</em> a new document, <em class="text-yellow-600 dark:text-yellow-400 font-semibold">update</em> your profile, or
+      <em class="text-red-600 dark:text-red-400 font-semibold">delete</em> an old photo. HTTP methods work the same way:
+    </p>
+
+    <div class="grid lg:grid-cols-2 gap-8 my-8">
+      <div
+        class="group border-2 border-green-200 dark:border-green-700 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-900/20 dark:via-emerald-900/20 dark:to-teal-900/20 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+      >
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg mr-4">
+            G
+          </div>
+          <h3 class="text-xl font-bold text-green-900 dark:text-green-100">GET - "Show me something"</h3>
+        </div>
+        <p class="text-green-800 dark:text-green-200 mb-4">
+          Like looking at a menu or reading a book - you're just viewing, not changing anything.
+        </p>
+        <div class="bg-green-100/80 dark:bg-green-800/30 rounded-lg p-3 border border-green-300 dark:border-green-600">
+          <p class="text-sm text-green-700 dark:text-green-300">
+            <strong class="text-green-900 dark:text-green-100">Examples:</strong> Visiting Google.com, viewing your Facebook feed, looking at product photos on Amazon
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="group border-2 border-blue-200 dark:border-blue-700 bg-gradient-to-br from-blue-50 via-indigo-50 to-cyan-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-cyan-900/20 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+      >
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg mr-4">
+            P
+          </div>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100">POST - "Create something new"</h3>
+        </div>
+        <p class="text-blue-800 dark:text-blue-200 mb-4">
+          Like filling out a job application or posting a new photo - you're adding something brand new.
+        </p>
+        <div class="bg-blue-100/80 dark:bg-blue-800/30 rounded-lg p-3 border border-blue-300 dark:border-blue-600">
+          <p class="text-sm text-blue-700 dark:text-blue-300">
+            <strong class="text-blue-900 dark:text-blue-100">Examples:</strong> Creating a new account, posting on Instagram, sending a contact form, making an online purchase
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="group border-2 border-yellow-200 dark:border-yellow-700 bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 dark:from-yellow-900/20 dark:via-orange-900/20 dark:to-amber-900/20 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+      >
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg mr-4">
+            U
+          </div>
+          <h3 class="text-xl font-bold text-yellow-900 dark:text-yellow-100">PUT - "Replace completely"</h3>
+        </div>
+        <p class="text-yellow-800 dark:text-yellow-200 mb-4">
+          Like rewriting your entire resume or completely changing your profile picture.
+        </p>
+        <div class="bg-yellow-100/80 dark:bg-yellow-800/30 rounded-lg p-3 border border-yellow-300 dark:border-yellow-600">
+          <p class="text-sm text-yellow-700 dark:text-yellow-300">
+            <strong class="text-yellow-900 dark:text-yellow-100">Examples:</strong> Updating your entire user profile, replacing a document with a new version
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="group border-2 border-red-200 dark:border-red-700 bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 dark:from-red-900/20 dark:via-pink-900/20 dark:to-rose-900/20 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+      >
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg mr-4">
+            D
+          </div>
+          <h3 class="text-xl font-bold text-red-900 dark:text-red-100">DELETE - "Remove this"</h3>
+        </div>
+        <p class="text-red-800 dark:text-red-200 mb-4">
+          Like throwing away a document or deleting a photo from your phone.
+        </p>
+        <div class="bg-red-100/80 dark:bg-red-800/30 rounded-lg p-3 border border-red-300 dark:border-red-600">
+          <p class="text-sm text-red-700 dark:text-red-300">
+            <strong class="text-red-900 dark:text-red-100">Examples:</strong> Deleting a tweet, removing an item from your shopping cart, canceling your account
+          </p>
+        </div>
+      </div>
     </div>
 
-    <h2>HTTP Response Structure</h2>
-    <p>An HTTP response has a similar structure to requests:</p>
+    <div class="mb-8">
+      <div class="bg-gradient-to-r from-slate-100 to-gray-100 dark:from-slate-800 dark:to-gray-800 border border-slate-300 dark:border-slate-600 rounded-lg p-1 mb-4">
+        <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 px-4 pt-3">
+          📊 HTTP Methods Comparison Table
+        </h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden shadow-lg">
+          <thead class="bg-slate-50 dark:bg-slate-900/50">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100">Method</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100">Purpose</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100">Safe</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-slate-100">Idempotent</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+            <tr class="hover:bg-green-25 dark:hover:bg-green-900/10 transition-colors">
+              <td class="px-6 py-4 text-slate-900 dark:text-white font-mono font-bold">GET</td>
+              <td class="px-6 py-4 text-slate-700 dark:text-slate-300">Retrieve data</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                  ✓ Yes
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                  ✓ Yes
+                </span>
+              </td>
+            </tr>
+            <tr class="hover:bg-blue-25 dark:hover:bg-blue-900/10 transition-colors">
+              <td class="px-6 py-4 text-slate-900 dark:text-white font-mono font-bold">POST</td>
+              <td class="px-6 py-4 text-slate-700 dark:text-slate-300">Create new resource</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                  ✗ No
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                  ✗ No
+                </span>
+              </td>
+            </tr>
+            <tr class="hover:bg-yellow-25 dark:hover:bg-yellow-900/10 transition-colors">
+              <td class="px-6 py-4 text-slate-900 dark:text-white font-mono font-bold">PUT</td>
+              <td class="px-6 py-4 text-slate-700 dark:text-slate-300">Update/replace resource</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                  ✗ No
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                  ✓ Yes
+                </span>
+              </td>
+            </tr>
+            <tr class="hover:bg-orange-25 dark:hover:bg-orange-900/10 transition-colors">
+              <td class="px-6 py-4 text-slate-900 dark:text-white font-mono font-bold">PATCH</td>
+              <td class="px-6 py-4 text-slate-700 dark:text-slate-300">Partial update</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                  ✗ No
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">
+                  ~ No*
+                </span>
+              </td>
+            </tr>
+            <tr class="hover:bg-red-25 dark:hover:bg-red-900/10 transition-colors">
+              <td class="px-6 py-4 text-slate-900 dark:text-white font-mono font-bold">DELETE</td>
+              <td class="px-6 py-4 text-slate-700 dark:text-slate-300">Remove resource</td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                  ✗ No
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                  ✓ Yes
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6">
+      📬 HTTP Response Structure - The Server's Reply
+    </h2>
+    <p class="text-lg mb-6">
+      When the server responds, it's like getting a reply letter. The server
+      tells you whether your request worked (status code), provides some details
+      (headers), and includes the actual content you asked for (body):
+    </p>
 
     <div
-      class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4"
+      class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 border-2 border-emerald-300 dark:border-emerald-600 rounded-xl p-6 my-6 shadow-xl"
     >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">📨</span>
+        <h3 class="text-lg font-bold text-emerald-900 dark:text-emerald-100">
+          Sample HTTP Response
+        </h3>
+      </div>
       <pre
-        class="text-sm text-gray-800 dark:text-gray-200"
-      ><code>HTTP/1.1 201 Created
-Content-Type: application/json
-Location: /api/users/123
-Content-Length: 78
-
-{
+        class="text-sm text-emerald-800 dark:text-emerald-200 bg-white/70 dark:bg-gray-800/70 rounded-lg p-4 border border-emerald-200 dark:border-emerald-700 overflow-x-auto"
+      ><code>HTTP/1.1 201 Created          ← Status line: "Success! I created what you asked for"
+Content-Type: application/json    ← Header: "I'm sending you JSON data"
+Location: /api/users/123          ← Header: "You can find it at this address"
+Content-Length: 78                ← Header: "The response is 78 characters long"
+                                  ← Empty line separating headers from body
+{                                 ← Body: The actual data
   "id": 123,
   "name": "John Doe",
   "email": "john@example.com",
@@ -289,122 +454,266 @@ Content-Length: 78
 }</code></pre>
     </div>
 
-    <h2>Status Codes</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
-      <div
-        class="border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 rounded-lg p-4"
-      >
-        <h3 class="font-semibold text-green-900 dark:text-green-100 mb-2">
-          2xx Success
-        </h3>
-        <ul class="text-sm text-green-800 dark:text-green-200 space-y-1">
-          <li>200 - OK</li>
-          <li>201 - Created</li>
-          <li>204 - No Content</li>
-        </ul>
-      </div>
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent mb-6">
+      🎭 HTTP Status Codes - The Server's Response Messages
+    </h2>
+    <p>
+      Status codes are like facial expressions - they tell you immediately how the server "feels" about your request. 
+      Just like a smile means "everything's good" and a frown means "something's wrong," status codes communicate what happened.
+    </p>
 
-      <div
-        class="border border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4"
-      >
-        <h3 class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">
-          3xx Redirection
+    <!-- 2xx Success Codes -->
+    <div class="mb-8">
+      <div class="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 border border-green-300 dark:border-green-700 rounded-lg p-1 mb-4">
+        <h3 class="text-xl font-bold text-green-800 dark:text-green-200 mb-2 px-4 pt-3">
+          😊 2xx Success - "Everything worked perfectly!"
         </h3>
-        <ul class="text-sm text-yellow-800 dark:text-yellow-200 space-y-1">
-          <li>301 - Moved Permanently</li>
-          <li>302 - Found</li>
-          <li>304 - Not Modified</li>
-        </ul>
       </div>
-
-      <div
-        class="border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg p-4"
-      >
-        <h3 class="font-semibold text-red-900 dark:text-red-100 mb-2">
-          4xx Client Error
-        </h3>
-        <ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
-          <li>400 - Bad Request</li>
-          <li>401 - Unauthorized</li>
-          <li>404 - Not Found</li>
-        </ul>
-      </div>
-
-      <div
-        class="border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4"
-      >
-        <h3 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">
-          5xx Server Error
-        </h3>
-        <ul class="text-sm text-purple-800 dark:text-purple-200 space-y-1">
-          <li>500 - Internal Server Error</li>
-          <li>502 - Bad Gateway</li>
-          <li>503 - Service Unavailable</li>
-        </ul>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-green-200 dark:border-green-700 rounded-lg overflow-hidden">
+          <thead class="bg-green-50 dark:bg-green-900/50">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-green-900 dark:text-green-100">Code</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-green-900 dark:text-green-100">Name</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-green-900 dark:text-green-100">What it means</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-green-900 dark:text-green-100">Real-world example</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-green-100 dark:divide-green-800">
+            <tr class="hover:bg-green-25 dark:hover:bg-green-900/20">
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-mono font-bold">200</td>
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-medium">OK</td>
+              <td class="px-6 py-4 text-green-700 dark:text-green-300 text-sm">"Here's exactly what you asked for!"</td>
+              <td class="px-6 py-4 text-green-600 dark:text-green-400 text-sm">Successfully loading Facebook homepage</td>
+            </tr>
+            <tr class="hover:bg-green-25 dark:hover:bg-green-900/20">
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-mono font-bold">201</td>
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-medium">Created</td>
+              <td class="px-6 py-4 text-green-700 dark:text-green-300 text-sm">"Successfully created something new!"</td>
+              <td class="px-6 py-4 text-green-600 dark:text-green-400 text-sm">Creating a new Instagram account</td>
+            </tr>
+            <tr class="hover:bg-green-25 dark:hover:bg-green-900/20">
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-mono font-bold">204</td>
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-medium">No Content</td>
+              <td class="px-6 py-4 text-green-700 dark:text-green-300 text-sm">"Done successfully, but nothing to show"</td>
+              <td class="px-6 py-4 text-green-600 dark:text-green-400 text-sm">Deleting a tweet (it's gone, nothing to return)</td>
+            </tr>
+            <tr class="hover:bg-green-25 dark:hover:bg-green-900/20">
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-mono font-bold">206</td>
+              <td class="px-6 py-4 text-green-800 dark:text-green-200 font-medium">Partial Content</td>
+              <td class="px-6 py-4 text-green-700 dark:text-green-300 text-sm">"Here's part of what you asked for"</td>
+              <td class="px-6 py-4 text-green-600 dark:text-green-400 text-sm">Streaming a video (gets chunks at a time)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <h2>Common Headers</h2>
-    <div class="space-y-4">
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-medium text-gray-900 dark:text-white mb-2">
-          Request Headers
+    <!-- 3xx Redirection Codes -->
+    <div class="mb-8">
+      <div class="bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 border border-yellow-300 dark:border-yellow-700 rounded-lg p-1 mb-4">
+        <h3 class="text-xl font-bold text-yellow-800 dark:text-yellow-200 mb-2 px-4 pt-3">
+          🔄 3xx Redirection - "Look somewhere else"
         </h3>
-        <div class="grid md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >Accept</code
-            >
-            <span class="text-gray-600 dark:text-gray-400 ml-2"
-              >Content types client accepts</span
-            >
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-yellow-200 dark:border-yellow-700 rounded-lg overflow-hidden">
+          <thead class="bg-yellow-50 dark:bg-yellow-900/50">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-yellow-900 dark:text-yellow-100">Code</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-yellow-900 dark:text-yellow-100">Name</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-yellow-900 dark:text-yellow-100">What it means</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-yellow-900 dark:text-yellow-100">Real-world example</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-yellow-100 dark:divide-yellow-800">
+            <tr class="hover:bg-yellow-25 dark:hover:bg-yellow-900/20">
+              <td class="px-6 py-4 text-yellow-800 dark:text-yellow-200 font-mono font-bold">301</td>
+              <td class="px-6 py-4 text-yellow-800 dark:text-yellow-200 font-medium">Moved Permanently</td>
+              <td class="px-6 py-4 text-yellow-700 dark:text-yellow-300 text-sm">"This moved to a new address forever"</td>
+              <td class="px-6 py-4 text-yellow-600 dark:text-yellow-400 text-sm">Old Twitter.com redirecting to X.com</td>
+            </tr>
+            <tr class="hover:bg-yellow-25 dark:hover:bg-yellow-900/20">
+              <td class="px-6 py-4 text-yellow-800 dark:text-yellow-200 font-mono font-bold">302</td>
+              <td class="px-6 py-4 text-yellow-800 dark:text-yellow-200 font-medium">Found</td>
+              <td class="px-6 py-4 text-yellow-700 dark:text-yellow-300 text-sm">"Temporarily go to this other page"</td>
+              <td class="px-6 py-4 text-yellow-600 dark:text-yellow-400 text-sm">Redirecting to login page before accessing account</td>
+            </tr>
+            <tr class="hover:bg-yellow-25 dark:hover:bg-yellow-900/20">
+              <td class="px-6 py-4 text-yellow-800 dark:text-yellow-200 font-mono font-bold">304</td>
+              <td class="px-6 py-4 text-yellow-800 dark:text-yellow-200 font-medium">Not Modified</td>
+              <td class="px-6 py-4 text-yellow-700 dark:text-yellow-300 text-sm">"You already have the latest version"</td>
+              <td class="px-6 py-4 text-yellow-600 dark:text-yellow-400 text-sm">Browser cache is up to date, no need to download again</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4xx Client Error Codes -->
+    <div class="mb-8">
+      <div class="bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/30 dark:to-pink-900/30 border border-red-300 dark:border-red-700 rounded-lg p-1 mb-4">
+        <h3 class="text-xl font-bold text-red-800 dark:text-red-200 mb-2 px-4 pt-3">
+          😕 4xx Client Error - "You made a mistake"
+        </h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-red-200 dark:border-red-700 rounded-lg overflow-hidden">
+          <thead class="bg-red-50 dark:bg-red-900/50">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-red-900 dark:text-red-100">Code</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-red-900 dark:text-red-100">Name</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-red-900 dark:text-red-100">What it means</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-red-900 dark:text-red-100">Real-world example</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-red-100 dark:divide-red-800">
+            <tr class="hover:bg-red-25 dark:hover:bg-red-900/20">
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-mono font-bold">400</td>
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-medium">Bad Request</td>
+              <td class="px-6 py-4 text-red-700 dark:text-red-300 text-sm">"I don't understand what you're asking"</td>
+              <td class="px-6 py-4 text-red-600 dark:text-red-400 text-sm">Submitting a form with invalid data</td>
+            </tr>
+            <tr class="hover:bg-red-25 dark:hover:bg-red-900/20">
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-mono font-bold">401</td>
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-medium">Unauthorized</td>
+              <td class="px-6 py-4 text-red-700 dark:text-red-300 text-sm">"You need to log in first"</td>
+              <td class="px-6 py-4 text-red-600 dark:text-red-400 text-sm">Trying to access your Gmail without signing in</td>
+            </tr>
+            <tr class="hover:bg-red-25 dark:hover:bg-red-900/20">
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-mono font-bold">403</td>
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-medium">Forbidden</td>
+              <td class="px-6 py-4 text-red-700 dark:text-red-300 text-sm">"You're logged in, but not allowed here"</td>
+              <td class="px-6 py-4 text-red-600 dark:text-red-400 text-sm">Trying to access admin panel as regular user</td>
+            </tr>
+            <tr class="hover:bg-red-25 dark:hover:bg-red-900/20">
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-mono font-bold">404</td>
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-medium">Not Found</td>
+              <td class="px-6 py-4 text-red-700 dark:text-red-300 text-sm">"That page doesn't exist" (the famous one!)</td>
+              <td class="px-6 py-4 text-red-600 dark:text-red-400 text-sm">Typing wrong URL or clicking broken link</td>
+            </tr>
+            <tr class="hover:bg-red-25 dark:hover:bg-red-900/20">
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-mono font-bold">429</td>
+              <td class="px-6 py-4 text-red-800 dark:text-red-200 font-medium">Too Many Requests</td>
+              <td class="px-6 py-4 text-red-700 dark:text-red-300 text-sm">"Slow down! You're making too many requests"</td>
+              <td class="px-6 py-4 text-red-600 dark:text-red-400 text-sm">API rate limiting when making too many calls</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5xx Server Error Codes -->
+    <div class="mb-8">
+      <div class="bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 border border-purple-300 dark:border-purple-700 rounded-lg p-1 mb-4">
+        <h3 class="text-xl font-bold text-purple-800 dark:text-purple-200 mb-2 px-4 pt-3">
+          😵 5xx Server Error - "It's our fault, not yours"
+        </h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-purple-200 dark:border-purple-700 rounded-lg overflow-hidden">
+          <thead class="bg-purple-50 dark:bg-purple-900/50">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-purple-900 dark:text-purple-100">Code</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-purple-900 dark:text-purple-100">Name</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-purple-900 dark:text-purple-100">What it means</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-purple-900 dark:text-purple-100">Real-world example</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-purple-100 dark:divide-purple-800">
+            <tr class="hover:bg-purple-25 dark:hover:bg-purple-900/20">
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-mono font-bold">500</td>
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-medium">Internal Server Error</td>
+              <td class="px-6 py-4 text-purple-700 dark:text-purple-300 text-sm">"Something broke on our end"</td>
+              <td class="px-6 py-4 text-purple-600 dark:text-purple-400 text-sm">Database crashed, code has a bug</td>
+            </tr>
+            <tr class="hover:bg-purple-25 dark:hover:bg-purple-900/20">
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-mono font-bold">502</td>
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-medium">Bad Gateway</td>
+              <td class="px-6 py-4 text-purple-700 dark:text-purple-300 text-sm">"Can't connect to the backend server"</td>
+              <td class="px-6 py-4 text-purple-600 dark:text-purple-400 text-sm">Load balancer can't reach the actual servers</td>
+            </tr>
+            <tr class="hover:bg-purple-25 dark:hover:bg-purple-900/20">
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-mono font-bold">503</td>
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-medium">Service Unavailable</td>
+              <td class="px-6 py-4 text-purple-700 dark:text-purple-300 text-sm">"We're temporarily down for maintenance"</td>
+              <td class="px-6 py-4 text-purple-600 dark:text-purple-400 text-sm">Website maintenance, server overloaded</td>
+            </tr>
+            <tr class="hover:bg-purple-25 dark:hover:bg-purple-900/20">
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-mono font-bold">504</td>
+              <td class="px-6 py-4 text-purple-800 dark:text-purple-200 font-medium">Gateway Timeout</td>
+              <td class="px-6 py-4 text-purple-700 dark:text-purple-300 text-sm">"The server took too long to respond"</td>
+              <td class="px-6 py-4 text-purple-600 dark:text-purple-400 text-sm">Database query is taking forever to complete</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-6">
+      📮 Common Headers - The "Envelope Information"
+    </h2>
+    <p class="text-lg mb-6">
+      Think of HTTP headers like the information you write on an envelope before
+      mailing a letter. Just as you write the recipient's address, return
+      address, and maybe "URGENT" or "FRAGILE" on the outside, HTTP headers
+      provide important information about the request or response.
+    </p>
+    <div class="space-y-6">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-6 shadow-lg">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl mr-3">📤</span>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100">
+            Request Headers
+          </h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-100/50 dark:bg-blue-800/30 rounded-lg p-3 border border-blue-300 dark:border-blue-600">
+            <code class="bg-blue-200 dark:bg-blue-700 px-3 py-1 rounded-md text-blue-900 dark:text-blue-100 font-medium text-sm">Accept</code>
+            <span class="text-blue-700 dark:text-blue-300 ml-2 text-sm">Content types client accepts</span>
           </div>
-          <div>
-            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >Authorization</code
-            >
-            <span class="text-gray-600 dark:text-gray-400 ml-2"
-              >Authentication credentials</span
-            >
+          <div class="bg-blue-100/50 dark:bg-blue-800/30 rounded-lg p-3 border border-blue-300 dark:border-blue-600">
+            <code class="bg-blue-200 dark:bg-blue-700 px-3 py-1 rounded-md text-blue-900 dark:text-blue-100 font-medium text-sm">Authorization</code>
+            <span class="text-blue-700 dark:text-blue-300 ml-2 text-sm">Authentication credentials</span>
           </div>
-          <div>
-            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >User-Agent</code
-            >
-            <span class="text-gray-600 dark:text-gray-400 ml-2"
-              >Client application info</span
-            >
+          <div class="bg-blue-100/50 dark:bg-blue-800/30 rounded-lg p-3 border border-blue-300 dark:border-blue-600">
+            <code class="bg-blue-200 dark:bg-blue-700 px-3 py-1 rounded-md text-blue-900 dark:text-blue-100 font-medium text-sm">User-Agent</code>
+            <span class="text-blue-700 dark:text-blue-300 ml-2 text-sm">Client application info</span>
           </div>
-          <div>
-            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >Cookie</code
-            >
-            <span class="text-gray-600 dark:text-gray-400 ml-2"
-              >Session cookies</span
-            >
+          <div class="bg-blue-100/50 dark:bg-blue-800/30 rounded-lg p-3 border border-blue-300 dark:border-blue-600">
+            <code class="bg-blue-200 dark:bg-blue-700 px-3 py-1 rounded-md text-blue-900 dark:text-blue-100 font-medium text-sm">Cookie</code>
+            <span class="text-blue-700 dark:text-blue-300 ml-2 text-sm">Session cookies</span>
           </div>
         </div>
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-medium text-gray-900 dark:text-white mb-2">
-          Response Headers
-        </h3>
-        <div class="grid md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >Content-Type</code
-            >
-            <span class="text-gray-600 dark:text-gray-400 ml-2"
-              >Response data format</span
-            >
+      <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 shadow-lg">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl mr-3">📥</span>
+          <h3 class="text-xl font-bold text-green-900 dark:text-green-100">
+            Response Headers
+          </h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-green-100/50 dark:bg-green-800/30 rounded-lg p-3 border border-green-300 dark:border-green-600">
+            <code class="bg-green-200 dark:bg-green-700 px-3 py-1 rounded-md text-green-900 dark:text-green-100 font-medium text-sm">Content-Type</code>
+            <span class="text-green-700 dark:text-green-300 ml-2 text-sm">Response data format</span>
           </div>
-          <div>
-            <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >Set-Cookie</code
-            >
-            <span class="text-gray-600 dark:text-gray-400 ml-2"
-              >Set cookies on client</span
+          <div class="bg-green-100/50 dark:bg-green-800/30 rounded-lg p-3 border border-green-300 dark:border-green-600">
+            <code class="bg-green-200 dark:bg-green-700 px-3 py-1 rounded-md text-green-900 dark:text-green-100 font-medium text-sm">Set-Cookie</code>
+            <span class="text-green-700 dark:text-green-300 ml-2 text-sm">Set cookies on client</span>
+          </div>
+          <div class="bg-green-100/50 dark:bg-green-800/30 rounded-lg p-3 border border-green-300 dark:border-green-600">
+            <code class="bg-green-200 dark:bg-green-700 px-3 py-1 rounded-md text-green-900 dark:text-green-100 font-medium text-sm">Cache-Control</code>
+            <span class="text-green-700 dark:text-green-300 ml-2 text-sm">Caching directives</span>
+          </div>
+          <div class="bg-green-100/50 dark:bg-green-800/30 rounded-lg p-3 border border-green-300 dark:border-green-600">
+            <code class="bg-green-200 dark:bg-green-700 px-3 py-1 rounded-md text-green-900 dark:text-green-100 font-medium text-sm">Location</code>
+            <span class="text-green-700 dark:text-green-300 ml-2 text-sm">Redirect URL</span>
+          </div>
+        </div>
+      </div>
+    </div>
             >
           </div>
           <div>
@@ -427,22 +736,299 @@ Content-Length: 78
       </div>
     </div>
 
-    <h2>HTTP/2 and HTTP/3</h2>
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6">
+      🔐 HTTP vs HTTPS - Why the 'S' Matters
+    </h2>
     <div
-      class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-4 my-6"
+      class="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 border-2 border-red-300 dark:border-red-700 rounded-xl p-6 my-8 shadow-xl"
     >
-      <h3 class="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">
-        Modern HTTP Versions
-      </h3>
-      <ul class="text-indigo-800 dark:text-indigo-200 space-y-2">
-        <li>
-          <strong>HTTP/2:</strong> Multiplexing, server push, header compression
-        </li>
-        <li>
-          <strong>HTTP/3:</strong> Built on QUIC, reduced latency, better mobile
-          performance
-        </li>
-      </ul>
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🔒</span>
+        <h3 class="text-2xl font-bold text-red-900 dark:text-red-100">
+          Think of HTTPS as Sending Mail in a Locked Box
+        </h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-red-100/80 dark:bg-red-800/30 rounded-xl p-6 border-2 border-red-200 dark:border-red-700 shadow-lg">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-3">📮</span>
+            <h4 class="text-xl font-bold text-red-900 dark:text-red-100">
+              HTTP (Not Secure)
+            </h4>
+          </div>
+          <p class="text-red-800 dark:text-red-200 text-sm leading-relaxed">
+            Like sending a postcard - anyone handling your mail can read
+            everything you wrote. Your passwords, credit card numbers, and
+            personal messages are visible to anyone who intercepts them.
+          </p>
+          <div class="mt-4 p-3 bg-red-200/50 dark:bg-red-700/30 rounded-lg border border-red-300 dark:border-red-600">
+            <p class="text-red-900 dark:text-red-100 text-xs font-medium">
+              ⚠️ Danger: Data travels as plain text
+            </p>
+          </div>
+        </div>
+        <div class="bg-green-100/80 dark:bg-green-800/30 rounded-xl p-6 border-2 border-green-200 dark:border-green-700 shadow-lg">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-3">🔐</span>
+            <h4 class="text-xl font-bold text-green-900 dark:text-green-100">
+              HTTPS (Secure)
+            </h4>
+          </div>
+          <p class="text-green-800 dark:text-green-200 text-sm leading-relaxed">
+            Like sending mail in a locked box that only you and the recipient
+            have keys for. Even if someone intercepts it, they can't read what's
+            inside. The 'S' stands for "Secure" - it encrypts everything.
+          </p>
+          <div class="mt-4 p-3 bg-green-200/50 dark:bg-green-700/30 rounded-lg border border-green-300 dark:border-green-600">
+            <p class="text-green-900 dark:text-green-100 text-xs font-medium">
+              ✅ Safe: Data is encrypted and protected
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 p-4 bg-gradient-to-r from-amber-100 to-yellow-100 dark:from-amber-800/40 dark:to-yellow-800/40 rounded-lg border-2 border-amber-300 dark:border-amber-600">
+        <p class="text-amber-900 dark:text-amber-100 text-sm font-medium flex items-center">
+          <span class="text-xl mr-2">🔒</span>
+          <strong>Always look for the lock icon in your browser!</strong> Never
+          enter passwords or payment info on sites without HTTPS.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6">
+      🌍 Real-World Context - What Happens When You Browse the Web
+    </h2>
+    <div
+      class="bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20 border-2 border-cyan-300 dark:border-cyan-700 rounded-xl p-8 my-8 shadow-xl"
+    >
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🌐</span>
+        <h3 class="text-2xl font-bold text-cyan-900 dark:text-cyan-100">
+          When you type "instagram.com" and hit Enter:
+        </h3>
+      </div>
+      <div class="space-y-4">
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border-2 border-cyan-200 dark:border-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg flex-shrink-0">
+            1
+          </div>
+          <div class="flex-1">
+            <p class="font-bold text-cyan-900 dark:text-cyan-100 text-lg mb-2">
+              Your browser sends a GET request
+            </p>
+            <p class="text-cyan-700 dark:text-cyan-300 text-sm">
+              "Hi Instagram server, can I have your homepage please?" to Instagram's
+              servers asking for the homepage
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border-2 border-cyan-200 dark:border-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg flex-shrink-0">
+            2
+          </div>
+          <div class="flex-1">
+            <p class="font-bold text-cyan-900 dark:text-cyan-100 text-lg mb-2">
+              Instagram's server responds
+            </p>
+            <p class="text-cyan-700 dark:text-cyan-300 text-sm">
+              with status code 200 and sends back HTML, CSS, JavaScript, and images
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border-2 border-cyan-200 dark:border-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg flex-shrink-0">
+            3
+          </div>
+          <div class="flex-1">
+            <p class="font-bold text-cyan-900 dark:text-cyan-100 text-lg mb-2">
+              Your browser makes more requests
+            </p>
+            <p class="text-cyan-700 dark:text-cyan-300 text-sm">
+              for profile pictures, ads, and other content (dozens of HTTP requests for one page!)
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border-2 border-cyan-200 dark:border-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg flex-shrink-0">
+            4
+          </div>
+          <div class="flex-1">
+            <p class="font-bold text-cyan-900 dark:text-cyan-100 text-lg mb-2">
+              When you post a photo
+            </p>
+            <p class="text-cyan-700 dark:text-cyan-300 text-sm">
+              your browser sends a POST request with your image and caption data
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-4 bg-white/70 dark:bg-gray-800/70 rounded-xl border-2 border-cyan-200 dark:border-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-red-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg flex-shrink-0">
+            5
+          </div>
+          <div class="flex-1">
+            <p class="font-bold text-cyan-900 dark:text-cyan-100 text-lg mb-2">
+              When you delete a post
+            </p>
+            <p class="text-cyan-700 dark:text-cyan-300 text-sm">
+              your browser sends a DELETE request to remove it from the server
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 border-2 border-emerald-300 dark:border-emerald-700 rounded-xl p-6 my-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">💡</span>
+        <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-100">
+          Fun Fact
+        </h3>
+      </div>
+      <p class="text-emerald-800 dark:text-emerald-200 leading-relaxed">
+        When you load a typical website like CNN.com, your browser makes 50-100+
+        HTTP requests! One for the main page, then separate requests for each
+        image, stylesheet, JavaScript file, ad, and piece of content. All of
+        this happens in seconds thanks to HTTP.
+      </p>
+    </div>
+
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+      🚀 HTTP/2 and HTTP/3 - Faster, Better HTTP
+    </h2>
+    <div
+      class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20 border-2 border-indigo-300 dark:border-indigo-700 rounded-xl p-8 my-8 shadow-xl"
+    >
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🚀</span>
+        <h3 class="text-2xl font-bold text-indigo-900 dark:text-indigo-100">
+          The Evolution of HTTP - Making the Web Faster
+        </h3>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-white/70 dark:bg-gray-800/70 rounded-xl p-6 border-2 border-indigo-200 dark:border-indigo-700 shadow-lg">
+          <div class="flex items-center mb-3">
+            <span class="text-2xl mr-3">📞</span>
+            <h4 class="text-xl font-bold text-indigo-900 dark:text-indigo-100">HTTP/1.1 (1997-2015)</h4>
+          </div>
+          <p class="text-indigo-800 dark:text-indigo-200 leading-relaxed">
+            Like having one phone line - you could only make one call at a time. Websites loaded slowly because
+            requests had to wait in line.
+          </p>
+        </div>
+        <div class="bg-white/70 dark:bg-gray-800/70 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-700 shadow-lg">
+          <div class="flex items-center mb-3">
+            <span class="text-2xl mr-3">📱</span>
+            <h4 class="text-xl font-bold text-purple-900 dark:text-purple-100">HTTP/2 (2015-present)</h4>
+          </div>
+          <p class="text-purple-800 dark:text-purple-200 leading-relaxed">
+            Like having multiple phone lines - you can make many calls simultaneously! Websites load much
+            faster because multiple requests can happen at once.
+          </p>
+        </div>
+        <div class="bg-white/70 dark:bg-gray-800/70 rounded-xl p-6 border-2 border-pink-200 dark:border-pink-700 shadow-lg">
+          <div class="flex items-center mb-3">
+            <span class="text-2xl mr-3">🌟</span>
+            <h4 class="text-xl font-bold text-pink-900 dark:text-pink-100">HTTP/3 (2020+)</h4>
+          </div>
+          <p class="text-pink-800 dark:text-pink-200 leading-relaxed">
+            Like upgrading from old phone lines to fiber optic - even faster and more reliable, especially on mobile
+            devices with spotty connections.
+          </p>
+        </div>
+      </div>
+      <div class="mt-6 p-4 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-800/40 dark:to-emerald-800/40 rounded-lg border-2 border-green-300 dark:border-green-600">
+        <p class="text-green-900 dark:text-green-100 font-medium flex items-center">
+          <span class="text-xl mr-2">✨</span>
+          <strong>Good news:</strong> You don't need to worry about these details!
+          Modern browsers and servers handle this automatically. Your websites
+          just get faster over time.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6 text-center">
+      🎯 Quick Summary - HTTP in a Nutshell
+    </h2>
+    <div
+      class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 border-2 border-blue-300 dark:border-blue-700 rounded-2xl p-8 my-8 shadow-2xl"
+    >
+      <div class="flex items-center justify-center mb-6">
+        <span class="text-4xl mr-4">🌟</span>
+        <h3 class="text-2xl font-bold text-blue-900 dark:text-blue-100 text-center">
+          Remember These Key Points:
+        </h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              <strong>HTTP</strong> = The language browsers and servers use to talk
+            </p>
+          </div>
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              <strong>GET</strong> = "Show me something" (like viewing a webpage)
+            </p>
+          </div>
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              <strong>POST</strong> = "Create something" (like submitting a form)
+            </p>
+          </div>
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              <strong>200</strong> = "Success!" / <strong>404</strong> = "Not found"
+            </p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              <strong>HTTPS</strong> = HTTP + Security (always look for the 🔒)
+            </p>
+          </div>
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              <strong>Headers</strong> = Extra info, like envelope details
+            </p>
+          </div>
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              Every webpage load involves multiple HTTP requests
+            </p>
+          </div>
+          <div class="flex items-center p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+            <span class="text-green-500 text-xl mr-3">✅</span>
+            <p class="text-blue-800 dark:text-blue-200 font-medium">
+              Modern HTTP versions make websites faster automatically
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-8 p-6 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:from-blue-800/40 dark:via-purple-800/40 dark:to-pink-800/40 rounded-xl border-l-4 border-blue-500 shadow-lg"
+      >
+        <div class="flex items-start">
+          <span class="text-2xl mr-3 flex-shrink-0">💡</span>
+          <div>
+            <h4 class="text-blue-900 dark:text-blue-100 font-bold text-lg mb-2">The Big Picture:</h4>
+            <p class="text-blue-800 dark:text-blue-200 leading-relaxed">
+              HTTP is like the postal service of the internet - it has rules for how to format messages, where to
+              send them, and what responses mean. Once you understand this, the
+              entire web starts to make sense!
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="flex justify-between mt-8">

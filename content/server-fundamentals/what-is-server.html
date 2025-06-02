@@ -1,174 +1,967 @@
 <div class="content-section">
-  <div class="flex items-center space-x-3 mb-6">
-    <span class="text-4xl">🖥️</span>
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-      What is a Server?
-    </h1>
+  <div class="relative mb-8">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl"
+    ></div>
+    <div class="relative flex items-center justify-center space-x-4 py-8 px-6">
+      <div class="animate-bounce">
+        <span class="text-6xl filter drop-shadow-lg">🖥️</span>
+      </div>
+      <div class="text-center">
+        <h1
+          class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2"
+        >
+          What is a Server?
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 font-medium">
+          Your gateway to understanding the digital world
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="prose prose-gray dark:prose-invert max-w-none">
-    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-      A server is a computer program or device that provides services to other
-      programs or devices, called clients. Understanding servers is fundamental
-      to backend development.
-    </p>
-
-    <h2>Server Definition</h2>
-    <p>
-      In the context of web development, a server is a program that runs
-      continuously, listening for requests from clients (usually web browsers)
-      and responding with the requested data, files, or services.
-    </p>
+    <div
+      class="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-800 rounded-xl p-8 mb-8 shadow-lg"
+    >
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="text-3xl">🍽️</span>
+        <h2 class="text-2xl font-bold text-green-800 dark:text-green-200 m-0">
+          Think of it like a restaurant!
+        </h2>
+      </div>
+      <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+        Think of a server as a helpful assistant that's always ready to serve
+        you. Just like how a waiter in a restaurant takes your order and brings
+        you food, a server takes requests from your computer and delivers the
+        information you need.
+      </p>
+    </div>
 
     <div
-      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-6"
+      class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 mb-8"
     >
-      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
-        Client-Server Model
-      </h3>
-      <div class="text-center">
-        <div class="inline-flex items-center space-x-4">
-          <div class="bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded">
-            <span class="text-green-800 dark:text-green-200 font-medium"
-              >Client</span
-            >
-            <div class="text-sm text-green-600 dark:text-green-300">
-              Makes requests
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="text-3xl">📚</span>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white m-0">
+          Basic Definition: What is a Server?
+        </h2>
+      </div>
+      <p class="text-lg leading-relaxed">
+        A server is simply a computer that provides services to other computers.
+        Imagine a library where you ask the librarian for a specific book - the
+        librarian finds it and gives it to you. That's exactly what a server
+        does! When you visit a website, send an email, or watch a video online,
+        you're asking a server to provide that service for you.
+      </p>
+
+      <div
+        class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-400"
+      >
+        <p class="text-blue-800 dark:text-blue-200 font-medium">
+          💡 <strong>Key insight:</strong> Servers are designed to be "always
+          on" and ready to help. While your personal computer might sleep or
+          turn off, servers work 24/7 to make sure you can access websites,
+          apps, and online services whenever you need them.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-2xl p-8 my-8 shadow-xl"
+    >
+      <div class="text-center mb-6">
+        <h3
+          class="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-2 flex items-center justify-center space-x-2"
+        >
+          <span class="animate-pulse">🔄</span>
+          <span>How Servers Work: The Client-Server Relationship</span>
+        </h3>
+        <p class="text-blue-800 dark:text-blue-200 text-lg font-medium">
+          Think of it like ordering food at a restaurant: You (the client) place
+          an order, the kitchen (server) prepares your meal, and the waiter
+          brings it back to you.
+        </p>
+      </div>
+
+      <div
+        class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+      >
+        <div class="text-center">
+          <div class="inline-flex items-center space-x-6 mb-6">
+            <div class="group">
+              <div
+                class="bg-gradient-to-r from-green-400 to-green-500 dark:from-green-500 dark:to-green-600 px-6 py-4 rounded-xl shadow-lg transform transition-all duration-300 group-hover:scale-105"
+              >
+                <span class="text-white font-bold text-lg block"
+                  >Client (You)</span
+                >
+                <div
+                  class="text-green-100 text-sm mt-1 flex items-center justify-center space-x-1"
+                >
+                  <span>💭</span>
+                  <span>"I want to see Facebook"</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+              <div class="animate-bounce delay-100">
+                <span class="text-3xl text-blue-500">→</span>
+              </div>
+              <div class="bg-blue-100 dark:bg-blue-800 px-3 py-1 rounded-full">
+                <span
+                  class="text-blue-800 dark:text-blue-200 text-sm font-medium"
+                  >Request</span
+                >
+              </div>
+              <div class="animate-bounce delay-200">
+                <span class="text-3xl text-blue-500">→</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div
+                class="bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-600 dark:to-purple-600 px-6 py-4 rounded-xl shadow-lg transform transition-all duration-300 group-hover:scale-105"
+              >
+                <span class="text-white font-bold text-lg block">Server</span>
+                <div
+                  class="text-blue-100 text-sm mt-1 flex items-center justify-center space-x-1"
+                >
+                  <span>⚙️</span>
+                  <span>Finds Facebook page</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-2xl">→</span>
-            <span class="text-sm">HTTP Request</span>
-            <span class="text-2xl">→</span>
-          </div>
-          <div class="bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded">
-            <span class="text-blue-800 dark:text-blue-200 font-medium"
-              >Server</span
+
+          <div class="flex items-center justify-center space-x-3">
+            <div class="animate-bounce delay-300">
+              <span class="text-3xl text-green-500">←</span>
+            </div>
+            <div
+              class="bg-green-100 dark:bg-green-800 px-4 py-2 rounded-full shadow-md"
             >
-            <div class="text-sm text-blue-600 dark:text-blue-300">
-              Processes & responds
+              <span
+                class="text-green-800 dark:text-green-200 font-medium flex items-center space-x-2"
+              >
+                <span>📱</span>
+                <span>Facebook page delivered</span>
+              </span>
+            </div>
+            <div class="animate-bounce delay-400">
+              <span class="text-3xl text-green-500">←</span>
             </div>
           </div>
-        </div>
-        <div class="mt-4 flex items-center justify-center space-x-2">
-          <span class="text-2xl">←</span>
-          <span class="text-sm">HTTP Response</span>
-          <span class="text-2xl">←</span>
         </div>
       </div>
     </div>
 
-    <h2>Types of Servers</h2>
-
-    <div class="grid md:grid-cols-2 gap-6 my-6">
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          Web Server
+    <div
+      class="bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-red-900/20 border-2 border-amber-200 dark:border-amber-800 rounded-2xl p-8 my-8 shadow-xl"
+    >
+      <div class="text-center mb-6">
+        <h3
+          class="text-2xl font-bold text-amber-900 dark:text-amber-100 mb-2 flex items-center justify-center space-x-2"
+        >
+          <span class="animate-pulse">📬</span>
+          <span>Understanding Requests and Responses</span>
         </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
-          Serves static files (HTML, CSS, JS, images) and handles HTTP requests.
+        <p class="text-amber-800 dark:text-amber-200 text-lg font-medium">
+          Think of it like sending and receiving mail - every conversation
+          between client and server involves a request and a response.
         </p>
-        <div class="mt-2">
-          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-            >Apache</span
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div
+          class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-200 dark:border-blue-700"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl animate-bounce">📤</span>
+            <h4 class="font-bold text-xl text-blue-900 dark:text-blue-100">
+              Request (What you ask for)
+            </h4>
+          </div>
+          <p
+            class="text-blue-800 dark:text-blue-200 text-sm mb-4 leading-relaxed"
           >
-          <span
-            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
-            >Nginx</span
+            Like writing a letter to ask for something specific - you need to be
+            clear about what you want!
+          </p>
+
+          <div class="space-y-3">
+            <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="text-blue-600 font-bold text-xs">URL:</span>
+                <code
+                  class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                  >www.facebook.com</code
+                >
+              </div>
+              <p class="text-xs text-blue-700 dark:text-blue-300">
+                The address of what you want
+              </p>
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="text-blue-600 font-bold text-xs">METHOD:</span>
+                <code
+                  class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                  >GET</code
+                >
+              </div>
+              <p class="text-xs text-blue-700 dark:text-blue-300">
+                What action you want (GET = fetch, POST = send)
+              </p>
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="text-blue-600 font-bold text-xs">HEADERS:</span>
+                <code
+                  class="text-xs bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded"
+                  >Browser info, cookies</code
+                >
+              </div>
+              <p class="text-xs text-blue-700 dark:text-blue-300">
+                Extra information about your request
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-200 dark:border-green-700"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl animate-bounce">📥</span>
+            <h4 class="font-bold text-xl text-green-900 dark:text-green-100">
+              Response (What you get back)
+            </h4>
+          </div>
+          <p
+            class="text-green-800 dark:text-green-200 text-sm mb-4 leading-relaxed"
           >
+            Like receiving a reply letter with exactly what you asked for (or an
+            explanation if it's not available).
+          </p>
+
+          <div class="space-y-3">
+            <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="text-green-600 font-bold text-xs">STATUS:</span>
+                <code
+                  class="text-xs bg-green-100 dark:bg-green-800 px-2 py-1 rounded"
+                  >200 OK</code
+                >
+              </div>
+              <p class="text-xs text-green-700 dark:text-green-300">
+                Success! (404 = not found, 500 = server error)
+              </p>
+            </div>
+
+            <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="text-green-600 font-bold text-xs">CONTENT:</span>
+                <code
+                  class="text-xs bg-green-100 dark:bg-green-800 px-2 py-1 rounded"
+                  >HTML, JSON, Images</code
+                >
+              </div>
+              <p class="text-xs text-green-700 dark:text-green-300">
+                The actual data you requested
+              </p>
+            </div>
+
+            <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="text-green-600 font-bold text-xs">HEADERS:</span>
+                <code
+                  class="text-xs bg-green-100 dark:bg-green-800 px-2 py-1 rounded"
+                  >Content type, cookies</code
+                >
+              </div>
+              <p class="text-xs text-green-700 dark:text-green-300">
+                Information about the response
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          Application Server
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
-          Executes application code and handles business logic.
-        </p>
-        <div class="mt-2">
-          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-            >Node.js</span
-          >
-          <span
-            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
-            >Express</span
+      <div
+        class="mt-6 p-4 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-lg border-l-4 border-yellow-400"
+      >
+        <div class="flex items-center space-x-2 mb-2">
+          <span class="text-yellow-600 text-lg">🔄</span>
+          <span class="text-yellow-800 dark:text-yellow-200 font-bold text-sm"
+            >Real Example:</span
           >
         </div>
-      </div>
-
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          Database Server
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
-          Manages data storage, retrieval, and database operations.
+        <p class="text-yellow-800 dark:text-yellow-200 text-sm">
+          When you type "instagram.com" in your browser, you're sending a
+          <strong>GET request</strong> to Instagram's server. The server
+          responds with a <strong>200 status</strong> and sends back the
+          <strong>HTML content</strong> that becomes the Instagram homepage you
+          see!
         </p>
-        <div class="mt-2">
-          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-            >MySQL</span
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="text-3xl">🏪</span>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          Types of Servers
+        </h2>
+      </div>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Just like there are different types of shops for different needs, there
+        are different types of servers for different jobs:
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+        <div
+          class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600 hover:-translate-y-2"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-bounce">🌐</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Web Server
+            </h3>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed"
           >
-          <span
-            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
-            >MongoDB</span
-          >
+            Like a newspaper stand - serves up websites and web pages when you
+            ask for them.
+          </p>
+          <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg mb-3">
+            <p class="text-xs text-blue-700 dark:text-blue-300">
+              <strong>🎯 Example:</strong> When you type "google.com", a web
+              server sends you Google's homepage.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-xs bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1 rounded-full font-medium"
+              >Apache</span
+            >
+            <span
+              class="text-xs bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full font-medium"
+              >Nginx</span
+            >
+          </div>
         </div>
-      </div>
 
-      <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
-          API Server
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
-          Provides programmatic access to services via APIs.
-        </p>
-        <div class="mt-2">
-          <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-            >REST</span
+        <div
+          class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-purple-300 dark:hover:border-purple-600 hover:-translate-y-2"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-bounce">📁</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              File Server
+            </h3>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed"
           >
-          <span
-            class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded ml-1"
-            >GraphQL</span
+            Like a filing cabinet - stores and shares files across a network.
+          </p>
+          <div class="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg mb-3">
+            <p class="text-xs text-purple-700 dark:text-purple-300">
+              <strong>🎯 Example:</strong> Your office shared drive where
+              everyone can access company documents.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-xs bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1 rounded-full font-medium"
+              >Dropbox</span
+            >
+            <span
+              class="text-xs bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-3 py-1 rounded-full font-medium"
+              >Google Drive</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-orange-300 dark:hover:border-orange-600 hover:-translate-y-2"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-bounce">🗄️</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Database Server
+            </h3>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed"
           >
+            Like a super-organized librarian - stores, organizes, and finds
+            specific information quickly.
+          </p>
+          <div class="bg-orange-50 dark:bg-orange-900/30 p-3 rounded-lg mb-3">
+            <p class="text-xs text-orange-700 dark:text-orange-300">
+              <strong>🎯 Example:</strong> When you log into Facebook, it checks
+              your username and password from its database.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-xs bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-full font-medium"
+              >MySQL</span
+            >
+            <span
+              class="text-xs bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded-full font-medium"
+              >MongoDB</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-green-300 dark:hover:border-green-600 hover:-translate-y-2"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-bounce">📧</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Email Server
+            </h3>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed"
+          >
+            Like a postal service - receives, stores, and delivers email
+            messages.
+          </p>
+          <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg mb-3">
+            <p class="text-xs text-green-700 dark:text-green-300">
+              <strong>🎯 Example:</strong> Gmail's servers handle sending and
+              receiving your emails.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-xs bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full font-medium"
+              >Gmail</span
+            >
+            <span
+              class="text-xs bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1 rounded-full font-medium"
+              >Outlook</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-pink-300 dark:hover:border-pink-600 hover:-translate-y-2"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-bounce">🎮</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Game Server
+            </h3>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed"
+          >
+            Like a game coordinator - manages multiplayer games and keeps
+            everyone connected.
+          </p>
+          <div class="bg-pink-50 dark:bg-pink-900/30 p-3 rounded-lg mb-3">
+            <p class="text-xs text-pink-700 dark:text-pink-300">
+              <strong>🎯 Example:</strong> Fortnite servers let you play with
+              friends around the world.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-xs bg-gradient-to-r from-pink-500 to-pink-600 text-white px-3 py-1 rounded-full font-medium"
+              >Steam</span
+            >
+            <span
+              class="text-xs bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-3 py-1 rounded-full font-medium"
+              >Xbox Live</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-red-300 dark:hover:border-red-600 hover:-translate-y-2"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-bounce">📺</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Media Server
+            </h3>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed"
+          >
+            Like a video rental store - streams movies, music, and videos to
+            your devices.
+          </p>
+          <div class="bg-red-50 dark:bg-red-900/30 p-3 rounded-lg mb-3">
+            <p class="text-xs text-red-700 dark:text-red-300">
+              <strong>🎯 Example:</strong> Netflix servers deliver movies to
+              your TV or phone.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-xs bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded-full font-medium"
+              >Netflix</span
+            >
+            <span
+              class="text-xs bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-3 py-1 rounded-full font-medium"
+              >Spotify</span
+            >
+          </div>
         </div>
       </div>
     </div>
 
-    <h2>Server Responsibilities</h2>
-    <ul>
-      <li>
-        <strong>Request Handling:</strong> Receiving and parsing HTTP requests
-      </li>
-      <li>
-        <strong>Route Processing:</strong> Determining which code to execute
-        based on the request
-      </li>
-      <li>
-        <strong>Business Logic:</strong> Processing data and executing
-        application logic
-      </li>
-      <li>
-        <strong>Data Management:</strong> Interacting with databases and
-        external services
-      </li>
-      <li>
-        <strong>Response Generation:</strong> Creating and sending HTTP
-        responses
-      </li>
-      <li>
-        <strong>Security:</strong> Authentication, authorization, and data
-        protection
-      </li>
-      <li>
-        <strong>Performance:</strong> Optimizing response times and resource
-        usage
-      </li>
-    </ul>
+    <div class="mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="text-3xl">⚡</span>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          Physical vs Virtual Servers
+        </h2>
+      </div>
 
-    <h2>Basic Server Example</h2>
-    <p>Here's a simple server that demonstrates core concepts:</p>
+      <div
+        class="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-indigo-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-2xl p-8 shadow-xl"
+      >
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="group">
+            <div
+              class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-purple-200 dark:border-purple-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div class="flex items-center space-x-3 mb-4">
+                <span class="text-4xl group-hover:animate-pulse">🖥️</span>
+                <h3
+                  class="font-bold text-xl text-purple-900 dark:text-purple-100"
+                >
+                  Physical Servers
+                </h3>
+              </div>
+              <p
+                class="text-purple-800 dark:text-purple-200 text-sm mb-4 leading-relaxed"
+              >
+                Real, tangible computer hardware - like having your own
+                dedicated chef in the kitchen.
+              </p>
+              <div class="space-y-2">
+                <div
+                  class="flex items-center space-x-2 text-xs text-purple-700 dark:text-purple-300"
+                >
+                  <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>One piece of hardware = one server</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 text-xs text-purple-700 dark:text-purple-300"
+                >
+                  <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>More expensive but very powerful</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 text-xs text-purple-700 dark:text-purple-300"
+                >
+                  <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>Used by big companies like Google</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <pre><code class="language-javascript">const http = require('http');
+          <div class="group">
+            <div
+              class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-indigo-200 dark:border-indigo-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div class="flex items-center space-x-3 mb-4">
+                <span class="text-4xl group-hover:animate-pulse">☁️</span>
+                <h3
+                  class="font-bold text-xl text-indigo-900 dark:text-indigo-100"
+                >
+                  Virtual Servers
+                </h3>
+              </div>
+              <p
+                class="text-indigo-800 dark:text-indigo-200 text-sm mb-4 leading-relaxed"
+              >
+                Software-based servers running on shared hardware - like
+                multiple food trucks sharing a parking lot.
+              </p>
+              <div class="space-y-2">
+                <div
+                  class="flex items-center space-x-2 text-xs text-indigo-700 dark:text-indigo-300"
+                >
+                  <span class="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Multiple servers on one machine</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 text-xs text-indigo-700 dark:text-indigo-300"
+                >
+                  <span class="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>More cost-effective and flexible</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 text-xs text-indigo-700 dark:text-indigo-300"
+                >
+                  <span class="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Used by cloud services like AWS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="text-3xl animate-pulse">🌟</span>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          Real-World Examples You Use Every Day
+        </h2>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-900/20 dark:via-orange-900/20 dark:to-red-900/20 border-2 border-yellow-300 dark:border-yellow-800 rounded-2xl p-8 shadow-xl"
+      >
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div
+              class="group flex items-center space-x-3 p-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <span class="text-2xl group-hover:animate-spin">🌐</span>
+              <span class="text-sm font-medium"
+                ><strong>Browsing websites:</strong> Every website lives on a
+                web server</span
+              >
+            </div>
+            <div
+              class="group flex items-center space-x-3 p-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <span class="text-2xl group-hover:animate-bounce">📱</span>
+              <span class="text-sm font-medium"
+                ><strong>Social media:</strong> Instagram's servers store and
+                serve your photos</span
+              >
+            </div>
+            <div
+              class="group flex items-center space-x-3 p-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <span class="text-2xl group-hover:animate-pulse">🛒</span>
+              <span class="text-sm font-medium"
+                ><strong>Online shopping:</strong> Amazon's servers track your
+                cart and orders</span
+              >
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div
+              class="group flex items-center space-x-3 p-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <span class="text-2xl group-hover:animate-bounce">📧</span>
+              <span class="text-sm font-medium"
+                ><strong>Email:</strong> Mail servers send and receive your
+                messages</span
+              >
+            </div>
+            <div
+              class="group flex items-center space-x-3 p-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <span class="text-2xl group-hover:animate-pulse">🎵</span>
+              <span class="text-sm font-medium"
+                ><strong>Music streaming:</strong> Spotify servers deliver songs
+                to your device</span
+              >
+            </div>
+            <div
+              class="group flex items-center space-x-3 p-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <span class="text-2xl group-hover:animate-bounce">💬</span>
+              <span class="text-sm font-medium"
+                ><strong>Messaging:</strong> WhatsApp servers route your
+                messages</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="text-3xl">🔧</span>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          What Makes a Server Special?
+        </h2>
+      </div>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Servers are like upgraded computers designed for heavy-duty work:
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div
+          class="group bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border-2 border-blue-200 dark:border-blue-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-spin">🔧</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Hardware Differences
+            </h3>
+          </div>
+          <div class="space-y-3">
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">💾</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  More RAM
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  Like having a bigger desk to work on multiple projects
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">⚡</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Faster processors
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  Can handle many requests at once
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">🔄</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Redundant parts
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  If one part breaks, another takes over
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">❄️</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Better cooling
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  Runs 24/7 without overheating
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-2xl p-6 shadow-lg border-2 border-green-200 dark:border-green-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-4xl group-hover:animate-pulse">💻</span>
+            <h3 class="font-bold text-xl text-gray-900 dark:text-white">
+              Software Differences
+            </h3>
+          </div>
+          <div class="space-y-3">
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">🖥️</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Server operating systems
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  Built for stability and performance
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">🌙</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Always running
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  No sleep mode - always ready to help
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">🌐</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Remote management
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  Can be controlled from anywhere
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start space-x-3 p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg"
+            >
+              <span class="text-sm">🛡️</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Security focused
+                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">
+                  Protected against attacks and threats
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="text-3xl animate-pulse">⚙️</span>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          Server Responsibilities
+        </h2>
+      </div>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Think of a server as a super-efficient assistant that handles these
+        tasks:
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          class="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl group-hover:animate-bounce">🎯</span>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Listening for requests
+            </h4>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Like a receptionist answering phone calls
+          </p>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl group-hover:animate-bounce">🗺️</span>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Finding information
+            </h4>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Like a librarian locating the book you need
+          </p>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl group-hover:animate-bounce">⚙️</span>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Processing requests
+            </h4>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Like a chef preparing your order
+          </p>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl group-hover:animate-bounce">🗄️</span>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Managing data
+            </h4>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Like a bank vault keeping information secure
+          </p>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl group-hover:animate-bounce">📦</span>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Delivering results
+            </h4>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Like a delivery service bringing packages
+          </p>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl group-hover:animate-bounce">🔒</span>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Security & Performance
+            </h4>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Like a security guard working efficiently
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="text-3xl">💻</span>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          Simple Server Example
+        </h2>
+      </div>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Here's a basic example that shows how a server works (don't worry about
+        understanding every detail - just see the main idea):
+      </p>
+
+      <div
+        class="bg-gray-900 dark:bg-gray-950 rounded-2xl p-6 shadow-2xl border border-gray-700"
+      >
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-green-400 font-medium">server.js</span>
+          <div class="flex space-x-2">
+            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+        </div>
+        <pre
+          class="text-gray-300 text-sm overflow-x-auto"
+        ><code class="language-javascript">const http = require('http');
 const url = require('url');
 
 const server = http.createServer((req, res) => {
@@ -207,53 +1000,108 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });</code></pre>
+      </div>
+    </div>
 
     <div
-      class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-400 p-4 my-6"
+      class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-l-4 border-green-400 rounded-r-xl p-6 my-8 shadow-lg"
     >
       <div class="flex">
         <div class="flex-shrink-0">
-          <svg
-            class="h-5 w-5 text-green-400"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+          <div
+            class="flex items-center justify-center w-8 h-8 bg-green-400 rounded-full"
           >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
-            />
-          </svg>
+            <svg
+              class="h-5 w-5 text-white"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
         </div>
-        <div class="ml-3">
-          <p class="text-green-700 dark:text-green-200">
-            <strong>Key Takeaway:</strong> This example shows basic request
-            handling, routing, and response generation - the core functions of
-            any server.
+        <div class="ml-4">
+          <p class="text-green-700 dark:text-green-200 font-medium">
+            <strong>💡 Key Takeaway:</strong> This example shows a server
+            listening for different requests (like asking for the homepage or
+            user list) and responding with the right information - just like how
+            a waiter takes different orders and brings the correct food!
           </p>
         </div>
       </div>
     </div>
 
-    <h2>Next Steps</h2>
-    <p>
-      Now that you understand what a server is, let's dive deeper into the HTTP
-      protocol and learn how clients and servers communicate.
-    </p>
+    <div
+      class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 my-8 shadow-xl border-2 border-blue-200 dark:border-blue-800"
+    >
+      <div class="text-center">
+        <div class="flex items-center justify-center space-x-3 mb-4">
+          <span class="text-4xl animate-pulse">🌟</span>
+          <h2
+            class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
+            The Big Picture
+          </h2>
+        </div>
+        <p
+          class="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed"
+        >
+          Servers are the invisible workforce of the internet. Every time you
+          use your phone or computer to access something online, you're being
+          helped by servers. They're like the engine of a car - you don't see
+          them working, but nothing would happen without them!
+        </p>
 
-    <div class="flex justify-between mt-8">
-      <a
-        href="#server-fundamentals/index"
-        class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
-      >
-        ← Back to Overview
-      </a>
-      <a
-        href="#server-fundamentals/http-cycle"
-        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
-      >
-        HTTP Protocol →
-      </a>
+        <div
+          class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+        >
+          <p class="text-gray-700 dark:text-gray-300 font-medium">
+            Understanding servers helps you appreciate how the digital world
+            works and is the first step toward learning how to build your own
+            web applications and services.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 mb-8"
+    >
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="text-3xl">🚀</span>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+          Next Steps
+        </h2>
+      </div>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Now that you understand what a server is, let's dive deeper into the
+        HTTP protocol and learn how clients and servers communicate.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <a
+          href="#server-fundamentals/index"
+          class="group inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl shadow-lg text-lg font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+        >
+          <span class="mr-2 transition-transform group-hover:-translate-x-1"
+            >←</span
+          >
+          Back to Overview
+        </a>
+        <a
+          href="#server-fundamentals/http-cycle"
+          class="group inline-flex items-center justify-center px-6 py-3 border-2 border-transparent rounded-xl shadow-lg text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+        >
+          HTTP Protocol
+          <span class="ml-2 transition-transform group-hover:translate-x-1"
+            >→</span
+          >
+        </a>
+      </div>
     </div>
   </div>
 </div>

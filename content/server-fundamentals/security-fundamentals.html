@@ -1,177 +1,396 @@
 <div class="content-section">
-  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-    Security Fundamentals
-  </h1>
+  <div class="flex items-center space-x-3 mb-6">
+    <div class="text-5xl animate-pulse">🛡️</div>
+    <div>
+      <h1
+        class="text-4xl font-bold bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent"
+      >
+        Security Fundamentals
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+        Protecting your digital fortress from cyber threats
+      </p>
+    </div>
+  </div>
 
   <div class="prose max-w-none">
-    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
-      Security should be a primary concern from the beginning of any backend
-      development project. This guide covers essential security practices,
-      common vulnerabilities, and how to protect your applications.
-    </p>
+    <div
+      class="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 border-2 border-red-200 dark:border-red-700 rounded-xl p-8 my-8 shadow-xl"
+    >
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🏰</span>
+        <h2 class="text-2xl font-bold text-red-900 dark:text-red-100">
+          Why Security Matters
+        </h2>
+      </div>
+      <p class="text-lg text-red-800 dark:text-red-200 mb-4 leading-relaxed">
+        Think of web security like building a castle. You need strong walls
+        (encryption), guards at the gates (authentication), and protocols for
+        who can access what (authorization). One weak spot can compromise the
+        entire kingdom!
+      </p>
+      <div
+        class="bg-red-100/70 dark:bg-red-800/30 rounded-lg p-4 border border-red-300 dark:border-red-600"
+      >
+        <p class="text-red-800 dark:text-red-200 font-medium">
+          <strong>Remember:</strong> Security isn't a feature you add later -
+          it's the foundation you build on. A breach can destroy user trust,
+          cost millions, and ruin your reputation instantly.
+        </p>
+      </div>
+    </div>
 
     <div
-      class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-8"
+      class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 border-2 border-emerald-200 dark:border-emerald-700 rounded-xl p-6 mb-8 shadow-lg"
     >
-      <h3 class="text-lg font-semibold text-red-900 dark:text-red-100 mb-3">
-        ⚠️ Security First Mindset
-      </h3>
-      <p class="text-red-800 dark:text-red-200">
-        Security is not an add-on feature—it must be built into your application
-        from the ground up. Never postpone security considerations until later
-        in development.
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🎯</span>
+        <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-100">
+          What You'll Master
+        </h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="space-y-3">
+          <div class="flex items-center space-x-2">
+            <span class="text-green-500 text-lg">✅</span>
+            <span class="text-emerald-800 dark:text-emerald-200"
+              >Spot and prevent common attacks</span
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-green-500 text-lg">✅</span>
+            <span class="text-emerald-800 dark:text-emerald-200"
+              >Build bulletproof authentication</span
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-green-500 text-lg">✅</span>
+            <span class="text-emerald-800 dark:text-emerald-200"
+              >Secure data like Fort Knox</span
+            >
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-2">
+            <span class="text-green-500 text-lg">✅</span>
+            <span class="text-emerald-800 dark:text-emerald-200"
+              >Validate input like a pro</span
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-green-500 text-lg">✅</span>
+            <span class="text-emerald-800 dark:text-emerald-200"
+              >Configure protective headers</span
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-green-500 text-lg">✅</span>
+            <span class="text-emerald-800 dark:text-emerald-200"
+              >Test and monitor security</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Start Section -->
+    <div
+      class="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-green-900/20 dark:via-blue-900/20 dark:to-purple-900/20 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">⚡</span>
+        <h3 class="text-xl font-bold text-green-900 dark:text-green-100">
+          Quick Start - Secure Your App in 5 Minutes
+        </h3>
+      </div>
+      <p class="text-green-800 dark:text-green-200 mb-6 leading-relaxed">
+        New to Express.js security? Start here! Follow these essential steps to
+        immediately improve your app's security.
+      </p>
+
+      <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-4">
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-green-200 dark:border-green-600 shadow-sm"
+        >
+          <div class="flex items-center mb-3">
+            <div
+              class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3"
+            >
+              1
+            </div>
+            <h4 class="font-bold text-green-900 dark:text-green-100">
+              Install Security Packages
+            </h4>
+          </div>
+          <div
+            class="code-snippet bg-gray-100 dark:bg-gray-700 p-2 rounded text-xs mb-2"
+          >
+            <code>npm install helmet express-rate-limit bcrypt</code>
+          </div>
+          <p class="text-green-700 dark:text-green-300 text-xs">
+            Essential security middleware for any Express app
+          </p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-blue-200 dark:border-blue-600 shadow-sm"
+        >
+          <div class="flex items-center mb-3">
+            <div
+              class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3"
+            >
+              2
+            </div>
+            <h4 class="font-bold text-blue-900 dark:text-blue-100">
+              Basic Setup
+            </h4>
+          </div>
+          <div
+            class="code-snippet bg-gray-100 dark:bg-gray-700 p-2 rounded text-xs mb-2"
+          >
+            <code>app.use(helmet()); app.use(rateLimit({max: 100}));</code>
+          </div>
+          <p class="text-blue-700 dark:text-blue-300 text-xs">
+            Add these two lines for instant protection
+          </p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-purple-200 dark:border-purple-600 shadow-sm"
+        >
+          <div class="flex items-center mb-3">
+            <div
+              class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3"
+            >
+              3
+            </div>
+            <h4 class="font-bold text-purple-900 dark:text-purple-100">
+              Environment Variables
+            </h4>
+          </div>
+          <div
+            class="code-snippet bg-gray-100 dark:bg-gray-700 p-2 rounded text-xs mb-2"
+          >
+            <code>JWT_SECRET=your-super-secret-key</code>
+          </div>
+          <p class="text-purple-700 dark:text-purple-300 text-xs">
+            Never hardcode secrets in your code
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <div
+          class="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium"
+        >
+          <span>🎯</span>
+          <span>That's it! Your app is now 10x more secure</span>
+        </div>
+      </div>
+    </div>
+
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-6"
+    >
+      🚨 The OWASP Top 10 - Know Your Enemies
+    </h2>
+
+    <div
+      class="bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 dark:from-red-900/20 dark:via-pink-900/20 dark:to-rose-900/20 border-2 border-red-200 dark:border-red-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">⚔️</span>
+        <h3 class="text-xl font-bold text-red-900 dark:text-red-100">
+          The Most Dangerous Web Attacks (2023)
+        </h3>
+      </div>
+      <p class="text-red-800 dark:text-red-200 mb-6 leading-relaxed">
+        These are the villains of the web world - the top 10 ways attackers try
+        to break into applications. Know them, understand them, and defend
+        against them!
       </p>
     </div>
 
-    <div
-      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8"
-    >
-      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
-        Learning Objectives
-      </h3>
-      <ul
-        class="list-disc list-inside text-blue-800 dark:text-blue-200 space-y-2"
-      >
-        <li>Understand common web application vulnerabilities</li>
-        <li>Implement authentication and authorization</li>
-        <li>Secure data transmission and storage</li>
-        <li>Apply input validation and sanitization</li>
-        <li>Configure security headers and middleware</li>
-      </ul>
-    </div>
-
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      OWASP Top 10 Vulnerabilities
-    </h2>
-
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      The OWASP Top 10 represents the most critical web application security
-      risks. Let's understand each one:
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-gradient-to-br from-red-100 to-red-200 dark:from-red-900/40 dark:to-red-800/40 border-2 border-red-300 dark:border-red-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
       >
-        <h4 class="font-semibold text-red-600 dark:text-red-400 mb-2">
-          1. Injection
-        </h4>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          SQL, NoSQL, OS, and LDAP injection flaws
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">💉</span>
+          <h4 class="font-bold text-red-900 dark:text-red-100">
+            1. Injection Attacks
+          </h4>
+        </div>
+        <p class="text-sm text-red-800 dark:text-red-200 mb-3">
+          Like poisoning the water supply - malicious code gets injected into
+          your queries
         </p>
-        <div class="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
-          <strong>Prevention:</strong> Use parameterized queries, ORM, input
-          validation
+        <div class="bg-red-200/60 dark:bg-red-800/60 p-2 rounded text-xs">
+          <strong>Shield:</strong> Use parameterized queries, never trust user
+          input!
         </div>
       </div>
 
       <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 border-2 border-orange-300 dark:border-orange-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
       >
-        <h4 class="font-semibold text-red-600 dark:text-red-400 mb-2">
-          2. Broken Authentication
-        </h4>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          Session management and credential vulnerabilities
-        </p>
-        <div class="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
-          <strong>Prevention:</strong> Strong passwords, MFA, secure session
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">🔓</span>
+          <h4 class="font-bold text-orange-900 dark:text-orange-100">
+            2. Broken Authentication
+          </h4>
+        </div>
+        <p class="text-sm text-orange-800 dark:text-orange-200 mb-3">
+          Weak locks on your front door - poor password policies and session
           management
+        </p>
+        <div class="bg-orange-200/60 dark:bg-orange-800/60 p-2 rounded text-xs">
+          <strong>Shield:</strong> Strong passwords, 2FA, secure session
+          handling
         </div>
       </div>
 
       <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900/40 dark:to-yellow-800/40 border-2 border-yellow-300 dark:border-yellow-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
       >
-        <h4 class="font-semibold text-red-600 dark:text-red-400 mb-2">
-          3. Sensitive Data Exposure
-        </h4>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          Inadequate protection of sensitive information
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">👁️</span>
+          <h4 class="font-bold text-yellow-900 dark:text-yellow-100">
+            3. Data Exposure
+          </h4>
+        </div>
+        <p class="text-sm text-yellow-800 dark:text-yellow-200 mb-3">
+          Leaving sensitive documents on your desk - unencrypted data anyone can
+          read
         </p>
-        <div class="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
-          <strong>Prevention:</strong> Encryption at rest and in transit, proper
-          key management
+        <div class="bg-yellow-200/60 dark:bg-yellow-800/60 p-2 rounded text-xs">
+          <strong>Shield:</strong> Encrypt everything, proper key management
         </div>
       </div>
 
       <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900/40 dark:to-green-800/40 border-2 border-green-300 dark:border-green-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
       >
-        <h4 class="font-semibold text-red-600 dark:text-red-400 mb-2">
-          4. XML External Entities (XXE)
-        </h4>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          Poorly configured XML processors
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">📄</span>
+          <h4 class="font-bold text-green-900 dark:text-green-100">
+            4. XXE Attacks
+          </h4>
+        </div>
+        <p class="text-sm text-green-800 dark:text-green-200 mb-3">
+          XML files that act like Trojan horses - they look innocent but hide
+          malicious code
         </p>
-        <div class="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
-          <strong>Prevention:</strong> Disable XML external entity processing
+        <div class="bg-green-200/60 dark:bg-green-800/60 p-2 rounded text-xs">
+          <strong>Shield:</strong> Disable external XML entity processing
         </div>
       </div>
 
       <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 border-2 border-blue-300 dark:border-blue-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
       >
-        <h4 class="font-semibold text-red-600 dark:text-red-400 mb-2">
-          5. Broken Access Control
-        </h4>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          Improper enforcement of user permissions
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">🚪</span>
+          <h4 class="font-bold text-blue-900 dark:text-blue-100">
+            5. Broken Access Control
+          </h4>
+        </div>
+        <p class="text-sm text-blue-800 dark:text-blue-200 mb-3">
+          VIP sections without bouncers - users accessing areas they shouldn't
         </p>
-        <div class="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
-          <strong>Prevention:</strong> Principle of least privilege, proper
-          authorization checks
+        <div class="bg-blue-200/60 dark:bg-blue-800/60 p-2 rounded text-xs">
+          <strong>Shield:</strong> Check permissions for every action
         </div>
       </div>
 
       <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/40 dark:to-purple-800/40 border-2 border-purple-300 dark:border-purple-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
       >
-        <h4 class="font-semibold text-red-600 dark:text-red-400 mb-2">
-          6. Security Misconfiguration
-        </h4>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          Insecure default configurations
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">⚙️</span>
+          <h4 class="font-bold text-purple-900 dark:text-purple-100">
+            6. Security Misconfiguration
+          </h4>
+        </div>
+        <p class="text-sm text-purple-800 dark:text-purple-200 mb-3">
+          Leaving default passwords like "admin/admin" - using insecure defaults
         </p>
-        <div class="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded">
-          <strong>Prevention:</strong> Regular security assessments, remove
-          defaults
+        <div class="bg-purple-200/60 dark:bg-purple-800/60 p-2 rounded text-xs">
+          <strong>Shield:</strong> Change all defaults, regular security audits
         </div>
       </div>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Authentication & Authorization
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6"
+    >
+      🔐 Authentication & Authorization - Who's Allowed In?
     </h2>
 
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      Implementing secure authentication and authorization is critical for
-      protecting user accounts and resources.
-    </p>
+    <div
+      class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🚪</span>
+        <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100">
+          Your Digital Bouncer System
+        </h3>
+      </div>
+      <p class="text-blue-800 dark:text-blue-200 mb-6 leading-relaxed">
+        Think of authentication as checking someone's ID at a club entrance, and
+        authorization as deciding which VIP areas they can access. Both are
+        crucial for keeping your app secure!
+      </p>
 
-    <div class="tabbed-content mb-6" data-tabbed>
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div
+          class="bg-blue-100/60 dark:bg-blue-800/30 p-4 rounded-lg border border-blue-300 dark:border-blue-600"
+        >
+          <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">
+            🆔 Authentication
+          </h4>
+          <p class="text-blue-800 dark:text-blue-200 text-sm">
+            "Who are you?" - Verifying identity with passwords, tokens, or
+            biometrics
+          </p>
+        </div>
+        <div
+          class="bg-purple-100/60 dark:bg-purple-800/30 p-4 rounded-lg border border-purple-300 dark:border-purple-600"
+        >
+          <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-2">
+            🎟️ Authorization
+          </h4>
+          <p class="text-purple-800 dark:text-purple-200 text-sm">
+            "What can you do?" - Controlling access to specific resources and
+            actions
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabbed-content mb-6" data-tabs>
       <div class="tab-buttons flex space-x-2 mb-4">
         <button
-          class="tab-button active bg-blue-500 text-white px-4 py-2 rounded"
+          class="tab-button active bg-blue-500 text-white px-4 py-2 rounded border-b-2 border-blue-500"
           data-tab="jwt"
         >
           JWT Authentication
         </button>
         <button
-          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded"
+          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded border-b-2 border-transparent"
           data-tab="session"
         >
           Session-based
         </button>
         <button
-          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded"
+          class="tab-button bg-gray-200 text-gray-700 px-4 py-2 rounded border-b-2 border-transparent"
           data-tab="oauth"
         >
           OAuth 2.0
         </button>
       </div>
 
-      <div class="tab-content active" data-content="jwt">
+      <div class="tab-content" data-tab-content="jwt">
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
           JWT (JSON Web Tokens)
         </h4>
@@ -274,7 +493,7 @@ app.post('/login', async (req, res) => {
         </div>
       </div>
 
-      <div class="tab-content hidden" data-content="session">
+      <div class="tab-content hidden" data-tab-content="session">
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
           Session-based Authentication
         </h4>
@@ -341,7 +560,7 @@ const requireAuth = (req, res, next) => {
         </div>
       </div>
 
-      <div class="tab-content hidden" data-content="oauth">
+      <div class="tab-content hidden" data-tab-content="oauth">
         <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
           OAuth 2.0 Integration
         </h4>
@@ -400,13 +619,59 @@ app.get('/auth/google/callback',
       </div>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Password Security
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-6"
+    >
+      🔒 Password Security - Fort Knox for Your Users
     </h2>
 
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      Proper password handling is crucial for user account security.
-    </p>
+    <div
+      class="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-900/20 dark:via-emerald-900/20 dark:to-teal-900/20 border-2 border-green-200 dark:border-green-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🔐</span>
+        <h3 class="text-xl font-bold text-green-900 dark:text-green-100">
+          Never Store Passwords in Plain Text!
+        </h3>
+      </div>
+      <p class="text-green-800 dark:text-green-200 mb-6 leading-relaxed">
+        Storing passwords in plain text is like leaving house keys under the
+        doormat with a sign saying "Keys Here!" Always hash passwords with
+        strong algorithms like bcrypt.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div
+          class="bg-red-100/60 dark:bg-red-800/30 p-4 rounded-lg border border-red-300 dark:border-red-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">❌</span>
+          <h4 class="font-bold text-red-900 dark:text-red-100 text-sm">
+            Plain Text
+          </h4>
+          <p class="text-red-700 dark:text-red-300 text-xs">password123</p>
+        </div>
+        <div
+          class="bg-yellow-100/60 dark:bg-yellow-800/30 p-4 rounded-lg border border-yellow-300 dark:border-yellow-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">⚠️</span>
+          <h4 class="font-bold text-yellow-900 dark:text-yellow-100 text-sm">
+            Simple Hash
+          </h4>
+          <p class="text-yellow-700 dark:text-yellow-300 text-xs">
+            md5(password)
+          </p>
+        </div>
+        <div
+          class="bg-green-100/60 dark:bg-green-800/30 p-4 rounded-lg border border-green-300 dark:border-green-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">✅</span>
+          <h4 class="font-bold text-green-900 dark:text-green-100 text-sm">
+            Bcrypt + Salt
+          </h4>
+          <p class="text-green-700 dark:text-green-300 text-xs">$2b$12$...</p>
+        </div>
+      </div>
+    </div>
 
     <div class="code-block mb-6">
       <div class="code-header">
@@ -495,24 +760,61 @@ app.post('/register', async (req, res) => {
 });</code></pre>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Input Validation & Sanitization
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-6"
+    >
+      🧹 Input Validation - Never Trust User Input
     </h2>
 
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      Always validate and sanitize user input to prevent injection attacks and
-      data corruption.
-    </p>
+    <div
+      class="bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-orange-900/20 dark:via-red-900/20 dark:to-pink-900/20 border-2 border-orange-200 dark:border-orange-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🚫</span>
+        <h3 class="text-xl font-bold text-orange-900 dark:text-orange-100">
+          Golden Rule: Validate Everything!
+        </h3>
+      </div>
+      <p class="text-orange-800 dark:text-orange-200 mb-6 leading-relaxed">
+        User input is like packages at your door - you need to inspect them
+        carefully before letting them into your house. Malicious input can break
+        your app, steal data, or compromise your entire system.
+      </p>
+
+      <div
+        class="bg-amber-100/70 dark:bg-amber-800/30 p-4 rounded-lg border border-amber-300 dark:border-amber-600"
+      >
+        <p class="text-amber-800 dark:text-amber-200 text-center font-medium">
+          <strong>Remember:</strong> Validate on the client for UX, validate on
+          the server for security. Client-side validation can be bypassed,
+          server-side validation is your last line of defense!
+        </p>
+      </div>
+    </div>
 
     <div class="expandable-section mb-6" data-expandable>
       <button
-        class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white"
+        class="expandable-header bg-gray-100 dark:bg-gray-700 w-full text-left p-4 rounded-lg font-semibold text-gray-900 dark:text-white flex justify-between items-center"
+        data-expand-trigger
       >
-        Validation with Joi
-        <span class="float-right">+</span>
+        <span>Validation with Joi</span>
+        <svg
+          class="w-5 h-5 transform transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
       </button>
       <div
         class="expandable-content hidden mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+        data-expand-content
       >
         <div class="code-block">
           <div class="code-header">
@@ -600,14 +902,69 @@ app.post('/register', validateInput(userRegistrationSchema), async (req, res) =>
       </div>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Security Headers & Middleware
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6"
+    >
+      🛡️ Security Headers - Your Invisible Shield
     </h2>
 
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      Implement security headers and middleware to protect against common
-      attacks.
-    </p>
+    <div
+      class="bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 dark:from-purple-900/20 dark:via-indigo-900/20 dark:to-blue-900/20 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">⚔️</span>
+        <h3 class="text-xl font-bold text-purple-900 dark:text-purple-100">
+          Invisible Protection Layers
+        </h3>
+      </div>
+      <p class="text-purple-800 dark:text-purple-200 mb-6 leading-relaxed">
+        Security headers are like invisible force fields around your app. They
+        tell browsers how to behave securely and protect against many common
+        attacks - all without your users even knowing they're there!
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div
+          class="bg-purple-100/60 dark:bg-purple-800/30 p-4 rounded-lg border border-purple-300 dark:border-purple-600"
+        >
+          <div class="text-center mb-2">
+            <span class="text-xl">🚫</span>
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 text-sm">
+              XSS Protection
+            </h4>
+          </div>
+          <p class="text-purple-700 dark:text-purple-300 text-xs">
+            Blocks malicious scripts from running
+          </p>
+        </div>
+        <div
+          class="bg-indigo-100/60 dark:bg-indigo-800/30 p-4 rounded-lg border border-indigo-300 dark:border-indigo-600"
+        >
+          <div class="text-center mb-2">
+            <span class="text-xl">🖼️</span>
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 text-sm">
+              Frame Protection
+            </h4>
+          </div>
+          <p class="text-indigo-700 dark:text-indigo-300 text-xs">
+            Prevents clickjacking attacks
+          </p>
+        </div>
+        <div
+          class="bg-blue-100/60 dark:bg-blue-800/30 p-4 rounded-lg border border-blue-300 dark:border-blue-600"
+        >
+          <div class="text-center mb-2">
+            <span class="text-xl">🔒</span>
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 text-sm">
+              HTTPS Enforcement
+            </h4>
+          </div>
+          <p class="text-blue-700 dark:text-blue-300 text-xs">
+            Forces secure connections
+          </p>
+        </div>
+      </div>
+    </div>
 
     <div class="code-block mb-6">
       <div class="code-header">
@@ -698,45 +1055,268 @@ app.use((req, res, next) => {
 });</code></pre>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Environment & Configuration Security
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-6"
+    >
+      🏭 Environment Security - Your Production Fortress
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-      <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
-      >
-        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
-          🔐 Secrets Management
-        </h4>
-        <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
-          <li>• Use environment variables for secrets</li>
-          <li>• Never commit secrets to version control</li>
-          <li>• Use key management services (AWS KMS, Azure Key Vault)</li>
-          <li>• Rotate secrets regularly</li>
-          <li>• Use different secrets for each environment</li>
-        </ul>
+    <div
+      class="bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 dark:from-teal-900/20 dark:via-cyan-900/20 dark:to-blue-900/20 border-2 border-teal-200 dark:border-teal-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🏗️</span>
+        <h3 class="text-xl font-bold text-teal-900 dark:text-teal-100">
+          Hardening Your Production Environment
+        </h3>
       </div>
+      <p class="text-teal-800 dark:text-teal-200 mb-6 leading-relaxed">
+        Your production environment is like a bank vault - it needs multiple
+        layers of security, no debug information lying around, and secrets
+        locked away safely. One misconfiguration can expose everything!
+      </p>
 
-      <div
-        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
-      >
-        <h4 class="font-semibold text-gray-900 dark:text-white mb-3">
-          🛡️ Production Hardening
-        </h4>
-        <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
-          <li>• Disable debug mode and stack traces</li>
-          <li>• Use HTTPS everywhere</li>
-          <li>• Implement proper logging (no sensitive data)</li>
-          <li>• Regular security updates</li>
-          <li>• Principle of least privilege</li>
-        </ul>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div
+          class="bg-gradient-to-br from-emerald-100/80 to-teal-100/80 dark:from-emerald-800/40 dark:to-teal-800/40 border border-emerald-300 dark:border-emerald-600 rounded-lg p-5 shadow-md"
+        >
+          <div class="flex items-center mb-3">
+            <span class="text-xl mr-2">🔐</span>
+            <h4 class="font-bold text-emerald-900 dark:text-emerald-100">
+              Secrets Management
+            </h4>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 text-sm"
+                >Environment variables for all secrets</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 text-sm"
+                >Use key management services (AWS KMS)</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 text-sm"
+                >Regular secret rotation</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 text-sm"
+                >Different secrets per environment</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-red-500 mr-2">❌</span>
+              <span class="text-emerald-800 dark:text-emerald-200 text-sm"
+                >Never commit secrets to Git!</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-cyan-100/80 to-blue-100/80 dark:from-cyan-800/40 dark:to-blue-800/40 border border-cyan-300 dark:border-cyan-600 rounded-lg p-5 shadow-md"
+        >
+          <div class="flex items-center mb-3">
+            <span class="text-xl mr-2">🛡️</span>
+            <h4 class="font-bold text-cyan-900 dark:text-cyan-100">
+              Production Hardening
+            </h4>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-cyan-800 dark:text-cyan-200 text-sm"
+                >Disable debug mode & stack traces</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-cyan-800 dark:text-cyan-200 text-sm"
+                >HTTPS everywhere (no exceptions!)</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-cyan-800 dark:text-cyan-200 text-sm"
+                >Secure logging (no sensitive data)</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-cyan-800 dark:text-cyan-200 text-sm"
+                >Regular security updates</span
+              >
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-2">✅</span>
+              <span class="text-cyan-800 dark:text-cyan-200 text-sm"
+                >Principle of least privilege</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-      Security Testing & Monitoring
+    <div class="code-block mb-8">
+      <div class="code-header">
+        <span>Environment Configuration Example</span>
+        <button class="copy-btn" data-copy="env-config">Copy</button>
+      </div>
+      <pre><code id="env-config"># .env.example (Never put real values here!)
+NODE_ENV=production
+PORT=3000
+
+# Database
+DATABASE_URL=postgresql://username:password@host:port/database
+DATABASE_SSL=true
+
+# JWT
+JWT_SECRET=your-super-secret-jwt-key-here
+JWT_EXPIRES_IN=7d
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX=100
+
+# CORS
+ALLOWED_ORIGINS=https://yourapp.com,https://www.yourapp.com
+
+# Logging
+LOG_LEVEL=error
+LOG_FILE=/var/log/app.log
+
+# External Services
+REDIS_URL=redis://localhost:6379
+EMAIL_SERVICE_API_KEY=your-email-api-key
+
+# Production specific
+ENABLE_TRUST_PROXY=true
+HELMET_CSP_REPORT_URI=https://yourapp.report-uri.com/r/d/csp/enforce
+
+// config/environment.js
+const config = {
+    development: {
+        nodeEnv: 'development',
+        port: process.env.PORT || 3000,
+        database: {
+            url: process.env.DATABASE_URL || 'postgresql://localhost/myapp_dev',
+            ssl: false
+        },
+        jwt: {
+            secret: process.env.JWT_SECRET || 'dev-secret-change-in-production',
+            expiresIn: '1d'
+        },
+        cors: {
+            origin: ['http://localhost:3000', 'http://localhost:3001']
+        }
+    },
+    
+    production: {
+        nodeEnv: 'production',
+        port: process.env.PORT,
+        database: {
+            url: process.env.DATABASE_URL,
+            ssl: true,
+            extra: {
+                ssl: {
+                    rejectUnauthorized: false
+                }
+            }
+        },
+        jwt: {
+            secret: process.env.JWT_SECRET,
+            expiresIn: process.env.JWT_EXPIRES_IN || '7d'
+        },
+        cors: {
+            origin: process.env.ALLOWED_ORIGINS?.split(','),
+            credentials: true
+        },
+        rateLimit: {
+            windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000,
+            max: parseInt(process.env.RATE_LIMIT_MAX) || 100
+        }
+    }
+};
+
+module.exports = config[process.env.NODE_ENV || 'development'];</code></pre>
+    </div>
+
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-6"
+    >
+      🧪 Security Testing - Your Digital Crime Lab
     </h2>
+
+    <div
+      class="bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 dark:from-violet-900/20 dark:via-purple-900/20 dark:to-fuchsia-900/20 border-2 border-violet-200 dark:border-violet-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🔬</span>
+        <h3 class="text-xl font-bold text-violet-900 dark:text-violet-100">
+          Test Your Defenses Before Attackers Do
+        </h3>
+      </div>
+      <p class="text-violet-800 dark:text-violet-200 mb-6 leading-relaxed">
+        Security testing is like stress-testing a bridge before opening it to
+        traffic. You want to find the weak spots in your lab, not when real
+        attackers are trying to break in!
+      </p>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        <div
+          class="bg-rose-100/60 dark:bg-rose-800/30 p-4 rounded-lg border border-rose-300 dark:border-rose-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">🎯</span>
+          <h4 class="font-bold text-rose-900 dark:text-rose-100 text-sm">
+            Penetration Testing
+          </h4>
+          <p class="text-rose-700 dark:text-rose-300 text-xs">
+            Attack your own app
+          </p>
+        </div>
+        <div
+          class="bg-pink-100/60 dark:bg-pink-800/30 p-4 rounded-lg border border-pink-300 dark:border-pink-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">🔍</span>
+          <h4 class="font-bold text-pink-900 dark:text-pink-100 text-sm">
+            Vulnerability Scanning
+          </h4>
+          <p class="text-pink-700 dark:text-pink-300 text-xs">
+            Find known issues
+          </p>
+        </div>
+        <div
+          class="bg-purple-100/60 dark:bg-purple-800/30 p-4 rounded-lg border border-purple-300 dark:border-purple-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">⚡</span>
+          <h4 class="font-bold text-purple-900 dark:text-purple-100 text-sm">
+            Load Testing
+          </h4>
+          <p class="text-purple-700 dark:text-purple-300 text-xs">
+            Test rate limits
+          </p>
+        </div>
+        <div
+          class="bg-violet-100/60 dark:bg-violet-800/30 p-4 rounded-lg border border-violet-300 dark:border-violet-600 text-center"
+        >
+          <span class="text-2xl mb-2 block">📊</span>
+          <h4 class="font-bold text-violet-900 dark:text-violet-100 text-sm">
+            Code Analysis
+          </h4>
+          <p class="text-violet-700 dark:text-violet-300 text-xs">
+            Static security scan
+          </p>
+        </div>
+      </div>
+    </div>
 
     <div class="code-block mb-6">
       <div class="code-header">
@@ -813,53 +1393,1841 @@ describe('Security Tests', () => {
     </div>
 
     <div
-      class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8"
+      class="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-emerald-900/20 dark:via-green-900/20 dark:to-teal-900/20 border-2 border-emerald-200 dark:border-emerald-700 rounded-xl p-8 mb-8 shadow-xl"
     >
-      <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-3">
-        Security Checklist
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ul
-          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
-        >
-          <li>✅ Implement proper authentication</li>
-          <li>✅ Use HTTPS everywhere</li>
-          <li>✅ Validate and sanitize all inputs</li>
-          <li>✅ Set up security headers</li>
-          <li>✅ Implement rate limiting</li>
-          <li>✅ Use secure password hashing</li>
-        </ul>
-        <ul
-          class="list-disc list-inside text-green-800 dark:text-green-200 space-y-2"
-        >
-          <li>✅ Keep dependencies updated</li>
-          <li>✅ Implement proper logging</li>
-          <li>✅ Use environment variables for secrets</li>
-          <li>✅ Regular security testing</li>
-          <li>✅ Implement CORS properly</li>
-          <li>✅ Follow principle of least privilege</li>
-        </ul>
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🎯</span>
+        <h3 class="text-2xl font-bold text-emerald-900 dark:text-emerald-100">
+          Your Security Mastery Checklist
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <h4
+            class="font-bold text-emerald-800 dark:text-emerald-200 text-lg mb-3"
+          >
+            🛡️ Core Defenses
+          </h4>
+          <div class="space-y-3">
+            <div
+              class="flex items-center bg-emerald-100/50 dark:bg-emerald-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 font-medium"
+                >Bulletproof authentication system</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-emerald-100/50 dark:bg-emerald-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 font-medium"
+                >HTTPS everywhere (no exceptions)</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-emerald-100/50 dark:bg-emerald-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 font-medium"
+                >Input validation fortress</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-emerald-100/50 dark:bg-emerald-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 font-medium"
+                >Security headers shield</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-emerald-100/50 dark:bg-emerald-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 font-medium"
+                >Rate limiting protection</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-emerald-100/50 dark:bg-emerald-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-emerald-800 dark:text-emerald-200 font-medium"
+                >Military-grade password hashing</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h4
+            class="font-bold text-emerald-800 dark:text-emerald-200 text-lg mb-3"
+          >
+            🔧 Operational Excellence
+          </h4>
+          <div class="space-y-3">
+            <div
+              class="flex items-center bg-teal-100/50 dark:bg-teal-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-teal-800 dark:text-teal-200 font-medium"
+                >Dependencies always updated</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-teal-100/50 dark:bg-teal-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-teal-800 dark:text-teal-200 font-medium"
+                >Comprehensive security logging</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-teal-100/50 dark:bg-teal-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-teal-800 dark:text-teal-200 font-medium"
+                >Environment secrets locked down</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-teal-100/50 dark:bg-teal-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-teal-800 dark:text-teal-200 font-medium"
+                >Regular security testing</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-teal-100/50 dark:bg-teal-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-teal-800 dark:text-teal-200 font-medium"
+                >Smart CORS configuration</span
+              >
+            </div>
+            <div
+              class="flex items-center bg-teal-100/50 dark:bg-teal-800/30 p-3 rounded-lg"
+            >
+              <span class="text-green-500 text-xl mr-3">✅</span>
+              <span class="text-teal-800 dark:text-teal-200 font-medium"
+                >Least privilege everywhere</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div
-      class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6"
+      class="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 border-2 border-orange-200 dark:border-orange-700 rounded-xl p-8 mb-8 shadow-xl"
     >
-      <h3
-        class="text-lg font-semibold text-yellow-900 dark:text-yellow-100 mb-3"
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">⚠️</span>
+        <h3 class="text-2xl font-bold text-orange-900 dark:text-orange-100">
+          Real-World Security Disasters (Learn From Others' Mistakes!)
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div
+          class="bg-red-100/70 dark:bg-red-800/30 p-5 rounded-lg border border-red-300 dark:border-red-600"
+        >
+          <div class="flex items-center mb-3">
+            <span class="text-2xl mr-3">💔</span>
+            <h4 class="font-bold text-red-900 dark:text-red-100">
+              The Plain Text Password Disaster
+            </h4>
+          </div>
+          <p class="text-red-800 dark:text-red-200 text-sm mb-3">
+            A major social platform stored millions of passwords in plain text.
+            When breached, every user's password was instantly readable. Users
+            who reused passwords lost access to multiple accounts.
+          </p>
+          <div
+            class="bg-red-200/50 dark:bg-red-700/30 p-3 rounded border border-red-400 dark:border-red-500"
+          >
+            <p class="text-red-900 dark:text-red-100 text-xs font-medium">
+              <strong>Lesson:</strong> Always hash passwords. No exceptions.
+              Ever.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-orange-100/70 dark:bg-orange-800/30 p-5 rounded-lg border border-orange-300 dark:border-orange-600"
+        >
+          <div class="flex items-center mb-3">
+            <span class="text-2xl mr-3">🕳️</span>
+            <h4 class="font-bold text-orange-900 dark:text-orange-100">
+              The SQL Injection Nightmare
+            </h4>
+          </div>
+          <p class="text-orange-800 dark:text-orange-200 text-sm mb-3">
+            An e-commerce site's login form was vulnerable to SQL injection.
+            Attackers gained admin access and stole millions of credit card
+            numbers, causing the company to go bankrupt.
+          </p>
+          <div
+            class="bg-orange-200/50 dark:bg-orange-700/30 p-3 rounded border border-orange-400 dark:border-orange-500"
+          >
+            <p class="text-orange-900 dark:text-orange-100 text-xs font-medium">
+              <strong>Lesson:</strong> Validate and sanitize ALL user input. Use
+              parameterized queries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-8 shadow-xl"
+    >
+      <div class="flex items-center mb-6">
+        <span class="text-3xl mr-4">🚀</span>
+        <h3 class="text-2xl font-bold text-blue-900 dark:text-blue-100">
+          Your Security Journey Starts Now!
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        <div class="text-center">
+          <div
+            class="bg-blue-100/60 dark:bg-blue-800/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+          >
+            <span class="text-2xl">🎯</span>
+          </div>
+          <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">
+            Master the Basics
+          </h4>
+          <p class="text-blue-800 dark:text-blue-200 text-sm">
+            Implement authentication, input validation, and security headers in
+            your next project
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="bg-indigo-100/60 dark:bg-indigo-800/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+          >
+            <span class="text-2xl">🔄</span>
+          </div>
+          <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-2">
+            Stay Updated
+          </h4>
+          <p class="text-indigo-800 dark:text-indigo-200 text-sm">
+            Follow security news, update dependencies regularly, and learn about
+            new attack vectors
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="bg-purple-100/60 dark:bg-purple-800/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+          >
+            <span class="text-2xl">🧪</span>
+          </div>
+          <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-2">
+            Test Everything
+          </h4>
+          <p class="text-purple-800 dark:text-purple-200 text-sm">
+            Use tools like npm audit, OWASP ZAP, and write security tests for
+            your applications
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="bg-gradient-to-r from-blue-100/70 to-purple-100/70 dark:from-blue-800/30 dark:to-purple-800/30 p-6 rounded-lg border border-blue-300 dark:border-blue-600"
       >
-        Next Steps
-      </h3>
-      <p class="text-yellow-800 dark:text-yellow-200 mb-3">
-        Security is an ongoing process, not a one-time setup. With these
-        fundamentals in place, you're ready to move on to building Express.js
-        applications with security best practices built in.
+        <p
+          class="text-blue-900 dark:text-blue-100 text-lg font-medium text-center mb-4"
+        >
+          "Security is not a product, but a process. It's a way of thinking."
+        </p>
+        <p class="text-blue-800 dark:text-blue-200 text-center mb-4">
+          With these fundamentals mastered, you're ready to build Express.js
+          applications that your users can trust. Remember: every security
+          measure you implement today could prevent a disaster tomorrow.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <div
+            class="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm font-medium"
+          >
+            🛡️ Security First
+          </div>
+          <div
+            class="bg-purple-500 text-white px-6 py-2 rounded-lg text-sm font-medium"
+          >
+            🚀 Build with Confidence
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6"
+    >
+      ✅ Interactive Security Checklist
+    </h2>
+
+    <div
+      class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 border-2 border-emerald-200 dark:border-emerald-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">📋</span>
+        <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-100">
+          Security Implementation Checklist
+        </h3>
+      </div>
+      <p class="text-emerald-800 dark:text-emerald-200 mb-6 leading-relaxed">
+        Use this interactive checklist to ensure you've implemented all the key
+        security measures in your Express.js application. Check off items as you
+        complete them!
       </p>
-      <p class="text-yellow-800 dark:text-yellow-200">
-        <strong>Remember:</strong> Stay updated with the latest security threats
-        and regularly audit your applications for vulnerabilities using tools
-        like npm audit, Snyk, or OWASP ZAP.
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Authentication & Authorization -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-emerald-200 dark:border-emerald-600 shadow-md"
+        >
+          <h4
+            class="font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center"
+          >
+            <span class="text-lg mr-2">🔐</span>
+            Authentication & Authorization
+          </h4>
+          <div class="space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Implement secure password hashing with bcrypt
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Set up JWT with strong secrets and expiration
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Implement role-based access control
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Add rate limiting for auth endpoints
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Input Validation -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-emerald-200 dark:border-emerald-600 shadow-md"
+        >
+          <h4
+            class="font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center"
+          >
+            <span class="text-lg mr-2">🧹</span>
+            Input Validation & Sanitization
+          </h4>
+          <div class="space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Set up comprehensive input validation with Joi
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Sanitize data against NoSQL injection
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Protect against XSS with input cleaning
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Implement parameter pollution protection
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Security Headers -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-emerald-200 dark:border-emerald-600 shadow-md"
+        >
+          <h4
+            class="font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center"
+          >
+            <span class="text-lg mr-2">🛡️</span>
+            Security Headers & Middleware
+          </h4>
+          <div class="space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Configure Helmet for security headers
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Set up CORS properly
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Implement Content Security Policy
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Enable HSTS for HTTPS enforcement
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Environment & Deployment -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-emerald-200 dark:border-emerald-600 shadow-md"
+        >
+          <h4
+            class="font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center"
+          >
+            <span class="text-lg mr-2">🏭</span>
+            Environment & Deployment
+          </h4>
+          <div class="space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Use environment variables for secrets
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Disable debug mode in production
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Keep dependencies updated
+              </span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="security-checkbox w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
+              />
+              <span
+                class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+              >
+                Implement proper error handling
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress indicator -->
+      <div
+        class="mt-6 bg-white dark:bg-gray-800 rounded-lg p-4 border border-emerald-200 dark:border-emerald-600"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <span
+            class="text-sm font-medium text-emerald-700 dark:text-emerald-300"
+            >Security Implementation Progress</span
+          >
+          <span
+            class="text-sm text-emerald-600 dark:text-emerald-400"
+            id="progress-text"
+            >0/16 completed</span
+          >
+        </div>
+        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+          <div
+            class="bg-gradient-to-r from-emerald-500 to-teal-500 h-3 rounded-full transition-all duration-300 ease-out"
+            style="width: 0%"
+            id="progress-bar"
+          ></div>
+        </div>
+        <div class="mt-2">
+          <span
+            class="text-xs text-gray-500 dark:text-gray-400 block"
+            id="progress-message"
+          >
+            🚀 Get started by checking off your first security implementation!
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent mb-6"
+    >
+      📊 HTTP Status Codes - Security Response Guide
+    </h2>
+
+    <div
+      class="bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 dark:from-pink-900/20 dark:via-rose-900/20 dark:to-red-900/20 border-2 border-pink-200 dark:border-pink-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🎭</span>
+        <h3 class="text-xl font-bold text-pink-900 dark:text-pink-100">
+          Status Codes Tell a Security Story
+        </h3>
+      </div>
+      <p class="text-pink-800 dark:text-pink-200 mb-6 leading-relaxed">
+        HTTP status codes are like your app's body language - they reveal what's
+        happening behind the scenes. Using the right codes helps prevent
+        information leakage and guides users appropriately!
       </p>
     </div>
+
+    <div class="space-y-8">
+      <!-- 2xx Success Codes -->
+      <div
+        class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-700 rounded-xl p-6 shadow-md"
+      >
+        <div class="flex items-center mb-4">
+          <span class="text-2xl mr-3">✅</span>
+          <h3 class="text-xl font-bold text-green-900 dark:text-green-100">
+            2xx Success - Everything Went Great!
+          </h3>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table
+            class="w-full border-collapse bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+          >
+            <thead>
+              <tr class="bg-green-100 dark:bg-green-800/50">
+                <th
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-left font-semibold text-green-900 dark:text-green-100"
+                >
+                  Code
+                </th>
+                <th
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-left font-semibold text-green-900 dark:text-green-100"
+                >
+                  Status
+                </th>
+                <th
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-left font-semibold text-green-900 dark:text-green-100"
+                >
+                  Security Context
+                </th>
+                <th
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-left font-semibold text-green-900 dark:text-green-100"
+                >
+                  Example Usage
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="hover:bg-green-50 dark:hover:bg-green-900/30 transition-colors"
+              >
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 font-mono text-green-600 dark:text-green-400 font-bold"
+                >
+                  200
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  OK
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Standard successful response
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  User data retrieved, login successful
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-green-50 dark:hover:bg-green-900/30 transition-colors"
+              >
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 font-mono text-green-600 dark:text-green-400 font-bold"
+                >
+                  201
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Created
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Resource successfully created
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  User registration, new post created
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-green-50 dark:hover:bg-green-900/30 transition-colors"
+              >
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 font-mono text-green-600 dark:text-green-400 font-bold"
+                >
+                  204
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  No Content
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Success but no response body needed
+                </td>
+                <td
+                  class="border border-green-200 dark:border-green-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Successful DELETE, password update
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3xx Redirection Codes -->
+      <div
+        class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-6 shadow-md"
+      >
+        <div class="flex items-center mb-4">
+          <span class="text-2xl mr-3">🔄</span>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100">
+            3xx Redirection - Look Somewhere Else
+          </h3>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table
+            class="w-full border-collapse bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+          >
+            <thead>
+              <tr class="bg-blue-100 dark:bg-blue-800/50">
+                <th
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100"
+                >
+                  Code
+                </th>
+                <th
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100"
+                >
+                  Status
+                </th>
+                <th
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100"
+                >
+                  Security Context
+                </th>
+                <th
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-left font-semibold text-blue-900 dark:text-blue-100"
+                >
+                  Example Usage
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+              >
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 font-mono text-blue-600 dark:text-blue-400 font-bold"
+                >
+                  301
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Moved Permanently
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Permanent redirect (SEO safe)
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  HTTP to HTTPS redirect
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+              >
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 font-mono text-blue-600 dark:text-blue-400 font-bold"
+                >
+                  302
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Found
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Temporary redirect
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  After login redirect to dashboard
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+              >
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 font-mono text-blue-600 dark:text-blue-400 font-bold"
+                >
+                  304
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Not Modified
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Caching - resource unchanged
+                </td>
+                <td
+                  class="border border-blue-200 dark:border-blue-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Browser cache validation
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4xx Client Error Codes -->
+      <div
+        class="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200 dark:border-yellow-700 rounded-xl p-6 shadow-md"
+      >
+        <div class="flex items-center mb-4">
+          <span class="text-2xl mr-3">⚠️</span>
+          <h3 class="text-xl font-bold text-yellow-900 dark:text-yellow-100">
+            4xx Client Errors - User Made a Mistake
+          </h3>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table
+            class="w-full border-collapse bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+          >
+            <thead>
+              <tr class="bg-yellow-100 dark:bg-yellow-800/50">
+                <th
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-left font-semibold text-yellow-900 dark:text-yellow-100"
+                >
+                  Code
+                </th>
+                <th
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-left font-semibold text-yellow-900 dark:text-yellow-100"
+                >
+                  Status
+                </th>
+                <th
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-left font-semibold text-yellow-900 dark:text-yellow-100"
+                >
+                  Security Context
+                </th>
+                <th
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-left font-semibold text-yellow-900 dark:text-yellow-100"
+                >
+                  Example Usage
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  400
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Bad Request
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Invalid request format/data
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Validation errors, malformed JSON
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  401
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Unauthorized
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  🔐 Authentication required
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Missing/invalid token, login required
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  403
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Forbidden
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  🚫 Access denied (authorized but forbidden)
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Insufficient permissions, banned user
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  404
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Not Found
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Resource doesn't exist
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Invalid URL, deleted resource
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  409
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Conflict
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Resource already exists/conflict
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Email already registered, username taken
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  422
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Unprocessable Entity
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Valid format but semantic errors
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Business rule violations
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-yellow-50 dark:hover:bg-yellow-900/30 transition-colors"
+              >
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 font-mono text-yellow-600 dark:text-yellow-400 font-bold"
+                >
+                  429
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Too Many Requests
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  🚨 Rate limiting triggered
+                </td>
+                <td
+                  class="border border-yellow-200 dark:border-yellow-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Brute force protection, API limits
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5xx Server Error Codes -->
+      <div
+        class="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6 shadow-md"
+      >
+        <div class="flex items-center mb-4">
+          <span class="text-2xl mr-3">💥</span>
+          <h3 class="text-xl font-bold text-red-900 dark:text-red-100">
+            5xx Server Errors - We Messed Up
+          </h3>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table
+            class="w-full border-collapse bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+          >
+            <thead>
+              <tr class="bg-red-100 dark:bg-red-800/50">
+                <th
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-left font-semibold text-red-900 dark:text-red-100"
+                >
+                  Code
+                </th>
+                <th
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-left font-semibold text-red-900 dark:text-red-100"
+                >
+                  Status
+                </th>
+                <th
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-left font-semibold text-red-900 dark:text-red-100"
+                >
+                  Security Context
+                </th>
+                <th
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-left font-semibold text-red-900 dark:text-red-100"
+                >
+                  Example Usage
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
+              >
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 font-mono text-red-600 dark:text-red-400 font-bold"
+                >
+                  500
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Internal Server Error
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  ⚠️ Generic server error (hide details!)
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Unhandled exceptions, database errors
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
+              >
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 font-mono text-red-600 dark:text-red-400 font-bold"
+                >
+                  502
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Bad Gateway
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Upstream server error
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Proxy/load balancer issues
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
+              >
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 font-mono text-red-600 dark:text-red-400 font-bold"
+                >
+                  503
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Service Unavailable
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Temporary downtime
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Maintenance mode, overloaded
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
+              >
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 font-mono text-red-600 dark:text-red-400 font-bold"
+                >
+                  504
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-900 dark:text-gray-100"
+                >
+                  Gateway Timeout
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                >
+                  Upstream timeout
+                </td>
+                <td
+                  class="border border-red-200 dark:border-red-600 px-4 py-3 text-gray-600 dark:text-gray-400 text-sm"
+                >
+                  Slow database, external API timeout
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20 border-2 border-indigo-200 dark:border-indigo-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">🛡️</span>
+        <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-100">
+          Security Best Practices for Status Codes
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <h4 class="font-bold text-indigo-800 dark:text-indigo-200 text-lg">
+            ✅ Do's
+          </h4>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <span class="text-green-500 mr-2 mt-1">✓</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Use 401 for authentication failures, not 403</span
+              >
+            </div>
+            <div class="flex items-start">
+              <span class="text-green-500 mr-2 mt-1">✓</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Return generic error messages in production</span
+              >
+            </div>
+            <div class="flex items-start">
+              <span class="text-green-500 mr-2 mt-1">✓</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Log detailed errors server-side only</span
+              >
+            </div>
+            <div class="flex items-start">
+              <span class="text-green-500 mr-2 mt-1">✓</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Use 429 for rate limiting protection</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="font-bold text-indigo-800 dark:text-indigo-200 text-lg">
+            ❌ Don'ts
+          </h4>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <span class="text-red-500 mr-2 mt-1">✗</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Don't reveal stack traces in error responses</span
+              >
+            </div>
+            <div class="flex items-start">
+              <span class="text-red-500 mr-2 mt-1">✗</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Don't use 200 for everything (API consistency)</span
+              >
+            </div>
+            <div class="flex items-start">
+              <span class="text-red-500 mr-2 mt-1">✗</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Don't expose internal system information</span
+              >
+            </div>
+            <div class="flex items-start">
+              <span class="text-red-500 mr-2 mt-1">✗</span>
+              <span class="text-indigo-800 dark:text-indigo-200 text-sm"
+                >Don't give different responses for user enumeration</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block mb-8">
+      <div class="code-header">
+        <span>Secure Status Code Implementation</span>
+        <button class="copy-btn" data-copy="status-codes">Copy</button>
+      </div>
+      <pre><code id="status-codes">// Secure error handling middleware
+const secureErrorHandler = (err, req, res, next) => {
+    // Log full error details server-side
+    console.error('Error:', {
+        message: err.message,
+        stack: err.stack,
+        url: req.url,
+        method: req.method,
+        ip: req.ip,
+        timestamp: new Date().toISOString()
+    });
+
+    // Determine appropriate status code
+    let statusCode = 500;
+    let message = 'Internal server error';
+
+    if (err.name === 'ValidationError') {
+        statusCode = 400;
+        message = 'Invalid input data';
+    } else if (err.name === 'UnauthorizedError') {
+        statusCode = 401;
+        message = 'Authentication required';
+    } else if (err.name === 'ForbiddenError') {
+        statusCode = 403;
+        message = 'Access denied';
+    } else if (err.name === 'NotFoundError') {
+        statusCode = 404;
+        message = 'Resource not found';
+    } else if (err.name === 'ConflictError') {
+        statusCode = 409;
+        message = 'Resource already exists';
+    } else if (err.name === 'TooManyRequestsError') {
+        statusCode = 429;
+        message = 'Too many requests, please try again later';
+    }
+
+    // Never expose internal errors in production
+    if (process.env.NODE_ENV === 'production') {
+        res.status(statusCode).json({
+            error: message,
+            statusCode,
+            timestamp: new Date().toISOString()
+        });
+    } else {
+        // Development mode - include more details
+        res.status(statusCode).json({
+            error: message,
+            statusCode,
+            details: err.message,
+            timestamp: new Date().toISOString()
+        });
+    }
+};
+
+// Authentication middleware with proper status codes
+const authenticate = (req, res, next) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    
+    if (!token) {
+        return res.status(401).json({
+            error: 'Authentication required',
+            message: 'Please provide a valid authentication token'
+        });
+    }
+    
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            return res.status(401).json({
+                error: 'Token expired',
+                message: 'Please login again'
+            });
+        }
+        
+        return res.status(401).json({
+            error: 'Invalid token',
+            message: 'Authentication failed'
+        });
+    }
+};
+
+// Authorization middleware
+const authorize = (roles = []) => {
+    return (req, res, next) => {
+        if (!req.user) {
+            return res.status(401).json({
+                error: 'Authentication required'
+            });
+        }
+        
+        if (roles.length && !roles.includes(req.user.role)) {
+            return res.status(403).json({
+                error: 'Access denied',
+                message: 'Insufficient permissions for this resource'
+            });
+        }
+        
+        next();
+    };
+};
+
+// Example secure endpoint responses
+app.post('/api/users', async (req, res) => {
+    try {
+        const existingUser = await User.findOne({ email: req.body.email });
+        
+        if (existingUser) {
+            return res.status(409).json({
+                error: 'User already exists',
+                message: 'An account with this email already exists'
+            });
+        }
+        
+        const user = await User.create(req.body);
+        
+        // 201 for successful creation
+        res.status(201).json({
+            message: 'User created successfully',
+            user: {
+                id: user._id,
+                email: user.email,
+                createdAt: user.createdAt
+            }
+        });
+    } catch (error) {
+        next(error); // Let error handler deal with it
+    }
+});
+
+app.use(secureErrorHandler);</code></pre>
+    </div>
+
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-6"
+    >
+      🚀 Resources & Next Steps
+    </h2>
+
+    <div
+      class="bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-violet-900/20 dark:via-purple-900/20 dark:to-indigo-900/20 border-2 border-violet-200 dark:border-violet-700 rounded-xl p-6 mb-8 shadow-lg"
+    >
+      <div class="flex items-center mb-4">
+        <span class="text-2xl mr-3">📚</span>
+        <h3 class="text-xl font-bold text-violet-900 dark:text-violet-100">
+          Continue Your Security Journey
+        </h3>
+      </div>
+      <p class="text-violet-800 dark:text-violet-200 mb-6 leading-relaxed">
+        You've learned the fundamentals! Here's how to deepen your security
+        knowledge and stay protected.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Tools -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-violet-200 dark:border-violet-600 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="text-center mb-3">
+            <div
+              class="bg-violet-100 dark:bg-violet-800/50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+            >
+              <span class="text-2xl">🛠️</span>
+            </div>
+            <h4 class="font-bold text-violet-900 dark:text-violet-100">
+              Security Tools
+            </h4>
+          </div>
+          <ul class="text-sm text-violet-700 dark:text-violet-300 space-y-2">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-violet-400 rounded-full mr-2"></span>npm
+              audit
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-violet-400 rounded-full mr-2"></span>OWASP
+              ZAP
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-violet-400 rounded-full mr-2"></span>Snyk
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-violet-400 rounded-full mr-2"></span
+              >SonarQube
+            </li>
+          </ul>
+        </div>
+
+        <!-- Learning -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-purple-200 dark:border-purple-600 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="text-center mb-3">
+            <div
+              class="bg-purple-100 dark:bg-purple-800/50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+            >
+              <span class="text-2xl">📖</span>
+            </div>
+            <h4 class="font-bold text-purple-900 dark:text-purple-100">
+              Learn More
+            </h4>
+          </div>
+          <ul class="text-sm text-purple-700 dark:text-purple-300 space-y-2">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>OWASP
+              Guidelines
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span
+              >Security Courses
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>CVE
+              Database
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span
+              >Security Blogs
+            </li>
+          </ul>
+        </div>
+
+        <!-- Testing -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-indigo-200 dark:border-indigo-600 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="text-center mb-3">
+            <div
+              class="bg-indigo-100 dark:bg-indigo-800/50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+            >
+              <span class="text-2xl">🧪</span>
+            </div>
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100">
+              Testing
+            </h4>
+          </div>
+          <ul class="text-sm text-indigo-700 dark:text-indigo-300 space-y-2">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span
+              >Penetration Testing
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span
+              >Security Unit Tests
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span
+              >Vulnerability Scans
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>Bug
+              Bounty Programs
+            </li>
+          </ul>
+        </div>
+
+        <!-- Community -->
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg p-5 border border-blue-200 dark:border-blue-600 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="text-center mb-3">
+            <div
+              class="bg-blue-100 dark:bg-blue-800/50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+            >
+              <span class="text-2xl">👥</span>
+            </div>
+            <h4 class="font-bold text-blue-900 dark:text-blue-100">
+              Community
+            </h4>
+          </div>
+          <ul class="text-sm text-blue-700 dark:text-blue-300 space-y-2">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span
+              >Security Forums
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>CTF
+              Competitions
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span
+              >Security Conferences
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>Open
+              Source Projects
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-6 bg-gradient-to-r from-violet-100 to-purple-100 dark:from-violet-800/30 to-purple-800/30 p-4 rounded-lg border border-violet-300 dark:border-violet-600"
+      >
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="font-bold text-violet-900 dark:text-violet-100 mb-1">
+              🎯 Your Security Action Plan
+            </h4>
+            <p class="text-violet-700 dark:text-violet-300 text-sm">
+              Ready to implement? Here's your roadmap:
+            </p>
+          </div>
+          <div class="text-right">
+            <div
+              class="bg-violet-500 text-white px-4 py-2 rounded-lg text-sm font-medium"
+            >
+              Start Building! 🚀
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4 mt-4">
+          <div class="text-center">
+            <div
+              class="bg-violet-200 dark:bg-violet-700 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2"
+            >
+              <span
+                class="text-violet-800 dark:text-violet-200 font-bold text-sm"
+                >1</span
+              >
+            </div>
+            <p class="text-violet-800 dark:text-violet-200 text-xs">
+              Complete the security checklist above
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-purple-200 dark:bg-purple-700 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2"
+            >
+              <span
+                class="text-purple-800 dark:text-purple-200 font-bold text-sm"
+                >2</span
+              >
+            </div>
+            <p class="text-purple-800 dark:text-purple-200 text-xs">
+              Test your app with security tools
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-indigo-200 dark:bg-indigo-700 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2"
+            >
+              <span
+                class="text-indigo-800 dark:text-indigo-200 font-bold text-sm"
+                >3</span
+              >
+            </div>
+            <p class="text-indigo-800 dark:text-indigo-200 text-xs">
+              Stay updated with security news
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize interactive components when content loads
+      document.addEventListener("DOMContentLoaded", function () {
+        initTabsAndExpandables();
+        initCopyButtons();
+        initSecurityChecklist();
+      });
+
+      // Tab functionality
+      function initTabsAndExpandables() {
+        // Initialize tab functionality
+        const tabContainers = document.querySelectorAll("[data-tabs]");
+        tabContainers.forEach((container) => {
+          const tabs = container.querySelectorAll("[data-tab]");
+          const contents = container.querySelectorAll("[data-tab-content]");
+
+          tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+              const targetId = tab.dataset.tab;
+
+              // Update tab states
+              tabs.forEach((t) => {
+                t.classList.remove(
+                  "bg-blue-500",
+                  "text-white",
+                  "border-blue-500"
+                );
+                t.classList.add(
+                  "bg-gray-200",
+                  "text-gray-700",
+                  "border-transparent"
+                );
+              });
+
+              tab.classList.remove(
+                "bg-gray-200",
+                "text-gray-700",
+                "border-transparent"
+              );
+              tab.classList.add("bg-blue-500", "text-white", "border-blue-500");
+
+              // Update content visibility
+              contents.forEach((content) => {
+                if (content.dataset.tabContent === targetId) {
+                  content.classList.remove("hidden");
+                } else {
+                  content.classList.add("hidden");
+                }
+              });
+            });
+          });
+        });
+
+        // Initialize expandable sections
+        const expandableSections =
+          document.querySelectorAll("[data-expandable]");
+        expandableSections.forEach((section) => {
+          const trigger = section.querySelector("[data-expand-trigger]");
+          const content = section.querySelector("[data-expand-content]");
+
+          if (trigger && content) {
+            trigger.addEventListener("click", () => {
+              const isExpanded = !content.classList.contains("hidden");
+              content.classList.toggle("hidden");
+
+              const icon = trigger.querySelector("svg");
+              if (icon) {
+                icon.style.transform = isExpanded
+                  ? "rotate(0deg)"
+                  : "rotate(180deg)";
+              }
+            });
+          }
+        });
+      }
+
+      // Copy button functionality
+      function initCopyButtons() {
+        const copyButtons = document.querySelectorAll(".copy-btn");
+        copyButtons.forEach((button) => {
+          button.addEventListener("click", async () => {
+            const targetId = button.dataset.copy;
+            const codeElement = document.getElementById(targetId);
+
+            if (codeElement) {
+              try {
+                await navigator.clipboard.writeText(codeElement.textContent);
+
+                // Visual feedback
+                const originalText = button.textContent;
+                button.textContent = "Copied!";
+                button.classList.add("bg-green-500", "text-white");
+                button.classList.remove("bg-blue-500");
+
+                setTimeout(() => {
+                  button.textContent = originalText;
+                  button.classList.remove("bg-green-500", "text-white");
+                  button.classList.add("bg-blue-500");
+                }, 2000);
+              } catch (err) {
+                console.error("Failed to copy text: ", err);
+                button.textContent = "Failed to copy";
+                setTimeout(() => {
+                  button.textContent = "Copy";
+                }, 2000);
+              }
+            }
+          });
+        });
+      }
+
+      // Add smooth scroll behavior for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add hover effects for cards
+      const cards = document.querySelectorAll(".hover\\:shadow-xl");
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-2px)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0)";
+        });
+      });
+
+      // Interactive Security Checklist
+      function initSecurityChecklist() {
+        const checkboxes = document.querySelectorAll(".security-checkbox");
+        const progressBar = document.getElementById("progress-bar");
+        const progressText = document.getElementById("progress-text");
+        const progressMessage = document.getElementById("progress-message");
+        const totalItems = checkboxes.length;
+
+        // Load saved progress from localStorage
+        const savedProgress = JSON.parse(
+          localStorage.getItem("securityChecklistProgress") || "{}"
+        );
+
+        checkboxes.forEach((checkbox, index) => {
+          const itemId = `security-item-${index}`;
+          if (savedProgress[itemId]) {
+            checkbox.checked = true;
+          }
+
+          checkbox.addEventListener("change", () => {
+            // Save progress
+            savedProgress[itemId] = checkbox.checked;
+            localStorage.setItem(
+              "securityChecklistProgress",
+              JSON.stringify(savedProgress)
+            );
+
+            updateProgress();
+          });
+        });
+
+        function updateProgress() {
+          const completedItems = Array.from(checkboxes).filter(
+            (cb) => cb.checked
+          ).length;
+          const percentage = Math.round((completedItems / totalItems) * 100);
+
+          progressBar.style.width = `${percentage}%`;
+          progressText.textContent = `${completedItems}/${totalItems} completed`;
+
+          // Update progress message based on completion
+          if (percentage === 0) {
+            progressMessage.textContent =
+              "🚀 Get started by checking off your first security implementation!";
+          } else if (percentage < 25) {
+            progressMessage.textContent =
+              "📖 Great start! Keep building your security foundation.";
+          } else if (percentage < 50) {
+            progressMessage.textContent =
+              "🔨 You're making solid progress! Security is taking shape.";
+          } else if (percentage < 75) {
+            progressMessage.textContent =
+              "🛡️ Excellent! Your app is becoming much more secure.";
+          } else if (percentage < 100) {
+            progressMessage.textContent =
+              "🎯 Almost there! Just a few more security measures to go.";
+          } else {
+            progressMessage.textContent =
+              "🎉 Congratulations! You've implemented comprehensive security measures!";
+
+            // Add celebration effect
+            setTimeout(() => {
+              progressMessage.innerHTML =
+                '🎉 Congratulations! You\'ve implemented comprehensive security measures! <span class="inline-block animate-bounce">🏆</span>';
+            }, 500);
+          }
+        }
+
+        // Initial progress update
+        updateProgress();
+
+        // Add reset button functionality
+        const resetBtn = document.createElement("button");
+        resetBtn.textContent = "🔄 Reset Progress";
+        resetBtn.className =
+          "mt-2 px-3 py-1 text-xs bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors";
+        resetBtn.addEventListener("click", () => {
+          if (confirm("Are you sure you want to reset your progress?")) {
+            checkboxes.forEach((cb) => (cb.checked = false));
+            localStorage.removeItem("securityChecklistProgress");
+            updateProgress();
+          }
+        });
+
+        progressMessage.parentElement.appendChild(resetBtn);
+      }
+    </script>
   </div>
 </div>

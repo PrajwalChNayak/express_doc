@@ -189,6 +189,21 @@ class NavigationManager {
                 const file = e.target.dataset.file;
                 this.navigateToPage(section, page, file);
             }
+
+            // Handle hash-based navigation links in content
+            if (e.target.tagName === 'A' && e.target.href && e.target.href.includes('#')) {
+                const hash = e.target.href.split('#')[1];
+                if (hash && hash.includes('/')) {
+                    e.preventDefault();
+                    const [section, page] = hash.split('/');
+                    if (navigationData[section]) {
+                        const pageData = navigationData[section].pages.find(p => p.id === page);
+                        if (pageData) {
+                            this.navigateToPage(section, page, pageData.file);
+                        }
+                    }
+                }
+            }
         });
 
         // Browser back/forward
@@ -205,6 +220,20 @@ class NavigationManager {
                 const route = e.target.dataset.route;
                 this.handleHeaderNavigation(route);
             });
+        });
+
+        // Handle hash changes for direct navigation
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.slice(1);
+            if (hash && hash.includes('/')) {
+                const [section, page] = hash.split('/');
+                if (navigationData[section]) {
+                    const pageData = navigationData[section].pages.find(p => p.id === page);
+                    if (pageData) {
+                        this.navigateToPage(section, page, pageData.file, false);
+                    }
+                }
+            }
         });
     }
 
