@@ -12,20 +12,7 @@ const navigationData = {
             { id: "security-fundamentals", title: "Security Fundamentals", file: "server-fundamentals/security-fundamentals.html" }
         ]
     },
-    "express-js": {
-        title: "Express.js Framework",
-        icon: "⚡",
-        pages: [
-            { id: "index", title: "Overview", file: "express-js/index.html" },
-            { id: "getting-started", title: "Getting Started", file: "express-js/getting-started.html" },
-            { id: "routing", title: "Routing & Middleware", file: "express-js/routing.html" },
-            { id: "request-response", title: "Request/Response", file: "express-js/request-response.html" },
-            { id: "error-handling", title: "Error Handling", file: "express-js/error-handling.html" },
-            { id: "authentication", title: "Authentication", file: "express-js/authentication.html" },
-            { id: "file-uploads", title: "File Uploads", file: "express-js/file-uploads.html" },
-            { id: "testing", title: "Testing", file: "express-js/testing.html" }
-        ]
-    },
+
     "rest-api": {
         title: "REST API Development",
         icon: "🔗",
@@ -53,6 +40,33 @@ const navigationData = {
             { id: "migrations", title: "Migrations", file: "databases/migrations.html" }
         ]
     },
+    "mongodb": {
+        title: "MongoDB & NoSQL",
+        icon: "🍃",
+        pages: [
+            { id: "index", title: "Overview", file: "mongodb/index.html" },
+            { id: "concepts", title: "NoSQL Concepts", file: "mongodb/concepts.html" },
+            { id: "setup", title: "Setup & Configuration", file: "mongodb/setup.html" },
+            { id: "crud", title: "CRUD Operations", file: "mongodb/crud.html" },
+            { id: "indexing", title: "Indexing", file: "mongodb/indexing.html" },
+            { id: "mongoose", title: "Mongoose ODM", file: "mongodb/mongoose.html" },
+            { id: "scaling", title: "Scaling", file: "mongodb/scaling.html" }
+        ]
+    },
+    "express-js": {
+        title: "Express.js Framework",
+        icon: "⚡",
+        pages: [
+            { id: "index", title: "Overview", file: "express-js/index.html" },
+            { id: "getting-started", title: "Getting Started", file: "express-js/getting-started.html" },
+            { id: "routing", title: "Routing & Middleware", file: "express-js/routing.html" },
+            { id: "request-response", title: "Request/Response", file: "express-js/request-response.html" },
+            { id: "error-handling", title: "Error Handling", file: "express-js/error-handling.html" },
+            { id: "authentication", title: "Authentication", file: "express-js/authentication.html" },
+            { id: "file-uploads", title: "File Uploads", file: "express-js/file-uploads.html" },
+            { id: "testing", title: "Testing", file: "express-js/testing.html" }
+        ]
+    },
     "prisma": {
         title: "Prisma ORM",
         icon: "🔷",
@@ -67,19 +81,7 @@ const navigationData = {
             { id: "typescript", title: "TypeScript", file: "prisma/typescript.html" }
         ]
     },
-    "mongodb": {
-        title: "MongoDB & NoSQL",
-        icon: "🍃",
-        pages: [
-            { id: "index", title: "Overview", file: "mongodb/index.html" },
-            { id: "concepts", title: "NoSQL Concepts", file: "mongodb/concepts.html" },
-            { id: "setup", title: "Setup & Configuration", file: "mongodb/setup.html" },
-            { id: "crud", title: "CRUD Operations", file: "mongodb/crud.html" },
-            { id: "indexing", title: "Indexing", file: "mongodb/indexing.html" },
-            { id: "mongoose", title: "Mongoose ODM", file: "mongodb/mongoose.html" },
-            { id: "scaling", title: "Scaling", file: "mongodb/scaling.html" }
-        ]
-    },
+
     "deployment": {
         title: "Deployment & DevOps",
         icon: "🚀",

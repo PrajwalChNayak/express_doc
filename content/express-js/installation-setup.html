@@ -62,21 +62,21 @@
             <span>Install Express.js</span>
             <button class="copy-btn" data-copy="npm-install">Copy</button>
           </div>
-          <pre><code id="npm-install"># Create new project directory
-mkdir my-express-app
-cd my-express-app
+          <pre><code id="npm-install"><span class="comment"># Create new project directory</span>
+<span class="shell-command">mkdir</span> <span class="variable">my-express-app</span>
+<span class="shell-command">cd</span> <span class="variable">my-express-app</span>
 
-# Initialize npm project
-npm init -y
+<span class="comment"># Initialize npm project</span>
+<span class="shell-command">npm init</span> <span class="operator">-y</span>
 
-# Install Express.js
-npm install express
+<span class="comment"># Install Express.js</span>
+<span class="shell-command">npm install</span> <span class="variable">express</span>
 
-# Install development dependencies
-npm install -D nodemon
+<span class="comment"># Install development dependencies</span>
+<span class="shell-command">npm install</span> <span class="operator">-D</span> <span class="variable">nodemon</span>
 
-# Verify installation
-npm list express</code></pre>
+<span class="comment"># Verify installation</span>
+<span class="shell-command">npm list</span> <span class="variable">express</span></code></pre>
         </div>
       </div>
 
@@ -90,21 +90,21 @@ npm list express</code></pre>
             <span>Install Express.js with Yarn</span>
             <button class="copy-btn" data-copy="yarn-install">Copy</button>
           </div>
-          <pre><code id="yarn-install"># Create new project directory
-mkdir my-express-app
-cd my-express-app
+          <pre><code id="yarn-install"><span class="comment"># Create new project directory</span>
+<span class="shell-command">mkdir</span> <span class="variable">my-express-app</span>
+<span class="shell-command">cd</span> <span class="variable">my-express-app</span>
 
-# Initialize yarn project
-yarn init -y
+<span class="comment"># Initialize yarn project</span>
+<span class="shell-command">yarn init</span> <span class="operator">-y</span>
 
-# Install Express.js
-yarn add express
+<span class="comment"># Install Express.js</span>
+<span class="shell-command">yarn add</span> <span class="variable">express</span>
 
-# Install development dependencies
-yarn add -D nodemon
+<span class="comment"># Install development dependencies</span>
+<span class="shell-command">yarn add</span> <span class="operator">-D</span> <span class="variable">nodemon</span>
 
-# Verify installation
-yarn list express</code></pre>
+<span class="comment"># Verify installation</span>
+<span class="shell-command">yarn list</span> <span class="variable">express</span></code></pre>
         </div>
       </div>
 
@@ -118,21 +118,21 @@ yarn list express</code></pre>
             <span>Install Express.js with pnpm</span>
             <button class="copy-btn" data-copy="pnpm-install">Copy</button>
           </div>
-          <pre><code id="pnpm-install"># Create new project directory
-mkdir my-express-app
-cd my-express-app
+          <pre><code id="pnpm-install"><span class="comment"># Create new project directory</span>
+<span class="shell-command">mkdir</span> <span class="variable">my-express-app</span>
+<span class="shell-command">cd</span> <span class="variable">my-express-app</span>
 
-# Initialize pnpm project
-pnpm init
+<span class="comment"># Initialize pnpm project</span>
+<span class="shell-command">pnpm init</span>
 
-# Install Express.js
-pnpm add express
+<span class="comment"># Install Express.js</span>
+<span class="shell-command">pnpm add</span> <span class="variable">express</span>
 
-# Install development dependencies
-pnpm add -D nodemon
+<span class="comment"># Install development dependencies</span>
+<span class="shell-command">pnpm add</span> <span class="operator">-D</span> <span class="variable">nodemon</span>
 
-# Verify installation
-pnpm list express</code></pre>
+<span class="comment"># Verify installation</span>
+<span class="shell-command">pnpm list</span> <span class="variable">express</span></code></pre>
         </div>
       </div>
     </div>
@@ -150,31 +150,31 @@ pnpm list express</code></pre>
         <span>Create Project Structure</span>
         <button class="copy-btn" data-copy="project-structure">Copy</button>
       </div>
-      <pre><code id="project-structure"># Create directories
-mkdir src routes middleware controllers models utils config tests
+      <pre><code id="project-structure"><span class="comment"># Create directories</span>
+<span class="shell-command">mkdir</span> <span class="variable">src routes middleware controllers models utils config tests</span>
 
-# Create main files
-touch src/app.js src/server.js
-touch .env .env.example .gitignore
-touch README.md
+<span class="comment"># Create main files</span>
+<span class="shell-command">touch</span> <span class="variable">src/app.js src/server.js</span>
+<span class="shell-command">touch</span> <span class="variable">.env .env.example .gitignore</span>
+<span class="shell-command">touch</span> <span class="variable">README.md</span>
 
-# Your project structure should look like:
-my-express-app/
-├── src/
-│   ├── app.js           # Express app configuration
-│   └── server.js        # Server startup
-├── routes/              # Route definitions
-├── middleware/          # Custom middleware
-├── controllers/         # Route handlers
-├── models/             # Data models
-├── utils/              # Utility functions
-├── config/             # Configuration files
-├── tests/              # Test files
-├── .env                # Environment variables
-├── .env.example        # Environment template
-├── .gitignore          # Git ignore rules
-├── package.json        # Project dependencies
-└── README.md           # Project documentation</code></pre>
+<span class="comment"># Your project structure should look like:</span>
+<span class="path">my-express-app/</span>
+<span class="operator">├──</span> <span class="path">src/</span>
+<span class="operator">│   ├──</span> <span class="variable">app.js</span>           <span class="comment"># Express app configuration</span>
+<span class="operator">│   └──</span> <span class="variable">server.js</span>        <span class="comment"># Server startup</span>
+<span class="operator">├──</span> <span class="path">routes/</span>              <span class="comment"># Route definitions</span>
+<span class="operator">├──</span> <span class="path">middleware/</span>          <span class="comment"># Custom middleware</span>
+<span class="operator">├──</span> <span class="path">controllers/</span>         <span class="comment"># Route handlers</span>
+<span class="operator">├──</span> <span class="path">models/</span>             <span class="comment"># Data models</span>
+<span class="operator">├──</span> <span class="path">utils/</span>              <span class="comment"># Utility functions</span>
+<span class="operator">├──</span> <span class="path">config/</span>             <span class="comment"># Configuration files</span>
+<span class="operator">├──</span> <span class="path">tests/</span>              <span class="comment"># Test files</span>
+<span class="operator">├──</span> <span class="variable">.env</span>                <span class="comment"># Environment variables</span>
+<span class="operator">├──</span> <span class="variable">.env.example</span>        <span class="comment"># Environment template</span>
+<span class="operator">├──</span> <span class="variable">.gitignore</span>          <span class="comment"># Git ignore rules</span>
+<span class="operator">├──</span> <span class="variable">package.json</span>        <span class="comment"># Project dependencies</span>
+<span class="operator">└──</span> <span class="variable">README.md</span>           <span class="comment"># Project documentation</span></code></pre>
     </div>
 
     <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
@@ -186,37 +186,37 @@ my-express-app/
         <span>package.json</span>
         <button class="copy-btn" data-copy="package-json">Copy</button>
       </div>
-      <pre><code id="package-json">{
-    "name": "my-express-app",
-    "version": "1.0.0",
-    "description": "Express.js application",
-    "main": "src/server.js",
-    "scripts": {
-        "start": "node src/server.js",
-        "dev": "nodemon src/server.js",
-        "test": "jest",
-        "test:watch": "jest --watch",
-        "lint": "eslint src/",
-        "lint:fix": "eslint src/ --fix"
-    },
-    "keywords": ["express", "node", "api"],
-    "author": "Your Name",
-    "license": "MIT",
-    "dependencies": {
-        "express": "^4.18.2",
-        "dotenv": "^16.3.1"
-    },
-    "devDependencies": {
-        "nodemon": "^3.0.1",
-        "jest": "^29.7.0",
-        "eslint": "^8.50.0",
-        "supertest": "^6.3.3"
-    },
-    "engines": {
-        "node": ">=14.0.0",
-        "npm": ">=6.0.0"
-    }
-}</code></pre>
+      <pre><code id="package-json"><span class="operator">{</span>
+    <span class="json-key">"name"</span><span class="operator">:</span> <span class="string">"my-express-app"</span><span class="operator">,</span>
+    <span class="json-key">"version"</span><span class="operator">:</span> <span class="string">"1.0.0"</span><span class="operator">,</span>
+    <span class="json-key">"description"</span><span class="operator">:</span> <span class="string">"Express.js application"</span><span class="operator">,</span>
+    <span class="json-key">"main"</span><span class="operator">:</span> <span class="string">"src/server.js"</span><span class="operator">,</span>
+    <span class="json-key">"scripts"</span><span class="operator">:</span> <span class="operator">{</span>
+        <span class="json-key">"start"</span><span class="operator">:</span> <span class="string">"node src/server.js"</span><span class="operator">,</span>
+        <span class="json-key">"dev"</span><span class="operator">:</span> <span class="string">"nodemon src/server.js"</span><span class="operator">,</span>
+        <span class="json-key">"test"</span><span class="operator">:</span> <span class="string">"jest"</span><span class="operator">,</span>
+        <span class="json-key">"test:watch"</span><span class="operator">:</span> <span class="string">"jest --watch"</span><span class="operator">,</span>
+        <span class="json-key">"lint"</span><span class="operator">:</span> <span class="string">"eslint src/"</span><span class="operator">,</span>
+        <span class="json-key">"lint:fix"</span><span class="operator">:</span> <span class="string">"eslint src/ --fix"</span>
+    <span class="operator">},</span>
+    <span class="json-key">"keywords"</span><span class="operator">:</span> <span class="operator">[</span><span class="string">"express"</span><span class="operator">,</span> <span class="string">"node"</span><span class="operator">,</span> <span class="string">"api"</span><span class="operator">],</span>
+    <span class="json-key">"author"</span><span class="operator">:</span> <span class="string">"Your Name"</span><span class="operator">,</span>
+    <span class="json-key">"license"</span><span class="operator">:</span> <span class="string">"MIT"</span><span class="operator">,</span>
+    <span class="json-key">"dependencies"</span><span class="operator">:</span> <span class="operator">{</span>
+        <span class="json-key">"express"</span><span class="operator">:</span> <span class="string">"^4.18.2"</span><span class="operator">,</span>
+        <span class="json-key">"dotenv"</span><span class="operator">:</span> <span class="string">"^16.3.1"</span>
+    <span class="operator">},</span>
+    <span class="json-key">"devDependencies"</span><span class="operator">:</span> <span class="operator">{</span>
+        <span class="json-key">"nodemon"</span><span class="operator">:</span> <span class="string">"^3.0.1"</span><span class="operator">,</span>
+        <span class="json-key">"jest"</span><span class="operator">:</span> <span class="string">"^29.7.0"</span><span class="operator">,</span>
+        <span class="json-key">"eslint"</span><span class="operator">:</span> <span class="string">"^8.50.0"</span><span class="operator">,</span>
+        <span class="json-key">"supertest"</span><span class="operator">:</span> <span class="string">"^6.3.3"</span>
+    <span class="operator">},</span>
+    <span class="json-key">"engines"</span><span class="operator">:</span> <span class="operator">{</span>
+        <span class="json-key">"node"</span><span class="operator">:</span> <span class="string">">=14.0.0"</span><span class="operator">,</span>
+        <span class="json-key">"npm"</span><span class="operator">:</span> <span class="string">">=6.0.0"</span>
+    <span class="operator">}</span>
+<span class="operator">}</span></code></pre>
     </div>
 
     <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-4">
@@ -238,76 +238,76 @@ my-express-app/
             <span>src/app.js</span>
             <button class="copy-btn" data-copy="app-js">Copy</button>
           </div>
-          <pre><code id="app-js">const express = require('express');
-const path = require('path');
-require('dotenv').config();
+          <pre><code id="app-js"><span class="keyword">const</span> <span class="variable">express</span> <span class="operator">=</span> <span class="function">require</span><span class="operator">(</span><span class="string">'express'</span><span class="operator">);</span>
+<span class="keyword">const</span> <span class="variable">path</span> <span class="operator">=</span> <span class="function">require</span><span class="operator">(</span><span class="string">'path'</span><span class="operator">);</span>
+<span class="function">require</span><span class="operator">(</span><span class="string">'dotenv'</span><span class="operator">).</span><span class="function">config</span><span class="operator">();</span>
 
-const app = express();
+<span class="keyword">const</span> <span class="variable">app</span> <span class="operator">=</span> <span class="function">express</span><span class="operator">();</span>
 
-// Trust proxy if behind reverse proxy
-app.set('trust proxy', 1);
+<span class="comment">// Trust proxy if behind reverse proxy</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">set</span><span class="operator">(</span><span class="string">'trust proxy'</span><span class="operator">,</span> <span class="number">1</span><span class="operator">);</span>
 
-// View engine setup (optional)
-app.set('views', path.join(__dirname, '../views'));
-app.set('view engine', 'ejs');
+<span class="comment">// View engine setup (optional)</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">set</span><span class="operator">(</span><span class="string">'views'</span><span class="operator">,</span> <span class="variable">path</span><span class="operator">.</span><span class="function">join</span><span class="operator">(</span><span class="variable">__dirname</span><span class="operator">,</span> <span class="string">'../views'</span><span class="operator">));</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">set</span><span class="operator">(</span><span class="string">'view engine'</span><span class="operator">,</span> <span class="string">'ejs'</span><span class="operator">);</span>
 
-// Middleware for parsing requests
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+<span class="comment">// Middleware for parsing requests</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">use</span><span class="operator">(</span><span class="variable">express</span><span class="operator">.</span><span class="function">json</span><span class="operator">({</span> <span class="variable">limit</span><span class="operator">:</span> <span class="string">'10mb'</span> <span class="operator">}));</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">use</span><span class="operator">(</span><span class="variable">express</span><span class="operator">.</span><span class="function">urlencoded</span><span class="operator">({</span> <span class="variable">extended</span><span class="operator">:</span> <span class="keyword">true</span><span class="operator">,</span> <span class="variable">limit</span><span class="operator">:</span> <span class="string">'10mb'</span> <span class="operator">}));</span>
 
-// Static files
-app.use(express.static(path.join(__dirname, '../public')));
+<span class="comment">// Static files</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">use</span><span class="operator">(</span><span class="variable">express</span><span class="operator">.</span><span class="function">static</span><span class="operator">(</span><span class="variable">path</span><span class="operator">.</span><span class="function">join</span><span class="operator">(</span><span class="variable">__dirname</span><span class="operator">,</span> <span class="string">'../public'</span><span class="operator">)));</span>
 
-// Custom middleware
-app.use((req, res, next) => {
-    console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
-    next();
-});
+<span class="comment">// Custom middleware</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">use</span><span class="operator">((</span><span class="variable">req</span><span class="operator">,</span> <span class="variable">res</span><span class="operator">,</span> <span class="variable">next</span><span class="operator">) => {</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">log</span><span class="operator">(`${</span><span class="keyword">new</span> <span class="function">Date</span><span class="operator">().</span><span class="function">toISOString</span><span class="operator">()} -</span> <span class="operator">${</span><span class="variable">req</span><span class="operator">.</span><span class="variable">method</span><span class="operator">}</span> <span class="operator">${</span><span class="variable">req</span><span class="operator">.</span><span class="variable">path</span><span class="operator">}`);</span>
+    <span class="function">next</span><span class="operator">();</span>
+<span class="operator">});</span>
 
-// Routes
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Welcome to Express.js API!',
-        version: '1.0.0',
-        timestamp: new Date().toISOString(),
-        environment: process.env.NODE_ENV || 'development'
-    });
-});
+<span class="comment">// Routes</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">get</span><span class="operator">(</span><span class="string">'/'</span><span class="operator">,</span> <span class="operator">(</span><span class="variable">req</span><span class="operator">,</span> <span class="variable">res</span><span class="operator">) => {</span>
+    <span class="variable">res</span><span class="operator">.</span><span class="function">json</span><span class="operator">({</span>
+        <span class="variable">message</span><span class="operator">:</span> <span class="string">'Welcome to Express.js API!'</span><span class="operator">,</span>
+        <span class="variable">version</span><span class="operator">:</span> <span class="string">'1.0.0'</span><span class="operator">,</span>
+        <span class="variable">timestamp</span><span class="operator">:</span> <span class="keyword">new</span> <span class="function">Date</span><span class="operator">().</span><span class="function">toISOString</span><span class="operator">(),</span>
+        <span class="variable">environment</span><span class="operator">:</span> <span class="variable">process</span><span class="operator">.</span><span class="variable">env</span><span class="operator">.</span><span class="variable">NODE_ENV</span> <span class="operator">||</span> <span class="string">'development'</span>
+    <span class="operator">});</span>
+<span class="operator">});</span>
 
-app.get('/health', (req, res) => {
-    res.status(200).json({
-        status: 'OK',
-        uptime: process.uptime(),
-        timestamp: new Date().toISOString()
-    });
-});
+<span class="variable">app</span><span class="operator">.</span><span class="function">get</span><span class="operator">(</span><span class="string">'/health'</span><span class="operator">,</span> <span class="operator">(</span><span class="variable">req</span><span class="operator">,</span> <span class="variable">res</span><span class="operator">) => {</span>
+    <span class="variable">res</span><span class="operator">.</span><span class="function">status</span><span class="operator">(</span><span class="number">200</span><span class="operator">).</span><span class="function">json</span><span class="operator">({</span>
+        <span class="variable">status</span><span class="operator">:</span> <span class="string">'OK'</span><span class="operator">,</span>
+        <span class="variable">uptime</span><span class="operator">:</span> <span class="variable">process</span><span class="operator">.</span><span class="function">uptime</span><span class="operator">(),</span>
+        <span class="variable">timestamp</span><span class="operator">:</span> <span class="keyword">new</span> <span class="function">Date</span><span class="operator">().</span><span class="function">toISOString</span><span class="operator">()</span>
+    <span class="operator">});</span>
+<span class="operator">});</span>
 
-// API routes (to be added later)
-// app.use('/api/users', require('./routes/users'));
-// app.use('/api/auth', require('./routes/auth'));
+<span class="comment">// API routes (to be added later)</span>
+<span class="comment">// app.use('/api/users', require('./routes/users'));</span>
+<span class="comment">// app.use('/api/auth', require('./routes/auth'));</span>
 
-// 404 handler
-app.use('*', (req, res) => {
-    res.status(404).json({
-        error: 'Route not found',
-        method: req.method,
-        url: req.originalUrl
-    });
-});
+<span class="comment">// 404 handler</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">use</span><span class="operator">(</span><span class="string">'*'</span><span class="operator">,</span> <span class="operator">(</span><span class="variable">req</span><span class="operator">,</span> <span class="variable">res</span><span class="operator">) => {</span>
+    <span class="variable">res</span><span class="operator">.</span><span class="function">status</span><span class="operator">(</span><span class="number">404</span><span class="operator">).</span><span class="function">json</span><span class="operator">({</span>
+        <span class="variable">error</span><span class="operator">:</span> <span class="string">'Route not found'</span><span class="operator">,</span>
+        <span class="variable">method</span><span class="operator">:</span> <span class="variable">req</span><span class="operator">.</span><span class="variable">method</span><span class="operator">,</span>
+        <span class="variable">url</span><span class="operator">:</span> <span class="variable">req</span><span class="operator">.</span><span class="variable">originalUrl</span>
+    <span class="operator">});</span>
+<span class="operator">});</span>
 
-// Global error handler
-app.use((err, req, res, next) => {
-    console.error('Error:', err.stack);
+<span class="comment">// Global error handler</span>
+<span class="variable">app</span><span class="operator">.</span><span class="function">use</span><span class="operator">((</span><span class="variable">err</span><span class="operator">,</span> <span class="variable">req</span><span class="operator">,</span> <span class="variable">res</span><span class="operator">,</span> <span class="variable">next</span><span class="operator">) => {</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">error</span><span class="operator">(</span><span class="string">'Error:'</span><span class="operator">,</span> <span class="variable">err</span><span class="operator">.</span><span class="variable">stack</span><span class="operator">);</span>
     
-    res.status(err.status || 500).json({
-        error: process.env.NODE_ENV === 'production' 
-            ? 'Internal server error' 
-            : err.message,
-        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-    });
-});
+    <span class="variable">res</span><span class="operator">.</span><span class="function">status</span><span class="operator">(</span><span class="variable">err</span><span class="operator">.</span><span class="variable">status</span> <span class="operator">||</span> <span class="number">500</span><span class="operator">).</span><span class="function">json</span><span class="operator">({</span>
+        <span class="variable">error</span><span class="operator">:</span> <span class="variable">process</span><span class="operator">.</span><span class="variable">env</span><span class="operator">.</span><span class="variable">NODE_ENV</span> <span class="operator">===</span> <span class="string">'production'</span> 
+            <span class="operator">?</span> <span class="string">'Internal server error'</span> 
+            <span class="operator">:</span> <span class="variable">err</span><span class="operator">.</span><span class="variable">message</span><span class="operator">,</span>
+        <span class="operator">...(</span><span class="variable">process</span><span class="operator">.</span><span class="variable">env</span><span class="operator">.</span><span class="variable">NODE_ENV</span> <span class="operator">===</span> <span class="string">'development'</span> <span class="operator">&&</span> <span class="operator">{</span> <span class="variable">stack</span><span class="operator">:</span> <span class="variable">err</span><span class="operator">.</span><span class="variable">stack</span> <span class="operator">})</span>
+    <span class="operator">});</span>
+<span class="operator">});</span>
 
-module.exports = app;</code></pre>
+<span class="variable">module</span><span class="operator">.</span><span class="variable">exports</span> <span class="operator">=</span> <span class="variable">app</span><span class="operator">;</span></code></pre>
         </div>
       </div>
     </div>
@@ -327,51 +327,51 @@ module.exports = app;</code></pre>
             <span>src/server.js</span>
             <button class="copy-btn" data-copy="server-js">Copy</button>
           </div>
-          <pre><code id="server-js">const app = require('./app');
+          <pre><code id="server-js"><span class="keyword">const</span> <span class="variable">app</span> <span class="operator">=</span> <span class="function">require</span><span class="operator">(</span><span class="string">'./app'</span><span class="operator">);</span>
 
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost';
+<span class="keyword">const</span> <span class="variable">PORT</span> <span class="operator">=</span> <span class="variable">process</span><span class="operator">.</span><span class="variable">env</span><span class="operator">.</span><span class="variable">PORT</span> <span class="operator">||</span> <span class="number">3000</span><span class="operator">;</span>
+<span class="keyword">const</span> <span class="variable">HOST</span> <span class="operator">=</span> <span class="variable">process</span><span class="operator">.</span><span class="variable">env</span><span class="operator">.</span><span class="variable">HOST</span> <span class="operator">||</span> <span class="string">'localhost'</span><span class="operator">;</span>
 
-// Graceful shutdown handler
-const gracefulShutdown = (signal) => {
-    console.log(`\n🛑 Received ${signal}. Shutting down gracefully...`);
+<span class="comment">// Graceful shutdown handler</span>
+<span class="keyword">const</span> <span class="function">gracefulShutdown</span> <span class="operator">=</span> <span class="operator">(</span><span class="variable">signal</span><span class="operator">) => {</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">log</span><span class="operator">(`\n🛑 Received</span> <span class="operator">${</span><span class="variable">signal</span><span class="operator">}.</span> <span class="string">Shutting down gracefully...`</span><span class="operator">);</span>
     
-    server.close(() => {
-        console.log('✅ HTTP server closed.');
-        process.exit(0);
-    });
+    <span class="variable">server</span><span class="operator">.</span><span class="function">close</span><span class="operator">(() => {</span>
+        <span class="variable">console</span><span class="operator">.</span><span class="function">log</span><span class="operator">(</span><span class="string">'✅ HTTP server closed.'</span><span class="operator">);</span>
+        <span class="variable">process</span><span class="operator">.</span><span class="function">exit</span><span class="operator">(</span><span class="number">0</span><span class="operator">);</span>
+    <span class="operator">});</span>
     
-    // Force close after 10 seconds
-    setTimeout(() => {
-        console.error('❌ Could not close connections in time, forcefully shutting down');
-        process.exit(1);
-    }, 10000);
-};
+    <span class="comment">// Force close after 10 seconds</span>
+    <span class="function">setTimeout</span><span class="operator">(() => {</span>
+        <span class="variable">console</span><span class="operator">.</span><span class="function">error</span><span class="operator">(</span><span class="string">'❌ Could not close connections in time, forcefully shutting down'</span><span class="operator">);</span>
+        <span class="variable">process</span><span class="operator">.</span><span class="function">exit</span><span class="operator">(</span><span class="number">1</span><span class="operator">);</span>
+    <span class="operator">},</span> <span class="number">10000</span><span class="operator">);</span>
+<span class="operator">};</span>
 
-// Start server
-const server = app.listen(PORT, HOST, () => {
-    console.log(`🚀 Server running on http://${HOST}:${PORT}`);
-    console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-    console.log(`🕐 Started at: ${new Date().toISOString()}`);
-});
+<span class="comment">// Start server</span>
+<span class="keyword">const</span> <span class="variable">server</span> <span class="operator">=</span> <span class="variable">app</span><span class="operator">.</span><span class="function">listen</span><span class="operator">(</span><span class="variable">PORT</span><span class="operator">,</span> <span class="variable">HOST</span><span class="operator">,</span> <span class="operator">() => {</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">log</span><span class="operator">(`🚀 Server running on http://</span><span class="operator">${</span><span class="variable">HOST</span><span class="operator">}:</span><span class="operator">${</span><span class="variable">PORT</span><span class="operator">}`</span><span class="operator">);</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">log</span><span class="operator">(`📊 Environment:</span> <span class="operator">${</span><span class="variable">process</span><span class="operator">.</span><span class="variable">env</span><span class="operator">.</span><span class="variable">NODE_ENV</span> <span class="operator">||</span> <span class="string">'development'</span><span class="operator">}`</span><span class="operator">);</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">log</span><span class="operator">(`🕐 Started at:</span> <span class="operator">${</span><span class="keyword">new</span> <span class="function">Date</span><span class="operator">().</span><span class="function">toISOString</span><span class="operator">()}`</span><span class="operator">);</span>
+<span class="operator">});</span>
 
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-    gracefulShutdown('UNHANDLED_REJECTION');
-});
+<span class="comment">// Handle unhandled promise rejections</span>
+<span class="variable">process</span><span class="operator">.</span><span class="function">on</span><span class="operator">(</span><span class="string">'unhandledRejection'</span><span class="operator">,</span> <span class="operator">(</span><span class="variable">reason</span><span class="operator">,</span> <span class="variable">promise</span><span class="operator">) => {</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">error</span><span class="operator">(</span><span class="string">'Unhandled Rejection at:'</span><span class="operator">,</span> <span class="variable">promise</span><span class="operator">,</span> <span class="string">'reason:'</span><span class="operator">,</span> <span class="variable">reason</span><span class="operator">);</span>
+    <span class="function">gracefulShutdown</span><span class="operator">(</span><span class="string">'UNHANDLED_REJECTION'</span><span class="operator">);</span>
+<span class="operator">});</span>
 
-// Handle uncaught exceptions
-process.on('uncaughtException', (error) => {
-    console.error('Uncaught Exception:', error);
-    gracefulShutdown('UNCAUGHT_EXCEPTION');
-});
+<span class="comment">// Handle uncaught exceptions</span>
+<span class="variable">process</span><span class="operator">.</span><span class="function">on</span><span class="operator">(</span><span class="string">'uncaughtException'</span><span class="operator">,</span> <span class="operator">(</span><span class="variable">error</span><span class="operator">) => {</span>
+    <span class="variable">console</span><span class="operator">.</span><span class="function">error</span><span class="operator">(</span><span class="string">'Uncaught Exception:'</span><span class="operator">,</span> <span class="variable">error</span><span class="operator">);</span>
+    <span class="function">gracefulShutdown</span><span class="operator">(</span><span class="string">'UNCAUGHT_EXCEPTION'</span><span class="operator">);</span>
+<span class="operator">});</span>
 
-// Handle termination signals
-process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
-process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+<span class="comment">// Handle termination signals</span>
+<span class="variable">process</span><span class="operator">.</span><span class="function">on</span><span class="operator">(</span><span class="string">'SIGTERM'</span><span class="operator">,</span> <span class="operator">() => </span><span class="function">gracefulShutdown</span><span class="operator">(</span><span class="string">'SIGTERM'</span><span class="operator">));</span>
+<span class="variable">process</span><span class="operator">.</span><span class="function">on</span><span class="operator">(</span><span class="string">'SIGINT'</span><span class="operator">,</span> <span class="operator">() => </span><span class="function">gracefulShutdown</span><span class="operator">(</span><span class="string">'SIGINT'</span><span class="operator">));</span>
 
-module.exports = server;</code></pre>
+<span class="variable">module</span><span class="operator">.</span><span class="variable">exports</span> <span class="operator">=</span> <span class="variable">server</span><span class="operator">;</span></code></pre>
         </div>
       </div>
     </div>
@@ -385,27 +385,27 @@ module.exports = server;</code></pre>
         <span>.env.example</span>
         <button class="copy-btn" data-copy="env-example">Copy</button>
       </div>
-      <pre><code id="env-example"># Server Configuration
-NODE_ENV=development
-PORT=3000
-HOST=localhost
+      <pre><code id="env-example"><span class="comment"># Server Configuration</span>
+<span class="env-var">NODE_ENV</span><span class="operator">=</span><span class="variable">development</span>
+<span class="env-var">PORT</span><span class="operator">=</span><span class="number">3000</span>
+<span class="env-var">HOST</span><span class="operator">=</span><span class="variable">localhost</span>
 
-# Database
-DATABASE_URL=mongodb://localhost:27017/myapp
+<span class="comment"># Database</span>
+<span class="env-var">DATABASE_URL</span><span class="operator">=</span><span class="url">mongodb://localhost:27017/myapp</span>
 
-# Authentication
-JWT_SECRET=your-super-secret-jwt-key
-JWT_EXPIRES_IN=7d
+<span class="comment"># Authentication</span>
+<span class="env-var">JWT_SECRET</span><span class="operator">=</span><span class="string">your-super-secret-jwt-key</span>
+<span class="env-var">JWT_EXPIRES_IN</span><span class="operator">=</span><span class="variable">7d</span>
 
-# Rate Limiting
-RATE_LIMIT_WINDOW_MS=900000
-RATE_LIMIT_MAX_REQUESTS=100
+<span class="comment"># Rate Limiting</span>
+<span class="env-var">RATE_LIMIT_WINDOW_MS</span><span class="operator">=</span><span class="number">900000</span>
+<span class="env-var">RATE_LIMIT_MAX_REQUESTS</span><span class="operator">=</span><span class="number">100</span>
 
-# CORS
-ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001
+<span class="comment"># CORS</span>
+<span class="env-var">ALLOWED_ORIGINS</span><span class="operator">=</span><span class="url">http://localhost:3000,http://localhost:3001</span>
 
-# Logging
-LOG_LEVEL=info</code></pre>
+<span class="comment"># Logging</span>
+<span class="env-var">LOG_LEVEL</span><span class="operator">=</span><span class="variable">info</span></code></pre>
     </div>
 
     <div class="code-block mb-6">
